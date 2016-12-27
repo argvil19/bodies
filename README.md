@@ -10,15 +10,13 @@ This version uses Jade/SASS as renderer/css preprocessor.
 
 To run:
 
-1. npm install on root
-2. npm install on keystone
-3. npm start on root
+1. npm install
+2. npm start
 
 ### Running in port 8080
 
 **TODO:**
 
-* Unify package.json for both apps (right now running as separate projects);
 * Define template structure. Views templates should only be stored inside root public folder.
 * Better readme.
 * Set up autodeploy to Heroku.
