@@ -13,6 +13,8 @@ keystone.init({
 	'name': 'hit-bodies',
 	'brand': 'hit-bodies',
 
+	'mongo': 'mongodb://hit-bodies-test:test@ds021663.mlab.com:21663/hit-bodies',
+
 	'sass': 'public',
 	'static': 'public',
 	'favicon': 'public/favicon.ico',
