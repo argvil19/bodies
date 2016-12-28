@@ -1,0 +1,11 @@
+image: node:4.1.1
+
+cache:
+  paths:
+    - node_modules
+
+staging:
+  image: ruby:latest
+  script:
+  - gem install dpl
+  - dpl --provider=heroku --app=hit-bodies --api-key=$HEROKU_API_KEY
