@@ -2,27 +2,21 @@
   "name": "hit-bodies",
   "version": "0.0.0",
   "private": true,
-  "scripts": {
-    "start": "node ./bin/www"
-  },
   "dependencies": {
-    "body-parser": "~1.13.2",
-    "cookie-parser": "~1.3.5",
-    "debug": "~2.2.0",
-    "express": "~4.13.1",
-    "morgan": "~1.6.1",
-    "node-sass-middleware": "0.8.0",
-    "serve-favicon": "~2.3.0",
     "keystone": "^0.3.19",
     "async": "^1.5.0",
     "lodash": "^4.13.1",
     "node-sass": "^3.3.2",
-    "dotenv": "^2.0.0",
-    "jade": "^1.11.0"
+    "node-sass-middleware": "^0.9.7", 
+    "dotenv": "^2.0.0"
   },
   "devDependencies": {
     "eslint": "^2.12.0",
     "eslint-config-keystone": "^2.3.1",
     "eslint-plugin-react": "^5.1.1"
+  },
+  "scripts": {
+    "lint": "eslint .",
+    "start": "node keystone.js"
   }
 }

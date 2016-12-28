@@ -1,24 +1,22 @@
 # **HIT-BODIES**
 
-**Temporal readme**
+This is the Thrifa's hit-bodies project. Make sure you check [this issue](https://gitlab.com/thrifa/hit-bodies/issues/1) before making any commit.
 
-First commit. This isn't going to stay here for too long.
+This project is based in the [Keystone CMS](http://keystonejs.com/). You can check its API [here](https://github.com/keystonejs/keystone/wiki/Keystone-API).
 
-Server template. A lot of stuff to fix and remove.
+To run this project:
 
-This version uses Jade/SASS as renderer/css preprocessor.
+> npm install
 
-To run:
+> npm start
 
-1. npm install
-2. npm start
+**Node v4.1.1 is recommended. Other versions has reported crashes sometimes**
 
-### Running in port 8080
+## Structure
 
-**TODO:**
+* **Views** lives in `templates/views`.
+* **Routes** lives in `routes`. Logic for rendering lives inside `routes/views`.
 
-* Define template structure. Views templates should only be stored inside root public folder.
-* Better readme.
-* Set up autodeploy to Heroku.
+TODO:
 
-*Probably taking the first three days setting up a comfortable and solid workspace*
+* Implement linting. Eslint is already configurated.
