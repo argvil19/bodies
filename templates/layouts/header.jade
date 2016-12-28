@@ -1,0 +1,39 @@
+header.bot30
+    div.navbar-fixed
+        nav
+            div.nav-wrapper
+                a(href="/").brand-logo
+                    h5 Name Page
+                a.page-act.hide-on-small-and-down: h5 page.act
+                .header-search-wrapper.hide-on-med-and-down
+                    i.material-icons search
+                    input.header-search-input.z-depth-2(type='text', name='Search', placeholder='Explore articles', maxlength="40")
+
+                a.button-collapse.show-on-large(href='#', data-activates='mobile-menu'): i(class="material-icons") menu
+                ul.right.hide-on-small-and-down
+                    li
+                        if user && user.canAccessKeystone
+                            a.collection-item.avatar(href='/keystone'): img.circle(src='http://placehold.it/40x40', alt='')
+                        else
+                            a.btn-floating.blue(href='/keystone/signin', style='margin-right: 10px')
+                                i.material-icons#menu account_circle
+
+                ul.side-nav.fixed#mobile-menu
+                    h4 Menu
+                        a#sidemenu(href="#")
+                            i.material-icons#sidemenu keyboard_arrow_left
+                    hr
+                    li: a(href='/') Home
+                    li: a(href='#') Articles
+                    li: a(href='#') Contact
+                    hr
+                    li
+                        if user && user.canAccessKeystone
+                            a(href='/keystone').waves-effect.waves-light.btn user
+                        else
+                            a.waves-effect.waves-light.btn(href='/keystone/signin', style='margin-right: 10px') Sign in
+
+//- Examples
+//-li: a(href="#") Home
+//-li: a(href="#") Articles
+//-li: a(href="#") Contact

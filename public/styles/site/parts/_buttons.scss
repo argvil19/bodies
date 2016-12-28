@@ -1,0 +1,26 @@
+.btn, .btn-large {
+    color: #fff;
+    background-color: #03A9F4;
+    text-align: center;
+}
+
+.btn:focus, .btn-large:focus, .btn-floating:focus {
+    background-color: #0277BD;
+}
+
+.btn:hover, .btn-large:hover {
+    background-color: #29B6F6;
+}
+
+.side-nav a.btn:hover, .side-nav a.btn-large:hover, .side-nav a.btn-large:hover {
+    background-color: #29B6F6;
+}
+
+.btn-floating i#menu {
+    width: inherit;
+    display: inline-block;
+    text-align: center;
+    color: #fff;
+    font-size: 1.6rem;
+    line-height: 40px;
+}
