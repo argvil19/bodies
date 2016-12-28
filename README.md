@@ -7,6 +7,7 @@ This project is based in the [Keystone CMS](http://keystonejs.com/). You can che
 To run this project:
 
 > npm install
+
 > npm start
 
 **Node v4.1.1 is recommended. Other versions has reported crashes sometimes**
