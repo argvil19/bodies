@@ -10,7 +10,9 @@ To run this project:
 
 > npm start
 
-Keystone panel is working on /keystone
+Log in with:
+user@keystonejs.com
+admin
 
 **Node v4.1.1 is recommended. Other versions has reported crashes sometimes**
 
