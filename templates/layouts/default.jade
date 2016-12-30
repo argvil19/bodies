@@ -38,7 +38,7 @@ html
 
 		//- HEADER
 
-		include header
+		include parts/header
 
 		//- BODY
 	
@@ -51,7 +51,7 @@ html
 
 
 		//- FOOTER
-		include footer
+		include parts/footer
 		
 		//- JAVASCRIPT
 
@@ -70,6 +70,7 @@ html
 			script(src='/keystone/js/content/editor.js')
 
 		//- Add scripts that are globally required by your site here.
+		script(src='/js/plugins/jquery.transit.min.js')
 		script(src='/js/app/application.js')
 		//- Include template-specific javascript files by extending the js block
 		block js

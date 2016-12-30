@@ -1,26 +1,22 @@
 // -Header-
 @import "parts/header";
-
 // ->Menu-
 @import "parts/navs";
-
 // -Body-
 @import "parts/body";
-
+// -Containers-
+@import "parts/containers";
 // -Footer-
 @import "parts/footer";
-
 // -ResponsiveCustomSetup-
 @import "parts/responsive-setup";
-
-// -Dropdowns-
-
-
+// -Parallax-
+@import "parts/parallax";
 // -Gallerys-
 @import "parts/gallerys";
-
 // -Buttons-
 @import "parts/buttons";
-
 // -ExtraCustom-
 @import "parts/extra-custom";
+// -Sections
+@import "parts/sections";

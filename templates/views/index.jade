@@ -1,23 +1,53 @@
 extends ../layouts/default
 
 block content
-	div.container: .jumbotron
-		img(src='/images/logo.svg', width='160')
-		h1 Welcome
-		p This is your new <a href='http://keystonejs.com' target='_blank'>KeystoneJS</a> website.
-		p It includes the latest versions of
-			| <a href='http://getbootstrap.com/' target='_blank'>Bootstrap</a>
-			| and <a href='http://www.jquery.com/' target='_blank'>jQuery</a>.
-		p Visit the <a href='http://keystonejs.com/guide' target='_blank'>Getting Started</a> guide to learn how to customise it.
-		hr
-		if user && user.canAccessKeystone
-			p
-				a(href='/keystone').btn.btn-lg.btn-primary Open the Admin UI
-		else
-			p We have created a default Admin user for you with the email <strong>user@keystonejs.com</strong> and the password <strong>admin</strong>.
-			p
-				a(href='/keystone/signin', style='margin-right: 10px').btn.btn-lg.btn-primary Sign in
-				|  to use the Admin UI.
-		hr
-		p Remember to <a href='https://github.com/keystonejs/keystone' target='_blank'>Star KeystoneJS on GitHub</a> and
-			| <a href='https://twitter.com/keystonejs' target='_blank'>follow @keystonejs</a> on twitter for updates.
+	div#main-content.container
+		div#main.parallax-container
+			#title.caption
+				span.border= data.title
+			#articles.caption
+				span.border: a(href='/articles').waves-effect.waves-light.btn view my articles
+			.parallax
+
+		div#main-section.container.top80
+			h4#title-section.text-center Articles
+			div.row.top30.container
+				for article in data.articles
+					div.col.s12.m6.l3.top15
+						h5.text-center= article.name
+						div#article.content
+							a(href='#'): img.responsive-img.hoverable(src= article.url)
+				else
+					div.col.s12
+						h5.text-center Sorry, there are no articles to show.
+			div.row.top20
+				div#btn-article.col.s12.text-right
+					a.waves-effect.waves-light.btn(href='/articles') More articles
+
+		div#main-section2.container.top80
+			h4#title-section.text-center Testimonials
+			div.row.top30.container
+				for testimon in data.testimonials
+					div.row.text-center
+						div.col.s4.m2.l2
+							img.circle(src= testimon.url)
+						div.col.s7.m3.l3
+							h5#name-section2.text-left= testimon.name
+						div.col.s9.m7.l7.offset-s1.text-center
+							div#testimonial.content
+								p= testimon.testimonial
+
+				else
+					div.col.s12
+						h5#name-section2.text-center sorry, no testimonials!
+
+		div#transformations-section.container.top80.bot80
+			h4#title-section.text-center Transformations
+			div.row.top30.container
+				for transformation in data.transformations
+					div.col.s12.m6.l4.top10
+						div#transformation.content
+							img.responsive-img.hoverable.materialboxed(src= transformation.url)
+				else
+					div.col.s12
+						h5.text-center Sorry, there are no transformations to show.

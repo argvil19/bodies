@@ -1,11 +1,10 @@
 nav {
-  color: #FFFFFF;
-  background-color: #212121;
-  min-height: 64px;
+    color: #FFFFFF;
+    background-color: #212121;
+    min-height: 64px;
 }
 
 .collection-item.avatar .circle {
-
     overflow: hidden;
     left: 15px;
     vertical-align: middle;
@@ -26,6 +25,7 @@ nav .button-collapse {
     position: relative;
     z-index: 1;
     height: 56px;
+    cursor: pointer;
     //margin: 40px 15px 0px 15px;
 }
 
@@ -33,35 +33,41 @@ nav .button-collapse {
     width: 250px;
 }
 
-@media only screen and (min-width: 426px){ 
+@media only screen and (min-width: 426px) {
     hr {
-    margin-top: inherit;
+        margin-top: inherit;
+        display: block;
+        border: 0;
+        border-top: 1px solid #ccc;
+        padding: 0;
     }
 }
 
-@media only screen and (max-width: 426px){ 
-
+@media only screen and (max-width: 426px) {
     hr {
-    margin-top: 8px;
+        margin-top: 8px;
+        margin-top: inherit;
+        display: block;
+        border: 0;
+        border-top: 1px solid #ccc;
+        padding: 0;
     }
-
 }
 
-@media only screen and (min-width: 927px){ 
-
-    ul#mobile-menu > hr {
+@media only screen and (min-width: 927px) {
+    ul#mobile-menu>hr {
         display: none;
     }
-
-    ul#mobile-menu > h4 {
+    ul#mobile-menu>h4 {
         display: none;
     }
-
     .side-nav {
-    width: 250px;
-    top: 64px;
+        width: 250px;
+        top: 64px;
     }
-
+    nav .brand-logo {
+        padding: 5px 0px 0px 50px;
+    }
 }
 
 .drag-target {
@@ -86,13 +92,14 @@ a#sidemenu {
     display: inline-block;
     padding: 0px 0px 0px 100px;
     height: 64px;
+    cursor: pointer;
 }
 
 a#sidemenu:hover {
     background-color: transparent;
 }
 
-ul#mobile-menu h4{
+ul#mobile-menu h4 {
     color: #212121;
     font-weight: 500;
     padding-left: 20px;
@@ -111,7 +118,7 @@ ul#mobile-menu h4{
     will-change: opacity;
 }
 
-.page-act{
+.page-act {
     padding: 5px 0px 0px 200px;
     position: absolute;
     color: #fff;
@@ -140,20 +147,20 @@ ul#mobile-menu h4{
 
 input.header-search-input:focus {
     color: #FFF;
-    background: rgba(224,224,224 ,.5);
+    background: rgba(224, 224, 224, .5);
     border-bottom: none !important;
     box-shadow: none !important;
 }
 
 input.header-search-input:hover {
-    background: rgba(255,255,255,0.4);
+    background: rgba(255, 255, 255, 0.4);
 }
 
 input.header-search-input {
     display: block;
     padding: 8px 8px 8px 72px;
     width: 100%;
-    background: rgba(255,255,255,0.3);
+    background: rgba(255, 255, 255, 0.3);
     height: 24px;
     -webkit-transition: all 200ms ease;
     transition: all 200ms ease;
@@ -165,22 +172,6 @@ input.header-search-input {
     border-radius: 3px;
 }
 
-
-// nav ul li:hover {
-//     border-bottom: medium solid #55acee;
-// }
-
-// nav ul li {
-//     transition: border-bottom .09s;
-// }
-
-nav .brand-logo { 
-  padding: 5px 0px 0px 50px;
-}
-
-// nav ul {
-//     margin: 30px 20px 0px 0px;
-// }
-nav ul a:hover { 
-  background-color: #212121;
+nav ul a:hover {
+    background-color: #212121;
 }

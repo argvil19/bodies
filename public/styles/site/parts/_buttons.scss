@@ -1,19 +1,49 @@
-.btn, .btn-large {
+.btn,
+.btn-large {
     color: #fff;
     background-color: #03A9F4;
     text-align: center;
 }
 
-.btn:focus, .btn-large:focus, .btn-floating:focus {
+.btn:focus,
+.btn-large:focus,
+.btn-floating:focus {
     background-color: #0277BD;
 }
 
-.btn:hover, .btn-large:hover {
+.btn:hover,
+.btn-large:hover {
     background-color: #29B6F6;
 }
 
-.side-nav a.btn:hover, .side-nav a.btn-large:hover, .side-nav a.btn-large:hover {
+.side-nav a.btn:hover,
+.side-nav a.btn-large:hover,
+.side-nav a.btn-large:hover {
     background-color: #29B6F6;
+}
+
+.option-red.btn,
+.option-red.btn-large {
+    color: #fff;
+    background-color: #f44336;
+    text-align: center;
+}
+
+.option-red.btn:focus,
+.option-red.btn-large:focus,
+.option-red.btn-floating:focus {
+    background-color: #d32f2f;
+}
+
+.option-red.btn:hover,
+.option-red.btn-large:hover {
+    background-color: #ef5350;
+}
+
+.side-nav a.option-red.btn:hover,
+.side-nav a.option-red.btn-large:hover,
+.side-nav a.option-red.btn-large:hover {
+    background-color: #ef5350;
 }
 
 .btn-floating i#menu {
@@ -23,4 +53,8 @@
     color: #fff;
     font-size: 1.6rem;
     line-height: 40px;
+}
+
+#btn-articles {
+    padding: 0px 10px 0px 10px;
 }

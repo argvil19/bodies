@@ -34,7 +34,12 @@ var routes = {
 // Setup Route Bindings
 exports = module.exports = function (app) {
 	// Views
+	// -index
 	app.get('/', routes.views.index);
+	// -articles
+	app.get('/articles/:category?', routes.views.articles); // Page that will show all articles and could filter by category.
+	app.get('/articles/details/:id', routes.views.details); // Page with more details of an article, these given by your id.
+	// -examples
 	app.get('/blog/:category?', routes.views.blog);
 	app.get('/blog/post/:post', routes.views.post);
 
