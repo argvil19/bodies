@@ -1,0 +1,42 @@
+#card-action.card-action {
+    padding: 20px 0px 20px 0px;
+    margin-bottom: auto;
+    background-color: white;
+}
+
+.card .card-action a:not(.btn):not(.btn-large):not(.btn-large):not(.btn-floating) {
+    color: #039be5;
+}
+
+.card .card-action a:not(.btn):not(.btn-large):not(.btn-large):not(.btn-floating):hover {
+    color: #29B6F6;
+}
+
+@media (max-width: 1025px) and (min-width:770px) {
+    a#btn-card {
+        padding-left: 10px;
+        padding-right: 10px;
+    }
+    .card .card-content .card-title {
+        line-height: 48px;
+        font-size: 16px;
+    }
+    i.right {
+        float: right;
+        margin-left: 0px;
+        margin-top: 10px;
+    }
+}
+
+#truncate {
+    position: relative;
+    height: 14.75em; /* exactly three lines */
+    margin: 0 0 1em 0;
+    overflow: hidden;
+}
+
+span#thumbs {
+    left: 28%;
+    top: 20%;
+    position: absolute;
+}

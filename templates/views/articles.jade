@@ -1,5 +1,49 @@
 extends ../layouts/default
 
 block content
-    div.container
-        h1 Articles page
+    div#articles.container.top80
+        div.row
+            div.col.bot15
+                h3 Articles
+            div.col
+                for article in data.articles
+                    div.col.s12.m6.l3.top15
+                        .card.sticky-action(style='overflow: hidden;')
+                            .card-image.waves-effect.waves-block.waves-light
+                                img.activator(src= article.url)
+                            .card-content
+                                span.card-title.activator.grey-text.text-darken-4= article.name
+                                    i.material-icons.right more_vert
+                            #card-action.card-action.row.text-center
+                                div.col.s6.m6.l6
+                                    a(href='#'): i.material-icons thumb_up
+                                    span#thumbs 100
+                                div.col.s6.m6.l6
+                                    a#btn-card.waves-effect.waves-light.btn(href='#') Buy
+                            .card-reveal(style='display: none; transform: translateY(0px);')
+                                span.card-title.grey-text.text-darken-4= article.name
+                                    i.material-icons.right close
+                                p
+                                    | Details of article.
+                                p#truncate.justify
+                                    | Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus non arcu eu tellus tempor euismod. Vestibulum vulputate feugiat augue, nec ullamcorper tellus mattis vel. In venenatis ut neque dictum fringilla. In eget scelerisque purus. Curabitur hendrerit, sapien sit amet aliquam sagittis, erat massa consectetur elit, ac mollis libero lectus in nisi.
+                else
+                    div.col.s12
+                        h5.text-center Sorry, there are no articles to show.
+
+    div#pagination.container.top30.bot80
+        div.row
+            div.col
+                ul.pagination
+                    li.disabled
+                        a(href='#!')
+                            i.material-icons chevron_left
+                    li.active
+                        a(href='#!') 1
+                    li.waves-effect
+                        a(href='#!') 2
+                    li.waves-effect
+                        a(href='#!') 3
+                    li.waves-effect
+                        a(href='#!')
+                            i.material-icons chevron_right
