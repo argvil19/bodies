@@ -76,4 +76,8 @@ $(document).ready(function () {
 		}
 	});
 
+	// collapsible init
+
+	$('.collapsible').collapsible();
+
 });

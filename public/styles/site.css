@@ -9155,6 +9155,8 @@ h4#title-section {
   padding: 20px 0px 20px 0px;
   margin-bottom: auto;
   background-color: white; }
+  #card-action.card-action i.material-icons {
+    line-height: inherit; }
 
 .card .card-action a:not(.btn):not(.btn-large):not(.btn-large):not(.btn-large):not(.btn-floating) {
   color: #039be5; }
@@ -9164,8 +9166,8 @@ h4#title-section {
 
 @media (max-width: 1025px) and (min-width: 770px) {
   a#btn-card {
-    padding-left: 10px;
-    padding-right: 10px; }
+    padding-left: 2px;
+    padding-right: 2px; }
   .card .card-content .card-title {
     line-height: 48px;
     font-size: 16px; }
@@ -9182,6 +9184,6 @@ h4#title-section {
   overflow: hidden; }
 
 span#thumbs {
-  left: 28%;
+  left: 25%;
   top: 20%;
   position: absolute; }

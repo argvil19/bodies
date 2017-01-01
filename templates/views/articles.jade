@@ -15,18 +15,17 @@ block content
                                 span.card-title.activator.grey-text.text-darken-4= article.name
                                     i.material-icons.right more_vert
                             #card-action.card-action.row.text-center
-                                div.col.s6.m6.l6
+                                div.col.s5.m5.l5
                                     a(href='#'): i.material-icons thumb_up
                                     span#thumbs 100
-                                div.col.s6.m6.l6
-                                    a#btn-card.waves-effect.waves-light.btn(href='#') Buy
+                                div.col.s7.m7.l7
+                                    a#btn-card.waves-effect.waves-light.btn(href='/articles/details/' + article.id) Details
                             .card-reveal(style='display: none; transform: translateY(0px);')
                                 span.card-title.grey-text.text-darken-4= article.name
                                     i.material-icons.right close
                                 p
-                                    | Details of article.
-                                p#truncate.justify
-                                    | Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus non arcu eu tellus tempor euismod. Vestibulum vulputate feugiat augue, nec ullamcorper tellus mattis vel. In venenatis ut neque dictum fringilla. In eget scelerisque purus. Curabitur hendrerit, sapien sit amet aliquam sagittis, erat massa consectetur elit, ac mollis libero lectus in nisi.
+                                    | Description:
+                                p#truncate.justify= article.description
                 else
                     div.col.s12
                         h5.text-center Sorry, there are no articles to show.

@@ -1,4 +1,30 @@
 extends ../layouts/default
- 
+
+- var page = window.location.pathname
+
 block content
-    h1 Article details page
+    div.container.top80
+        h3 Name of article
+        p descipcion
+    div.container.top15
+        div.row
+            div.col.s12
+                ul.collapsible.popout(data-collapsible='accordion')
+                    li
+                        .collapsible-header.active
+                            i.material-icons filter_drama
+                            | Contenido 1
+                        .collapsible-body
+                            p Lorem ipsum dolor sit amet.
+                    li
+                        .collapsible-header
+                            i.material-icons place
+                            | Contenido 2
+                        .collapsible-body
+                            p Lorem ipsum dolor sit amet.
+                    li
+                        .collapsible-header
+                            i.material-icons whatshot
+                            | Contenido 3
+                        .collapsible-body
+                            p Lorem ipsum dolor sit amet.
