@@ -4,27 +4,50 @@ extends ../layouts/default
 
 block content
     div.container.top80
-        h3 Name of article
-        p descipcion
+        div.row
+            div.col.s12.m6.l3
+                h3= data.articles[2].name
+                p= data.articles[2].descipcion
     div.container.top15
         div.row
-            div.col.s12
-                ul.collapsible.popout(data-collapsible='accordion')
-                    li
-                        .collapsible-header.active
-                            i.material-icons filter_drama
-                            | Contenido 1
-                        .collapsible-body
-                            p Lorem ipsum dolor sit amet.
-                    li
-                        .collapsible-header
-                            i.material-icons place
-                            | Contenido 2
-                        .collapsible-body
-                            p Lorem ipsum dolor sit amet.
-                    li
-                        .collapsible-header
-                            i.material-icons whatshot
-                            | Contenido 3
-                        .collapsible-body
-                            p Lorem ipsum dolor sit amet.
+            div.col.s12.m3.l3
+                img.activator.responsive-img(src= "../../"+data.articles[2].url)
+            div.col.s12.m9.l9   
+                h5 Content
+                ul.tabs
+                    li.tab.col.s3
+                        a.active(href='#c1') 1
+                    li.tab.col.s3
+                        a(href='#c2') 2
+                    li.tab.col.s3
+                        a(href='#c3') 3
+                   //- li.tab.col.s3.disabled
+                   //-     a(href='#c4') More soon...
+
+                #c1.col.s12
+                    div.row.top15
+                        div.col.s12.m7.l7
+                            p= data.details[3].description
+                        div.col.s4.m5.l5.hide-on-small-only
+                                img.activator.responsive-img(src= "../../"+data.details[3].url)
+                #c2.col.s12
+                    div.row.top15
+                                div.col.s12.m7.l7
+                                    p= data.details[5].description
+                                div.col.s12.m5.l5.hide-on-small-only
+                                    img.activator.responsive-img(src= "../../"+data.details[5].url)
+                #c3.col.s12
+                    div.row.top15
+                                div.col.s12.m7.l7
+                                    p= data.details[4].description
+                                div.col.s12.m5.l5.hide-on-small-only
+                                    img.activator.responsive-img(src= "../../"+data.details[4].url)
+
+            
+        div.row.bot80
+            div.col.s12.m6.l3.right
+                a.waves-effect.waves-light.btn(href='#') Buy 
+                    | 
+                    =data.articles[2].price
+                    | $
+
