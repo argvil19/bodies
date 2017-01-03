@@ -8815,6 +8815,10 @@ nav .button-collapse {
 .side-nav.fixed {
   left: 0;
   transform: translateX(-100%);
+  -ms-transform: translateX(-100%);
+  /* IE 9 */
+  -webkit-transform: translateX(-100%);
+  /* Safari */
   position: fixed; }
 
 i#sidemenu {
@@ -9224,7 +9228,8 @@ div#nav-prev, div#nav-next {
 
 div#nav-prev {
   width: 50%;
-  float: left; }
+  float: left;
+  text-align: left; }
 
 div#nav-next {
   width: 50%;
@@ -9239,7 +9244,8 @@ i#icon-content {
   font-weight: bold;
   text-rendering: auto;
   -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale; }
+  -moz-osx-font-smoothing: grayscale;
+  padding: 0px 5px; }
 
 span.meta-nav {
   display: block;
