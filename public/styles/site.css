@@ -8928,14 +8928,14 @@ footer.page-footer .footer-copyright {
   color: rgba(255, 255, 255, 0.8);
   background-color: #2f2f2f; }
 
-.social-nav {
+footer.page-footer .social-nav {
   padding: 0;
   margin: 0 0 0 -8px;
   list-style: none;
   display: inline-block;
   text-align: center; }
 
-.social-nav i {
+footer.page-footer .social-nav i {
   font-size: 18px;
   color: #777;
   line-height: 34px;
@@ -8943,28 +8943,28 @@ footer.page-footer .footer-copyright {
   height: 100%;
   width: 100%; }
 
-.social-nav i:hover {
+footer.page-footer .social-nav i:hover {
   color: #fafafa; }
 
-.social-nav a {
+footer.page-footer .social-nav a {
   display: inline-block;
   width: 35px;
   height: 35px;
   border: 1px solid #e8e8e8;
   background: #fafafa; }
 
-.social-nav a:hover {
+footer.page-footer .social-nav a:hover {
   border-color: #0ABAB5;
   background: #0ABAB5; }
 
-.social-nav li {
+footer.page-footer .social-nav li {
   margin-left: 8px;
   display: inline; }
 
-.site-footer ul li {
+footer.page-footer .site-footer ul li {
   float: left; }
 
-.fa {
+footer.page-footer .fa {
   display: inline-block;
   font: normal normal normal 14px/1 FontAwesome;
   font-size: inherit;
@@ -9035,7 +9035,7 @@ footer.page-footer .footer-copyright {
 .btn:focus, .btn-large:focus,
 .btn-large:focus,
 .btn-floating:focus {
-  background-color: #00595F; }
+  background-color: #067975; }
 
 .btn:hover, .btn-large:hover,
 .btn-large:hover {
@@ -9078,7 +9078,7 @@ footer.page-footer .footer-copyright {
   background-color: #0ABAB5; }
 
 .btn:focus, .btn-large:focus, .btn-large:focus, .btn-large:focus, .btn-floating:focus {
-  background-color: #00595F; }
+  background-color: #067975; }
 
 .btn-floating:hover {
   background-color: #3ACBC7; }
@@ -9213,3 +9213,107 @@ span#thumbs {
 
 html {
   font-family: "Spinnaker", sans-serif; }
+
+div#nav-content {
+  display: block;
+  margin-left: -1rem;
+  margin-right: -1rem; }
+
+div#nav-prev, div#nav-next {
+  padding: 0; }
+
+div#nav-prev {
+  width: 50%;
+  float: left; }
+
+div#nav-next {
+  width: 50%;
+  float: right;
+  text-align: right; }
+
+i#icon-content {
+  display: inline-block;
+  color: #212121;
+  line-height: 1.2;
+  font-size: inherit;
+  font-weight: bold;
+  text-rendering: auto;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale; }
+
+span.meta-nav {
+  display: block;
+  margin-bottom: 5px;
+  color: #0ABAB5;
+  font-size: 13px;
+  font-weight: 600;
+  text-transform: uppercase;
+  text-decoration: none;
+  letter-spacing: 0.5px;
+  line-height: 1.2; }
+
+a#nav-link {
+  padding: 15px 0;
+  display: inline-block;
+  color: #999;
+  font-size: 11px;
+  font-weight: 400;
+  font-family: Montserrat,sans-serif;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  line-height: 1.5;
+  background: transparent; }
+
+a#content-link {
+  color: #0ABAB5; }
+  a#content-link h4 {
+    font-weight: 500; }
+
+div#date-line {
+  border-top: 1px solid #ddd; }
+
+span#date-pub {
+  background: #fff;
+  padding: 0 10px;
+  position: relative;
+  top: -15px;
+  width: 60%;
+  left: 20%; }
+
+div#side-content {
+  margin-top: 18%; }
+  div#side-content .social-side {
+    padding: 0px 20px;
+    margin: 0 0 0 -8px;
+    list-style: none;
+    display: inline-block;
+    text-align: center; }
+  div#side-content .social-side i {
+    font-size: 18px;
+    color: rgba(0, 0, 0, 0.87);
+    line-height: 34px;
+    display: inline-block;
+    height: 100%;
+    width: 100%; }
+  div#side-content .social-side i:hover {
+    color: #0ABAB5; }
+  div#side-content .social-side a {
+    display: inline-block;
+    width: 35px;
+    height: 35px;
+    border-top: 1px solid #FFF;
+    border-bottom: 1px solid #FFF; }
+  div#side-content .social-side a:hover {
+    border-top: 1px solid #3ACBC7;
+    border-bottom: 1px solid #3ACBC7; }
+  div#side-content .social-side li {
+    margin-left: 8px;
+    display: inline; }
+  div#side-content .fa-side {
+    display: inline-block;
+    font: normal normal normal 14px/1 FontAwesome;
+    font-size: inherit;
+    text-rendering: auto;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    transform: translate(0, 0); }

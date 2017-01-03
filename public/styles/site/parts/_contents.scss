@@ -1,0 +1,133 @@
+div#nav-content{
+    display: block;
+    margin-left: -1rem;
+    margin-right: -1rem;
+}
+
+div#nav-prev, div#nav-next{
+    padding: 0;
+}
+
+div#nav-prev{
+    width: 50%;
+    float: left;
+}
+
+div#nav-next{
+    width: 50%;
+    float: right;
+    text-align: right;
+}
+
+i#icon-content {
+    display: inline-block;
+    color: #212121;
+    line-height: 1.2;
+    font-size: inherit;
+    font-weight: bold;
+    text-rendering: auto;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+span.meta-nav {
+    display: block;
+    margin-bottom: 5px;
+    color: $color-primary;
+    font-size: 13px;
+    font-weight: 600;
+    text-transform: uppercase;
+    text-decoration: none;
+    letter-spacing: 0.5px;
+    line-height: 1.2;
+}
+
+a#nav-link {
+    padding: 15px 0;
+    display: inline-block;
+    color: #999;
+    font-size: 11px;
+    font-weight: 400;
+    font-family: Montserrat,sans-serif;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    line-height: 1.5;
+    background: transparent;
+}
+
+a#content-link{
+    color: $color-primary;
+    h4{
+        font-weight: 500;
+    }
+}
+
+div#date-line {
+    border-top: 1px solid #ddd;
+}
+
+span#date-pub{
+    background: #fff;
+    padding: 0 10px;
+    position: relative;
+    top: -15px;
+    width: 60%;
+    left: 20%;
+}
+
+// Side content - social
+
+div#side-content{
+    margin-top: 18%;
+
+    .social-side {
+        padding: 0px 20px;
+        margin: 0 0 0 -8px;
+        list-style: none;
+        display: inline-block;
+        text-align: center;
+    }
+
+    .social-side i {
+        font-size: 18px;
+        color: $color-general-font;
+        line-height: 34px;
+        display: inline-block;
+        height: 100%;
+        width: 100%;
+    }
+
+    .social-side i:hover {
+        color: $color-primary;
+    }
+
+    .social-side a {
+        display: inline-block;
+        width: 35px;
+        height: 35px;
+        border-top: 1px solid $white;
+        border-bottom: 1px solid $white;
+    }
+
+    .social-side a:hover {
+        border-top: 1px solid $color-primary-hover;
+        border-bottom: 1px solid $color-primary-hover;
+    }
+
+    .social-side li {
+        margin-left: 8px;
+        display: inline;
+    }
+
+    .fa-side {
+        display: inline-block;
+        font: normal normal normal 14px/1 FontAwesome;
+        font-size: inherit;
+        text-rendering: auto;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+        transform: translate(0, 0);
+    }
+
+}
+
