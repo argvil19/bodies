@@ -14,7 +14,7 @@ header
                         if user && user.canAccessKeystone
                             a.collection-item.avatar(href='/keystone'): img.circle(src='http://placehold.it/40x40', alt='')
                         else
-                            a.btn-floating.blue(href='/keystone/signin', style='margin-right: 10px')
+                            a.btn-floating(href='/keystone/signin', style='margin-right: 10px')
                                 i.material-icons#menu account_circle
 
                 ul.side-nav.fixed#mobile-menu

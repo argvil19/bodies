@@ -1,2 +1,36 @@
-// Override Bootstrap variables in this file, e.g.
+// Variables
 $font-size-base: 14px;
+$font-stack: 'Spinnaker', sans-serif;
+$white: #FFF;
+// Main colors of the web
+$color-font-btn: $white;
+$color-primary: #0ABAB5;
+$color-primary-focus: #00595F;
+$color-primary-hover: #3ACBC7;
+$color-secondary: #f44336;
+$color-secondary-focus: #d32f2f;
+$color-secondary-hover: #ef5350;
+// Menu Colors
+$color-font-menu: $white;
+$color-bg-menu: #212121;
+$color-separators: #ccc;
+// Search input menu colors
+$color-input-menu: rgba(255, 255, 255, 0.3);
+$color-input-menu-hover: rgba(255, 255, 255, 0.4);
+$color-input-menu-focus: rgba(224, 224, 224, .5);
+$color-font-input-menu-focus: $white;
+// Side-menu colors
+$color-font-sidemenu: #212121;
+$color-bg-sidemenu: #212121;
+// Cards colors
+$color-bg-cards: $white;
+// Tabs colors
+$color-link-tab: rgba(41, 182, 246, .5);
+$color-link-tab-hover: rgba(41, 182, 246, .5);
+// Footer colors
+$color-bg-footer: #424242;
+$color-bg-footer-copy: #2f2f2f;
+$color-font-footer-copy: rgba(255, 255, 255, 0.8);
+$color-icons-footer-btn: #777;
+$color-icons-footer-btn-hover: #fafafa;
+$color-border-footer-btn-hover: #e8e8e8;

@@ -1,7 +1,7 @@
 #card-action.card-action {
     padding: 20px 0px 20px 0px;
     margin-bottom: auto;
-    background-color: white;
+    background-color: $color-bg-cards;
 
     i.material-icons{
         line-height: inherit;
@@ -9,11 +9,11 @@
 }
 
 .card .card-action a:not(.btn):not(.btn-large):not(.btn-large):not(.btn-floating) {
-    color: #039be5;
+    color: $color-primary;
 }
 
 .card .card-action a:not(.btn):not(.btn-large):not(.btn-large):not(.btn-floating):hover {
-    color: #29B6F6;
+    color: $color-primary-hover;
 }
 
 @media (max-width: 1025px) and (min-width:770px) {
