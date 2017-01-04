@@ -12,9 +12,9 @@ header
                 ul.right.hide-on-small-and-down
                     li
                         if user && user.canAccessKeystone
-                            a.collection-item.avatar(href='/keystone'): img.circle(src='http://placehold.it/40x40', alt='')
+                            a#icon-nav.collection-item.avatar(href='/keystone'): img.circle.responsive-img(src='/images/profile/profile-test.png', alt='')
                         else
-                            a.btn-floating(href='/keystone/signin', style='margin-right: 10px')
+                            a#icon-nav.btn-floating(href='/keystone/signin')
                                 i.material-icons#menu account_circle
 
                 ul.side-nav.fixed#mobile-menu

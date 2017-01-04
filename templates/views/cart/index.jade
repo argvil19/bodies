@@ -1,0 +1,63 @@
+extends ../../layouts/default
+
+block content
+	.container
+		h3 Shopping Cart
+		
+		.row
+			.col.s12.m12.l12
+				br
+				table.bordered.striped.responsive-table
+					thead
+						tr
+							th Remove
+							th Image
+							th Item Name
+							th Description
+							th Unit Price
+					tbody
+						tr
+							td.center-align
+								form(action='#')
+									div
+										input.filled-in#ch1(type='checkbox')
+										label(for='ch1')
+							td.center-align.img-shopping
+								a(href='#')
+									img.responsive-img(src='../../images/articles/article-test.png')
+							td
+								| Item name
+							td
+								| Description
+							td
+								| 10$
+						tr
+							td.center-align
+								form(action='#')
+									div
+										input.filled-in#ch2(type='checkbox')
+										label(for='ch2')
+							td.center-align.img-shopping
+								a(href='#')
+									img.responsive-img(src='../../images/articles/article-test.png')
+							td
+								| Item name
+							td
+								| Description
+							td
+								| 10$
+						tr
+							td  
+							td  
+							td  
+							td 
+								strong#total Total:
+							td
+								strong#price 20$
+		.row.bot80
+			.col.s12.m4.l4.left-align
+				a.btn(href='#') Update cart
+			.col.s12.m4.l4.center-align
+				a.btn(href='#') Continue shopping
+			.col.s12.m4.l4.right-align
+				a.btn(href='#')	Checkout

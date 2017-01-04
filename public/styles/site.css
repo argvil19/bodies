@@ -8900,8 +8900,17 @@ input.header-search-input {
   outline: none;
   border-radius: 3px; }
 
+nav ul a#icon-nav {
+  transition: background-color .3s;
+  font-size: 1rem;
+  color: #fff;
+  padding: 0;
+  cursor: pointer;
+  margin-right: 10px;
+  width: 40px; }
+
 nav ul a:hover {
-  background-color: #212121; }
+  background-color: transparent; }
 
 body {
   display: flex;
@@ -9323,3 +9332,12 @@ div#side-content {
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     transform: translate(0, 0); }
+
+td.img-shopping img {
+  max-height: 150px; }
+
+strong#total {
+  font-weight: 600; }
+
+strong#price {
+  font-weight: 600; }

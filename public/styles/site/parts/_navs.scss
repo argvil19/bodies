@@ -173,6 +173,16 @@ input.header-search-input {
     border-radius: 3px;
 }
 
+nav ul a#icon-nav {
+    transition: background-color .3s;
+    font-size: 1rem;
+    color: #fff;
+    padding: 0;
+    cursor: pointer;
+    margin-right: 10px;
+    width: 40px;
+}
+
 nav ul a:hover {
-    background-color: $color-bg-sidemenu;
+   background-color: transparent;
 }
