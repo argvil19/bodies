@@ -10,6 +10,10 @@ To run this project:
 
 > npm start
 
+Log in with:
+user@keystonejs.com
+admin
+
 **Node v4.1.1 is recommended. Other versions has reported crashes sometimes**
 
 ## Structure
