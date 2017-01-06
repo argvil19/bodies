@@ -28,11 +28,6 @@ PostCategory.add({
 		required: false,
 		currency: 'en-us'
 	},
-	articles: {
-		// Every item of the array is an ID.
-		type: Types.TextArray,
-		required: false
-	},
 	author: {
 		type: String,
 		required: false
@@ -48,7 +43,6 @@ PostCategory.add({
 	},
 	published: {
 		type: Types.Boolean,
-		required: true,
 		default: true
 	},
 	description: {
