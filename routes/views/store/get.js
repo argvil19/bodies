@@ -10,15 +10,11 @@ exports = module.exports = function (req, res) {
 	locals.section = 'store';
 
 	view.on('init', function (next) {
-		var q = keystone.list('Post').paginate({
+		var q = keystone.list('PostCategory').paginate({
 				page: req.query.page || 1,
 				perPage: 10,
 				maxPages: 10,
-				filters: {
-					state: 'published',
-				},
-			})
-			.sort('-publishedDate');
+			});
 
 		q.exec(function (err, results) {
 			

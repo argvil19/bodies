@@ -9,4 +9,8 @@ block content
 				each item in items
 					.col-md-3
 						.panel.panel-default
-							.panel-heading= item.title
+							.panel-heading= item.name
+							.panel-body
+								a.thumbnail
+									img(src=item.images[0])
+								p= item.price
