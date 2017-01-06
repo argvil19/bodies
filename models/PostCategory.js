@@ -51,6 +51,10 @@ PostCategory.add({
 		required: true,
 		default: true
 	},
+	description: {
+		type: String,
+		required: false,
+	},
 });
 
 PostCategory.relationship({
