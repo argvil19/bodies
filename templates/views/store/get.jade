@@ -2,4 +2,11 @@ extends ../../layouts/default
 
 block content
 	.container: .jumbotron
-		h1 Store get page
+		h1 Store get page 
+			span= total
+		.row
+			if items
+				each item in items
+					.col-md-3
+						.panel.panel-default
+							.panel-heading= item.title
