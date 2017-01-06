@@ -4,42 +4,42 @@ block content
 	div#main-content.container
 		div#main.parallax-container
 			#title.caption
-				span.border= data.title
+				span.border Title
 			#articles.caption
-				span.border: a(href='/articles').waves-effect.waves-light.btn view my articles
+				span.border: a(href='/store/get').waves-effect.waves-light.btn Visit the store
 			.parallax
 
 		div#main-section.container.top80
-			h4#title-section.text-center Articles
+			h4#title-section.text-center Recent Items
 			div.row.top30.container
-				for article in data.articles
+				-for (var x=0; x<8; x++)
 					div.col.s12.m6.l3.top15
-						h5.text-center= article.name
+						h5.text-center Article name
 						div#article.content
-							a(href='/articles/details/1'): img.responsive-img.hoverable(src= article.url)
-				else
-					div.col.s12
-						h5.text-center Sorry, there are no articles to show.
+							a(href='#'): img.responsive-img.hoverable(src= "images/articles/article-test.png")
+				//else
+					// div.col.s12
+					// 	h5.text-center Sorry, there are no items to show.
 			div.row.top20
 				div#btn-article.col.s12.text-right
-					a.waves-effect.waves-light.btn(href='/articles') More articles
+					a.waves-effect.waves-light.btn(href='/store/get') More items
 
 		div#main-section2.container.top80
 			h4#title-section.text-center Testimonials
 			div.row.top30.container
-				for testimon in data.testimonials
+				-for (var x=0; x<3; x++)
 					div.row.text-center
 						div.col.s4.m2.l2
-							img.circle(src= testimon.url)
+							img.circle(src= "images/witnesses/witnesses-test.png")
 						div.col.s7.m3.l3
-							h5#name-section2.text-left= testimon.name
+							h5#name-section2.text-left Sir test
 						div.col.s9.m7.l7.offset-s1.text-center
 							div#testimonial.content
-								p= testimon.testimonial
+								p Very good articles, recommended.
 
-				else
-					div.col.s12
-						h5#name-section2.text-center sorry, no testimonials!
+				// else
+				// 	div.col.s12
+				// 		h5#name-section2.text-center sorry, no testimonials!
 
 		div#transformations-section.container.top80.bot80
 			h4#title-section.text-center Transformations

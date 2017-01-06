@@ -43,7 +43,19 @@ exports = module.exports = function (app) {
 	// -examples
 	app.get('/blog/:category?', routes.views.blog);
 	app.get('/blog/post/:post', routes.views.post);
-
+	
+	// End points
+	app.get('/store/get', 																			routes.views.store.get) 						// ?page=INT
+	app.get('/store/product/get', 															routes.views.store.product.get) 		// ?id=INT
+	app.get('/cart', 									middleware.requireUser, 	routes.views.cart.index)
+	app.get('/cart/add', 							middleware.requireUser, 	routes.views.cart.add)
+	app.get('/cart/delete', 					middleware.requireUser, 	routes.views.cart.delete)
+	app.get('/purchase/success', 			middleware.requireUser, 	routes.views.purchase.success)
+	app.get('/purchase/failed', 			middleware.requireUser, 	routes.views.purchase.failed)
+	app.get('/user/purchases', 				middleware.requireUser, 	routes.views.user.purchases)
+	app.get('/user/item/:id/details', middleware.requireUser, 	routes.views.user.item.details) 		// :id=INT
+	app.get('/article/:id', 																		routes.views.article) 							// :id=INT
+	
 	// NOTE: To protect a route so that only admins can see it, use the requireUser middleware:
 	// app.get('/protected', middleware.requireUser, routes.views.protected);
 

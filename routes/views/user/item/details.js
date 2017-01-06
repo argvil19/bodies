@@ -1,14 +1,16 @@
 var keystone = require('keystone');
+var async = require('async');
 
 exports = module.exports = function (req, res) {
+
+	console.log('user item end point', req.params.id);
 
 	var view = new keystone.View(req, res);
 	var locals = res.locals;
 
-	// locals.section is used to set the currently selected
-	// item in the header navigation.
-	locals.section = 'Home';
+	// Init locals
+	locals.section = 'user';
 
 	// Render the view
-	view.render('index');
+	view.render('user/items/details');
 };

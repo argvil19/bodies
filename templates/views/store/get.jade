@@ -5,40 +5,47 @@ block content
 		div.row
 			div.row.bot15
 				h3 Store
+				h6 Items in the store 
+					span= total
 			div.row
-				-for (var x=0; x<12; x++)
-					div.col.s12.m6.l3.top15
-						.card.sticky-action(style='overflow: hidden;')
-							.card-image.waves-effect.waves-block.waves-light
-								img.activator(src= "../images/articles/article-test.png")
-							.card-content
-								span.card-title.activator.grey-text.text-darken-4 Product name
-									i.material-icons.right more_vert
-							#card-action.card-action.row.text-center
-								div.col.s5.m5.l5
-									a(href='#'): i.material-icons thumb_up
-									span#thumbs 100
-								div.col.s7.m7.l7
-									a#btn-card.waves-effect.waves-light.btn(href='#') Details
-							.card-reveal(style='display: none; transform: translateY(0px);')
-								span.card-title.grey-text.text-darken-4 Product name
-									i.material-icons.right close
-								p
-									| Description:
-								p#truncate.justify Product description
+				if items
+					each item in items
+						div.col.s12.m6.l3.top15
+							.card.large.sticky-action
+								.card-image.waves-effect.waves-block.waves-light
+									img.activator(src= item.images[0])
+								.card-content
+									span.card-title.activator.grey-text.text-darken-4.truncate= item.name
+										i.material-icons.right more_vert
+								#card-action.card-action.row.text-center
+									div.col.s5.m5.l5
+										span Price: 
+										span= item.price
+											| $
+									div.col.s7.m7.l7
+										a#btn-card.waves-effect.waves-light.btn(href='#') Details
+								.card-reveal(style='display: none; transform: translateY(0px);')
+									span.card-title.grey-text.text-darken-4= item.name
+										i.material-icons.right close
+									p
+										| Description:
+									p#truncate.justify Product description
+				else
+					h4 Now no items.
 	div#pagination.container.top30.bot80
 		div.row
-			div.col
-				ul.pagination
-					li.disabled
-						a(href='#!')
-							i.material-icons chevron_left
-					li.active
-						a(href='#!') 1
-					li.waves-effect
-						a(href='#!') 2
-					li.waves-effect
-						a(href='#!') 3
-					li.waves-effect
-						a(href='#!')
-							i.material-icons chevron_right
+			p.pagination-count Showing #{first}-#{last} of #{total} results
+		if totalPages > 1
+			div.row
+				div.col
+					ul.pagination
+						li(class= previous ? '' : 'disabled')
+							a(href= "get?page=" + previous)
+								i.material-icons chevron_left
+						each page, i in pages
+							li(class= currentPage == page ? 'active' : null)
+								a(href= "get?page=" + (page == '...' ? (i ? totalPages : 1) : page ))
+									span= page
+						li(class= next ? '' : 'disabled')
+							a(href= "get?page=" + next)
+								i.material-icons chevron_right

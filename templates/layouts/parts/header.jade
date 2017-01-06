@@ -6,7 +6,7 @@ header
                 a.page-act.hide-on-med-and-down: h5= section
                 .header-search-wrapper.hide-on-med-and-down
                     i.material-icons search
-                    input.header-search-input.z-depth-2(type='text', name='Search', placeholder='Explore articles', maxlength="40")
+                    input.header-search-input.z-depth-2(type='text', name='Search', placeholder='Explore store', maxlength="40")
 
                 a.button-collapse.show-on-large(data-activates='mobile-menu'): i(class="material-icons") menu
                 ul.right.hide-on-small-and-down
@@ -23,12 +23,14 @@ header
                             i.fa.fa-chevron-left#sidemenu(aria-hidden="true")
                     hr
                     li: a(href='/') Home
-                    li: a(href='/articles') Articles
+                    li: a(href='/store/get') Store
                     li: a(href='#') Contact
                     hr
                     li
                         if user && user.canAccessKeystone
-                            a(href='/keystone').waves-effect.waves-light.btn user
+                            a.waves-effect.waves-light.btn(href='/keystone') User
+                            a.waves-effect.waves-light.btn(href='/user/purchases') Purchases
+                            a.waves-effect.waves-light.btn(href='/cart') Cart
                             a.waves-effect.waves-light.btn.option-red(href='/keystone/signout') Sign Out
                         else
                             a.waves-effect.waves-light.btn(href='/keystone/signin', style='margin-right: 10px') Sign in

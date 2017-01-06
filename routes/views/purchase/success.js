@@ -1,14 +1,16 @@
 var keystone = require('keystone');
+var async = require('async');
 
 exports = module.exports = function (req, res) {
+
+	console.log('purchase success end point');
 
 	var view = new keystone.View(req, res);
 	var locals = res.locals;
 
-	// locals.section is used to set the currently selected
-	// item in the header navigation.
-	locals.section = 'Home';
+	// Init locals
+	locals.section = 'purchase';
 
 	// Render the view
-	view.render('index');
+	view.render('purchase/success');
 };
