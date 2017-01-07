@@ -50,6 +50,9 @@ exports = module.exports = function(app) {
 	app.get('/user/item/:id/details', middleware.requireUser, routes.views.user.item.details) // :id=INT
 	app.get('/article/:id', routes.views.article) // :id=INT
 
+	// This route for getting message from payment system about paument status
+	app.get('/purchase/accept', routes.views.purchase.accept) // ?user=MongoKey & product=mongoKey & secret=String 
+
 	// NOTE: To protect a route so that only admins can see it, use the requireUser middleware:
 	// app.get('/protected', middleware.requireUser, routes.views.protected);
 

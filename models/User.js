@@ -40,6 +40,27 @@ User.schema.add({
 			unlocked: Array,
 			nextUnlock: Date,
 		}]
+	},
+	
+	/**
+	 * My suggestion of this block
+	 * unlockSheddule structure:
+	 * type: [{
+   *		article: {
+	 *			type: Types.Relationship,
+	 *			ref: 'Post'
+	 *		},
+	 *		unlockDate: Date
+	 *	}]
+	 */
+	purchases: {
+		type: [
+			{
+				product: String,
+				purchased: Date,
+				unlockSheddule: Array
+			}
+		]
 	}
 })
 
