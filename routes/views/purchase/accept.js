@@ -43,7 +43,7 @@ exports = module.exports = function (req, res) {
 				for (var i in articles) {
 					sheddule.push({
 						article: articles[i]._id,
-						unlockDate: new Date(purchaseDate.getTime() + i * 604800)
+						unlockDate: new Date(purchaseDate.getTime() + i * 604800000)
 					})
 				}
 				

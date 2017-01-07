@@ -2,4 +2,9 @@ extends ../../../layouts/default
 
 block content
 	.container: .jumbotron
-		h1 User item details page
+		if alert
+			h1 User item details page
+			.alert.alert-info(role="alert")= alert
+		else
+			h1= item.title
+			p!= item.content.extended
