@@ -1,5 +1,4 @@
 var keystone = require('keystone');
-var async = require('async');
 
 exports = module.exports = function (req, res) {
 
@@ -11,6 +10,17 @@ exports = module.exports = function (req, res) {
 	// Init locals
 	locals.section = 'user';
 
-	// Render the view
-	view.render('user/purchases');
+	/**
+	 * Getting user model from request object
+	 * We can get correctly user object because this route checked by middleware.requireUser
+	 * @type {*|Object|null}
+   */
+	var User = req.user;
+
+	/**
+	 * Adding purchases list to locals
+	 */
+	locals.purchases = User.categoryAccess;
+
+	view.render('user/purchases', locals);
 };
