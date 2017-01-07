@@ -7,6 +7,6 @@ block content
 			ul
 				each item in purchases
 					li
-						a(href='#') Link to item
+						a(href='/blog/'+item.key)= item.name
 		else
 			.alert.alert-info(role="alert") You didn't bought anything yet...

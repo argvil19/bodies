@@ -47,10 +47,8 @@ exports = module.exports = function (req, res) {
 					})
 				}
 				
-				console.log(user);
-				
 				user.purchases.push({
-					product: category,
+					product: category.id,
 					purchased: purchaseDate,
 					unlockSheddule: sheddule
 				});

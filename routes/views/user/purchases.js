@@ -1,6 +1,7 @@
 var keystone = require('keystone');
+var PostCategory = keystone.list('PostCategory').model;
 
-exports = module.exports = function (req, res) {
+exports = module.exports = function (req, res, next) {
 
 	console.log('user purchases end point');
 
@@ -16,11 +17,23 @@ exports = module.exports = function (req, res) {
 	 * @type {*|Object|null}
    */
 	var User = req.user;
-
+	
+	var purchases = User.purchases.map(function(item){
+		return item.product
+	});
+	
 	/**
 	 * Adding purchases list to locals
 	 */
-	locals.purchases = User.categoryAccess;
+	PostCategory.find({
+		_id: {'$in': purchases}
+	}, function(err, purchases) {
+		if (err) {
+			next(err);
+		}
+		
+		locals.purchases = purchases;
 
-	view.render('user/purchases', locals);
+		view.render('user/purchases', locals);
+	});
 };

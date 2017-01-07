@@ -46,10 +46,7 @@ User.schema.add({
 	 * My suggestion of this block
 	 * unlockSheddule structure:
 	 * type: [{
-   *		article: {
-	 *			type: Types.Relationship,
-	 *			ref: 'Post'
-	 *		},
+   *		article: objectId,
 	 *		unlockDate: Date
 	 *	}]
 	 */
