@@ -1,5 +1,11 @@
 extends ../../layouts/default
-
 block content
 	.container: .jumbotron
 		h1 User purchase page
+		if purchases.length
+			ul
+				each item in purchases
+					li
+						a(href='/blog/'+item.key)= item.name
+		else
+			.alert.alert-info(role="alert") You didn't bought anything yet...

@@ -2,8 +2,7 @@
     padding: 20px 0px 20px 0px;
     margin-bottom: auto;
     background-color: $color-bg-cards;
-
-    i.material-icons{
+    i.material-icons {
         line-height: inherit;
     }
 }
@@ -16,31 +15,62 @@
     color: $color-primary-hover;
 }
 
+.card.large.store {
+    height: 500px;
+}
+
+.card.small .card-image + .card-content, .card.medium .card-image + .card-content, .card.large .card-image + .card-content {
+    max-height: 30%;
+}
+
+.card.small.store .card-image,
+.card.medium.store .card-image,
+.card.large.store .card-image {
+    max-height: 65%;
+    overflow: hidden;
+}
+
+.card-content.activator{
+    cursor: pointer;
+}
+
+img.store{
+    max-height: 500px;
+    max-width: 360px;
+}
+
 @media (max-width: 1025px) and (min-width:770px) {
     a#btn-card {
-        padding-left: 2px;
-        padding-right: 2px;
+        padding-left: 15px;
+        padding-right: 15px;
     }
     .card .card-content .card-title {
         line-height: 48px;
         font-size: 16px;
     }
-    i.right {
-        float: right;
-        margin-left: 0px;
-        margin-top: 10px;
+    .card.large.store {
+    height: 450px;
+    }
+
+    p#truncate {
+    position: relative;
+    height: 9.75em;
+    margin: 0 0 1em 0;
+    overflow: hidden;
     }
 }
 
-#truncate {
-    position: relative;
-    height: 14.75em; /* exactly three lines */
-    margin: 0 0 1em 0;
-    overflow: hidden;
+@media (max-width: 1440px) and (min-width:1026px) {
+    a#btn-card {
+        padding-left: 15px;
+        padding-right: 15px;
+    }
 }
 
-span#thumbs {
-    left: 25%;
-    top: 20%;
-    position: absolute;
+p#truncate {
+    position: relative;
+    height: 14.75em;
+    /* exactly three lines */
+    margin: 0 0 1em 0;
+    overflow: hidden;
 }

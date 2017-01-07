@@ -1,13 +1,21 @@
-td.img-shopping{
-    img{
+td.img-shopping {
+    img {
         max-height: 150px;
     }
 }
 
-strong#total{
+strong#total {
     font-weight: 600;
 }
 
-strong#price{
+strong#price {
     font-weight: 600;
+}
+
+th.cart {
+    text-align: center;
+}
+
+td.cart {
+    text-align: center;
 }

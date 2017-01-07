@@ -17,46 +17,33 @@
  * See the Express application routing documentation for more information:
  * http://expressjs.com/api.html#app.VERB
  */
-
 var keystone = require('keystone');
 var middleware = require('./middleware');
 var importRoutes = keystone.importer(__dirname);
-
 // Common Middleware
 keystone.pre('routes', middleware.initLocals);
 keystone.pre('render', middleware.flashMessages);
-
 // Import Route Controllers
 var routes = {
 	views: importRoutes('./views'),
 };
-
 // Setup Route Bindings
-exports = module.exports = function (app) {
+exports = module.exports = function(app) {
 	// Views
-	// -index
 	app.get('/', routes.views.index);
-	// -articles
-	app.get('/articles/:category?', routes.views.articles); // Page that will show all articles and could filter by category.
-	app.get('/articles/details/:id', routes.views.details); // Page with more details of an article, these given by your id.
-	app.get('/articles/content/:id', routes.views.content); // Page with the content of an article, these given by your id.
-	// -examples
 	app.get('/blog/:category?', routes.views.blog);
 	app.get('/blog/post/:post', routes.views.post);
-	
 	// End points
-	app.get('/store/get', 																			routes.views.store.get) 						// ?page=INT
-	app.get('/store/product/get', 															routes.views.store.product.get) 		// ?id=INT
-	app.get('/cart', 									middleware.requireUser, 	routes.views.cart.index)
-	app.get('/cart/add', 							middleware.requireUser, 	routes.views.cart.add)
-	app.get('/cart/delete', 					middleware.requireUser, 	routes.views.cart.delete)
-	app.get('/purchase/success', 			middleware.requireUser, 	routes.views.purchase.success)
-	app.get('/purchase/failed', 			middleware.requireUser, 	routes.views.purchase.failed)
-	app.get('/user/purchases', 				middleware.requireUser, 	routes.views.user.purchases)
-	app.get('/user/item/:id/details', middleware.requireUser, 	routes.views.user.item.details) 		// :id=INT
-	app.get('/article/:id', 																		routes.views.article) 							// :id=INT
-	
+	app.get('/store/get', routes.views.store.get) // ?page=INT
+	app.get('/store/product/get', routes.views.store.product.get) // ?id=INT
+	app.get('/cart', middleware.requireUser, routes.views.cart.index)
+	app.get('/cart/add', middleware.requireUser, routes.views.cart.add)
+	app.get('/cart/delete', middleware.requireUser, routes.views.cart.delete)
+	app.get('/purchase/success', middleware.requireUser, routes.views.purchase.success)
+	app.get('/purchase/failed', middleware.requireUser, routes.views.purchase.failed)
+	app.get('/user/purchases', middleware.requireUser, routes.views.user.purchases)
+	app.get('/user/item/:id/details', middleware.requireUser, routes.views.user.item.details) // :id=INT
+	app.get('/article/:id', routes.views.article) // :id=INT
 	// NOTE: To protect a route so that only admins can see it, use the requireUser middleware:
 	// app.get('/protected', middleware.requireUser, routes.views.protected);
-
 };

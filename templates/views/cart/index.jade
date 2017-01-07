@@ -10,54 +10,38 @@ block content
 				table.bordered.striped.responsive-table
 					thead
 						tr
-							th Remove
-							th Image
-							th Item Name
-							th Description
-							th Unit Price
+							th.cart Remove
+							th.cart.hide-on-small-only Image
+							th.cart Item Name
+							th.cart Description
+							th.cart Unit Price
 					tbody
-						tr
-							td.center-align
-								form(action='#')
+						-for (var x=0; x<3; x++)
+							tr
+								td.cart
 									div
-										input.filled-in#ch1(type='checkbox')
-										label(for='ch1')
-							td.center-align.img-shopping
-								a(href='#')
-									img.responsive-img(src='../../images/articles/article-test.png')
-							td
-								| Item name
-							td
-								| Description
-							td
-								| 10$
-						tr
-							td.center-align
-								form(action='#')
-									div
-										input.filled-in#ch2(type='checkbox')
-										label(for='ch2')
-							td.center-align.img-shopping
-								a(href='#')
-									img.responsive-img(src='../../images/articles/article-test.png')
-							td
-								| Item name
-							td
-								| Description
-							td
-								| 10$
+										a.waves-effect.waves-light.btn(href='#') Remove item
+								td.cart.img-shopping.hide-on-small-only
+									a(href='#')
+										img.responsive-img(src='../../images/articles/article-test.png')
+								td.cart
+									| Item name
+								td.cart
+									| Description
+								td.cart
+									| 10$
 						tr
 							td  
+							td.hide-on-small-only
 							td  
-							td  
-							td 
+							td.cart
 								strong#total Total:
-							td
+							td.cart
 								strong#price 20$
 		.row.bot80
 			.col.s12.m4.l4.left-align
 				a.btn(href='#') Update cart
-			.col.s12.m4.l4.center-align
+			.col.s12.m4.l4.cart
 				a.btn(href='#') Continue shopping
 			.col.s12.m4.l4.right-align
 				a.btn(href='#')	Checkout

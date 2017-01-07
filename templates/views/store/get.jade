@@ -5,36 +5,38 @@ block content
 		div.row
 			div.row.bot15
 				h3 Store
-				h6 Items in the store 
+				h6 Series in the store 
 					span= total
 			div.row
 				if items
 					each item in items
 						div.col.s12.m6.l3.top15
-							.card.large.sticky-action
+							.card.large.store.sticky-action
 								.card-image.waves-effect.waves-block.waves-light
-									img.activator(src= item.images[0])
-								.card-content
-									span.card-title.activator.grey-text.text-darken-4.truncate= item.name
-										i.material-icons.right more_vert
+									img.store.activator.responsive-img(src= item.images.url)
+								.card-content.activator.valign-wrapper
+									div.col.s10.m10.l10
+										span.card-title.activator.grey-text.text-darken-4.truncate= item.name
+									div.col.s2.m2.l2
+										i.activator.material-icons.right more_vert
 								#card-action.card-action.row.text-center
 									div.col.s5.m5.l5
 										span Price: 
 										span= item.price
 											| $
 									div.col.s7.m7.l7
-										a#btn-card.waves-effect.waves-light.btn(href='#') Details
+										a#btn-card.waves-effect.waves-light.btn(href='/store/product/get?id='+item.id) Details
 								.card-reveal(style='display: none; transform: translateY(0px);')
 									span.card-title.grey-text.text-darken-4= item.name
 										i.material-icons.right close
 									p
 										| Description:
-									p#truncate.justify Product description
+									p#truncate.justify= item.description
 				else
 					h4 Now no items.
 	div#pagination.container.top30.bot80
 		div.row
-			p.pagination-count Showing #{first}-#{last} of #{total} results
+			p.pagination-count Showing #{first} - #{last} of #{total} series
 		if totalPages > 1
 			div.row
 				div.col

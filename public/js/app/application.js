@@ -33,7 +33,7 @@ $(document).ready(function () {
 				x: '0%'
 			}, ani_duration, 'ease');
 
-			if (win_width > 768) {
+			if (win_width > 1025) {
 				$(main).transition({
 					"padding-left": sizex_sidemenu
 				}, ani_duration, 'ease');
@@ -48,7 +48,7 @@ $(document).ready(function () {
 				x: '-100%'
 			}, ani_duration, 'ease');
 
-			if (win_width > 768) {
+			if (win_width > 1025) {
 				$(main).transition({
 					"padding-left": 0
 				}, ani_duration, 'ease');
