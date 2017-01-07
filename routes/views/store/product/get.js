@@ -1,7 +1,9 @@
 var keystone = require('keystone');
 var async = require('async');
+var PostCategory = keystone.list('PostCategory').model;
+var Post = keystone.list('Post').model;
 
-exports = module.exports = function (req, res) {
+exports = module.exports = function(req, res, next) {
 
 	console.log('store product get end point', req.query.id);
 
@@ -11,6 +13,29 @@ exports = module.exports = function (req, res) {
 	// Init locals
 	locals.section = 'store';
 
-	// Render the view
-	view.render('store/product/get');
+	PostCategory.findOne({
+		_id: req.query.id,
+	}, function(err, category) {
+		if (err) {
+			return next(err);
+		}
+
+		Post.find({
+			categories: req.query.id,
+		}, function(err, articles) {
+			if (err) {
+				return next(err);
+			}
+
+			console.log('CATEGORY DETAILS');
+			console.log(category);
+			console.log('POSTS DETAILS');
+			console.log(articles);
+
+			locals.category = category;
+			locals.articles = articles;
+
+			view.render('store/product/get', locals);
+		});
+	});
 };

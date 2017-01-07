@@ -21,33 +21,34 @@ var PostCategory = new keystone.List('PostCategory', {
 PostCategory.add({
 	name: {
 		type: String,
-		required: true
+		required: true,
 	},
 	price: {
 		type: Types.Money,
-		required: false,
-		currency: 'en-us'
+		required: true,
+		currency: 'en-us',
+		default: 0,
 	},
 	author: {
-		type: String,
-		required: false
+		type: Types.Relationship,
+		ref: 'User',
 	},
 	creationDate: {
 		type: Types.Date,
 		required: true,
-		default: Date.now
+		default: Date.now,
 	},
 	images: {
-		type: Types.TextArray,
-		required: false
+		type: Types.CloudinaryImage,
+		required: false,
+	},
+	description: {
+		type: Types.Textarea,
+		required: false,
 	},
 	published: {
 		type: Types.Boolean,
-		default: true
-	},
-	description: {
-		type: String,
-		required: false,
+		default: false,
 	},
 });
 
