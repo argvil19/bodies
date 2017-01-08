@@ -12,14 +12,17 @@ block content
 		div#main-section.container.top80
 			h4#title-section.text-center Recent Series
 			div.row.top30.container
-				-for (var x=0; x<8; x++)
-					div.col.s12.m6.l3.top15
-						h5.text-center Series name
-						div#article.content
-							a(href='#'): img.responsive-img.hoverable(src= "images/articles/article-test.png")
-				//-else
-					//- div.col.s12
-					//- 	h5.text-center Sorry, there are no items to show.
+				if recent
+					each item in recent
+						div#main-series.col.s12.m6.l3.top15.bot15
+							div#series-title.text-center
+								h5#series-title= item.name
+							div#series-img
+								div#article.content
+									a(href='/store/product/get?id='+item.id): img.responsive-img.hoverable(src= item.images.url)
+				else
+					div.col.s12.top15
+						h5.text-center Sorry, there are no series to show.
 			div.row.top20
 				div#btn-article.col.s12.text-right
 					a.waves-effect.waves-light.btn(href='/store/get') More series
