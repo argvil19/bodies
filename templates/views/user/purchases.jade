@@ -1,11 +1,28 @@
 extends ../../layouts/default
 block content
-	.container: .jumbotron
-		h1 User purchase page
+	div.container.row.text-center.top80
+		div.col.s12.m12.l12.bot30
+			h2 Your purchases
 		if purchases.length
-			ul
-				each item in purchases
-					li
-						a(href='/blog/'+item.key)= item.name
+			div.row.bot80
+				div.s12.m12.l12
+					table.bordered.striped.centered
+						thead
+							tr
+							th(data-field="series") Series
+							|               
+							th(data-field="description") Description
+							| 
+							th(data-field="action") 
+						tbody
+							each item in purchases
+								tr
+									td= item.name
+									| 
+									td= item.description
+									| 
+									td: a.btn.waves-effect.waves-light(href='/blog/'+item.key) Read
 		else
-			.alert.alert-info(role="alert") You didn't bought anything yet...
+			div.row.bot80
+				div.s12.m12.l12
+					.alert.alert-info(role="alert") You didn't bought anything yet...

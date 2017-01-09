@@ -11,7 +11,7 @@ header
                 a.button-collapse.show-on-large(data-activates='mobile-menu'): i(class="material-icons") menu
                 ul.right.hide-on-small-and-down
                     li
-                        if user && user.canAccessKeystone
+                        if user
                             a#icon-nav.collection-item.avatar(href='/keystone'): img.circle.responsive-img(src='/images/profile/profile-test.png', alt='')
                         else
                             a#icon-nav.btn-floating(href='/keystone/signin')
