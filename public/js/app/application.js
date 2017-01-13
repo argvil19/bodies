@@ -80,4 +80,35 @@ $(document).ready(function () {
 
 	$('.collapsible').collapsible();
 
+	// Map contact
+
+	var pathname = window.location.pathname;
+	
+	var body = document.body, html = document.documentElement;
+	var height = Math.max(html.clientHeight);
+	document.getElementById('gmap-styled').style.height = height/2 + 'px';
+
+	if(pathname === "/contact"){
+                var mapOptions = {
+                    zoom: 14,
+					zoomControl: true,
+					mapTypeControl: false,
+					scaleControl: false,
+					streetViewControl: false,
+					rotateControl: false,
+                    center: new google.maps.LatLng(40.6700, -73.9400), // New York
+
+                    styles: [{"stylers":[{"saturation":-100},{"gamma":1}]},{"elementType":"labels.text.stroke","stylers":[{"visibility":"off"}]},{"featureType":"poi.business","elementType":"labels.text","stylers":[{"visibility":"off"}]},{"featureType":"poi.business","elementType":"labels.icon","stylers":[{"visibility":"off"}]},{"featureType":"poi.place_of_worship","elementType":"labels.text","stylers":[{"visibility":"off"}]},{"featureType":"poi.place_of_worship","elementType":"labels.icon","stylers":[{"visibility":"off"}]},{"featureType":"road","elementType":"geometry","stylers":[{"visibility":"simplified"}]},{"featureType":"water","stylers":[{"visibility":"on"},{"saturation":50},{"gamma":0},{"hue":"#50a5d1"}]},{"featureType":"administrative.neighborhood","elementType":"labels.text.fill","stylers":[{"color":"#333333"}]},{"featureType":"road.local","elementType":"labels.text","stylers":[{"weight":0.5},{"color":"#333333"}]},{"featureType":"transit.station","elementType":"labels.icon","stylers":[{"gamma":1},{"saturation":50}]}]
+                };
+
+                var mapElement = document.getElementById('gmap-styled');
+
+                var map = new google.maps.Map(mapElement, mapOptions);
+
+                var marker = new google.maps.Marker({
+                    position: new google.maps.LatLng(40.6700, -73.9400),
+                    map: map,
+                    title: 'Hello!!'
+                });
+	}
 });

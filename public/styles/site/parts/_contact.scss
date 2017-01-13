@@ -1,0 +1,76 @@
+#gmap-styled {
+    height: 500px;
+    width: 100%;
+    min-height: 100%;
+    max-height: none;
+}
+
+#map {
+    padding: 0;
+}
+
+#row_map_contact {}
+
+.row#main_content {
+    margin-bottom: 0px;
+}
+
+div#container_contact {
+    width: 100%;
+    max-width: 1440px;
+}
+
+.row#row_image_contact {
+    position: relative;
+    span.border {
+        background-color: #111;
+        color: #fff;
+        padding: 18px;
+        font-size: calc(1.5vw + 1.5vh + 0.5vmin);
+        letter-spacing: 1px;
+        text-transform: uppercase;
+        left: 0;
+        position: absolute;
+        text-align: center;
+        top: 55%;
+        width: 100%;
+    }
+}
+
+@media (max-width: 425px) and (min-width:320px) {
+    div#container_contact #form-contact {
+        margin-bottom: 0px;
+    }
+    .row#row_image_contact,
+    #row_map_contact {
+        margin-bottom: 0px;
+    }
+}
+
+@media (max-width: 768px) and (min-width:426px) {
+    div#container_contact #form-contact {
+        margin-bottom: 0px;
+    }
+    .row#row_image_contact,
+    #row_map_contact {
+        margin-bottom: 0px;
+    }
+}
+
+@media (min-width:1024px) {
+    div#container_contact #form-contact {
+        margin-bottom: 0px;
+    }
+    .row#row_image_contact,
+    #row_map_contact {
+        margin-bottom: 0px;
+    }
+}
+
+// Side contact - social
+div#side-content {
+    margin-top: 0px;
+    #row_side-content {
+        margin-bottom: 0px;
+    }
+}

@@ -33,6 +33,8 @@ exports = module.exports = function(app) {
 	app.get('/', routes.views.index);
 	app.get('/blog/:category?', routes.views.blog);
 	app.get('/blog/post/:post', routes.views.post);
+	// View contact
+	app.get('/contact', routes.views.contact.index)
 	// End points
 	app.get('/store/get', routes.views.store.get) // ?page=INT
 	app.get('/store/product/get', routes.views.store.product.get) // ?id=INT
