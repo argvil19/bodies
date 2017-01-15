@@ -53,3 +53,30 @@ exports.requireUser = function (req, res, next) {
 		next();
 	}
 };
+
+/**
+ Prevents people from accessing locked articles
+ */
+exports.articleIsLocked = function (req, res, next) {
+
+	/**
+	 * 0 - if the user didn't bought this serie
+	 * 1 - if this article is not unlocked yet
+	 * 2 - if this article is allowed
+	 * @type {number}
+   */
+	res.locals.articleStatus = 0;
+	
+	req.user.purchases.map(function(serie, i){
+		serie.unlockSheddule.map(function(item, i){
+			if (item.article.toString() === req.params.id) {
+				res.locals.articleStatus = 1;
+				if (item.unlockDate < new Date()) {
+					res.locals.articleStatus = 2;
+				}
+			}
+		});
+	});
+	
+	next();
+};
