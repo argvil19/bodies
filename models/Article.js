@@ -15,6 +15,9 @@ var Post = new keystone.List('Post', {
 		from: 'title',
 		unique: true
 	},
+	plural: 'articles',
+	singular: 'article',
+	label: 'Articles',
 });
 
 Post.add({

@@ -5,15 +5,15 @@ var Post = keystone.list('Post').model;
 
 exports = module.exports = function(req, res, next) {
 
-	console.log('store product get end point', req.query.id);
+		console.log('store product get end point', req.query.id);
 
-	var view = new keystone.View(req, res);
-	var locals = res.locals;
+		var view = new keystone.View(req, res);
+		var locals = res.locals;
 
-	// Init locals
-	locals.section = 'store';
+		// Init locals
+		locals.section = 'store';
 
-	PostCategory.findOne({
+		PostCategory.findOne({
 		_id: req.query.id,
 	}, function(err, category) {
 		if (err) {

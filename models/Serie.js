@@ -16,6 +16,9 @@ var PostCategory = new keystone.List('PostCategory', {
 		path: 'key',
 		unique: true
 	},
+	label: 'Series',
+	singular: 'serie',
+	plural: 'series',
 });
 
 PostCategory.add({
