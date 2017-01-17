@@ -77,8 +77,11 @@ $(document).ready(function () {
 	});
 
 	// collapsible init
-
-	$('.collapsible').collapsible();
+	if(pathname === "/store/product/get"){
+		$(document).ready(function(){
+			$('.collapsible').collapsible();
+		});
+	}
 
 	// Map contact
 

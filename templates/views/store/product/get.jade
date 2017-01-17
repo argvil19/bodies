@@ -14,27 +14,38 @@ block content
 				img.activator.responsive-img(src= category.images.url)
 			div.col.s12.m9.l9   
 				h5 Content
-				ul.tabs
+				ul.collapsible(data-collapsible="accordion")
 					each article, i in articles
 						if i == 0
-							li.tab.col.s3
-								a.active(href='#c'+i) 1
+							li
+								div.collapsible-header
+									a(href='#c'+i) 1
+										| - 
+										!= article.title
+								div(id='c'+i).col.s12.collapsible-body
+									div.row.top15
+										div.col.s12.m7.l7
+											h5= article.title
+											!= article.content.brief
+										div.col.s4.m5.l5.hide-on-small-only
+											img.activator.responsive-img(src= article.image.url)
 						else
-							li.tab.col.s3
-								a(href='#c'+i)= i+1
-				each article, i in articles
-					div(id='c'+i).col.s12
-						div.row.top15
-							div.col.s12.m7.l7
-								h5= article.title
-								!= article.content.brief
-							div.col.s4.m5.l5.hide-on-small-only
-								img.activator.responsive-img(src= article.image.url)
+							li
+								div.collapsible-header
+									a(href='#c'+i)= i+1
+										| - 
+										!= article.title
+								div(id='c'+i).col.s12.collapsible-body
+									div.row.top15
+										div.col.s12.m7.l7
+											h5= article.title
+											!= article.content.brief
+										div.col.s4.m5.l5.hide-on-small-only
+											img.activator.responsive-img(src= article.image.url)
+					
 		div.row.bot80
 			div.col.s12.m6.l3.right
 				a.waves-effect.waves-light.btn(href='#') Buy 
 					| 
 					= category.price
 					| $
-//- li.tab.col.s3.disabled
-//-     a(href='#c4') More soon...
