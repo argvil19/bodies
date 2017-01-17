@@ -36,6 +36,11 @@ block content
                             label(for="name") Name
                             |                         
                             input#name(type="text" placeholder="Name...")
+                            |                    
+                            .input-field.col.s12
+                            label(for="subject") Subject
+                            |                     
+                            input#subject.form-input(type="text" placeholder="Subject...") 
                             |                         
                             .input-field.col.s12
                             label(for="email") Email
@@ -45,8 +50,7 @@ block content
                             .input-field.col.s12
                             label(for="message") Message
                             |                     
-                            textarea#message.materialize-textarea(placeholder="Message...")
-                            |                           
+                            textarea#message.materialize-textarea( placeholder= "Message..." )
                         |                     
                         .row
                             .col.m12
