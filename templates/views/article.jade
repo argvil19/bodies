@@ -2,4 +2,10 @@ extends ../layouts/default
 
 block content
 	.container: .jumbotron
-		h1 Article page
+		h1=article.title
+		p!=article.content.brief
+		if(article.locked)
+			.alert.alert-info(role="alert") This article is locked yet. We will send you email notitfication when it will unlocked.
+		else
+			h2 Extended content
+			p!=article.content.extended

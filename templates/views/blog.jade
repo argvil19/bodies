@@ -7,7 +7,6 @@ extends ../layouts/default
 				if post.image.exists
 					a(href='/blog/post/' + post.slug)
 						img.hoverable(src=post._.image.fit(400,400))
-						span.featured-overlay
 				.row.date
 						.col.s12
 							p.lead.text-muted
@@ -28,9 +27,9 @@ extends ../layouts/default
 	block content
 		.container: .row.top80.bot30
 			h3.bot30= data.category ? data.category.name : 'Blog'
-			a.btn(href='/user/purchases') Back to my series
+			p: a(href='/user/purchases'): span.meta-nav &larr; Back to my series
 
-		.container: .row
+		.container: .row.bot80
 			.col.s12.m12.l12
 				if filters.category && !data.category
 					h3.text-muted Invalid Category.
@@ -45,7 +44,7 @@ extends ../layouts/default
 								strong #{data.posts.total}
 								|  articles.
 						else
-							h4.text-weight-normal Showing #{utils.plural(data.posts.results.length, '* post')}.
+							h4.text-weight-normal Showing #{utils.plural(data.posts.results.length, '* article')}.
 						.blog
 							each post in data.posts.results
 								+post(post)
@@ -77,9 +76,9 @@ extends ../layouts/default
 											li.disabled: a(): span: i.material-icons chevron_right
 					else
 						if data.category
-							h3.text-muted There are no posts in the category #{data.category.name}.
+							h3.text-muted There are no articles in the category #{data.category.name}.
 						else
-							h3.text-muted There are no posts yet.
+							h3.text-muted There are no articles yet.
 			
 			//- if data.categories.length
 			//- 	.col.s4.m3

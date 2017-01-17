@@ -17,24 +17,27 @@
  * See the Express application routing documentation for more information:
  * http://expressjs.com/api.html#app.VERB
  */
+
 var keystone = require('keystone');
 var middleware = require('./middleware');
 var importRoutes = keystone.importer(__dirname);
+
 // Common Middleware
 keystone.pre('routes', middleware.initLocals);
 keystone.pre('render', middleware.flashMessages);
+
 // Import Route Controllers
 var routes = {
 	views: importRoutes('./views'),
 };
+
 // Setup Route Bindings
 exports = module.exports = function(app) {
 	// Views
 	app.get('/', routes.views.index);
 	app.get('/blog/:category?', routes.views.blog);
 	app.get('/blog/post/:post', routes.views.post);
-	// View contact
-	app.get('/contact', routes.views.contact.index)
+	app.get('/contact', routes.views.contact.index);
 	// End points
 	app.get('/store/get', routes.views.store.get) // ?page=INT
 	app.get('/store/product/get', routes.views.store.product.get) // ?id=INT
@@ -45,7 +48,12 @@ exports = module.exports = function(app) {
 	app.get('/purchase/failed', middleware.requireUser, routes.views.purchase.failed)
 	app.get('/user/purchases', middleware.requireUser, routes.views.user.purchases)
 	app.get('/user/item/:id/details', middleware.requireUser, routes.views.user.item.details) // :id=INT
-	app.get('/article/:id', routes.views.article) // :id=INT
+	app.get('/article/:id', middleware.requireUser, middleware.articleIsLocked, routes.views.article) // :id=INT
+
+	// This route for getting message from payment system about paument status
+	app.get('/purchase/accept', routes.views.purchase.accept) // ?user=MongoKey & product=mongoKey & secret=String 
+
 	// NOTE: To protect a route so that only admins can see it, use the requireUser middleware:
 	// app.get('/protected', middleware.requireUser, routes.views.protected);
+
 };

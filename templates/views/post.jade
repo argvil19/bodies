@@ -3,20 +3,25 @@ extends ../layouts/default
 block content
 	div.container.top30
 		div.row
-			p: a(href='/user/purchases'): span.meta-nav &larr; back to purchases
-			div.col.s12.m9.l9.text-center
+			each cat, cat_i in data.post.categories
+				p: a(href='/blog/' + cat.key): span.meta-nav &larr;
+					| Back to content of 
+					!= cat.name
+			div.col.s12.m9.l9
 				each cat, cat_i in data.post.categories
-					a#content-link(href='/blog/' + cat.key): h4= cat.name
+					a#content-link(href='/blog/' + cat.key): h4.text-center= cat.name
 					| 
-					h5.bot15= data.post.title
+					h5.bot15.text-center= data.post.title
 					div.row.top30
-						div#date-line.col.s12.m12.l12
+						div#date-line.col.s12.m12.l12.text-center
 							if data.post.publishedDate
 								span#date-pub.col.s12.m12.l12: h6.text-center= data.post._.publishedDate.format('MMMM Do, YYYY')
 					div.row.bot80
-						div.col.s12.m12.l12.text-center
-							if data.post.image.exists
-								img.responsive-img.text-center(src= data.post._.image.fit(750,450))
+						div.col.s12.m12.l12
+							div.row.center-align
+								if data.post.image.exists
+									img.responsive-img(src= data.post._.image.fit(750,450))
+							div.row
 								!= data.post.content.full
 					div.row
 						div.col.s12.m12.l12

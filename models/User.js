@@ -1,10 +1,12 @@
 var keystone = require('keystone');
 var Types = keystone.Field.Types;
+
 /**
  * User Model
  * ==========
  */
 var User = new keystone.List('User');
+
 User.add({
 	name: {
 		type: Types.Name,
@@ -29,6 +31,7 @@ User.add({
 		index: true
 	},
 });
+
 User.schema.add({
 	// ARRAY of OBJECTS. Items user has bought (series of articles)
 	categoryAccess: {
@@ -57,10 +60,13 @@ User.schema.add({
 		]
 	}
 })
+
 // Provide access to Keystone
 User.schema.virtual('canAccessKeystone').get(function() {
 	return this.isAdmin;
 });
+
+
 /**
  * Relationships
  */
@@ -69,6 +75,8 @@ User.relationship({
 	path: 'posts',
 	refPath: 'author'
 });
+
+
 /**
  * Registration
  */

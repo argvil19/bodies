@@ -1,9 +1,11 @@
 var keystone = require('keystone');
 var Types = keystone.Field.Types;
+
 /**
  * Post Model
  * ==========
  */
+
 var Post = new keystone.List('Post', {
 	map: {
 		name: 'title'
@@ -13,7 +15,11 @@ var Post = new keystone.List('Post', {
 		from: 'title',
 		unique: true
 	},
+	plural: 'articles',
+	singular: 'article',
+	label: 'Articles',
 });
+
 Post.add({
 	title: {
 		type: String,
@@ -58,8 +64,10 @@ Post.add({
 		},
 	},
 });
+
 Post.schema.virtual('content.full').get(function() {
 	return this.content.extended || this.content.brief;
 });
+
 Post.defaultColumns = 'title, state|20%, author|20%, publishedDate|20%';
 Post.register();
