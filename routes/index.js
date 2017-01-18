@@ -57,6 +57,10 @@ exports = module.exports = function(app) {
 	app.get('/signup', routes.views.auth.register);
 	app.post('/signup', routes.views.auth.register_post);
 
+	// Autocomplete
+	app.get('/store/autocomplete/search?', routes.views.search.autocomplete);
+	app.get('/store/search?', routes.views.search.search);
+
 	// NOTE: To protect a route so that only admins can see it, use the requireUser middleware:
 	// app.get('/protected', middleware.requireUser, routes.views.protected);
 
