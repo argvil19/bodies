@@ -49,6 +49,7 @@ exports = module.exports = function(app) {
 	app.get('/user/purchases', middleware.requireUser, routes.views.user.purchases)
 	app.get('/user/item/:id/details', middleware.requireUser, routes.views.user.item.details) // :id=INT
 	app.get('/article/:id', middleware.requireUser, middleware.articleIsLocked, routes.views.article) // :id=INT
+	app.get('/contact', routes.views.contact);
 
 	// This route for getting message from payment system about paument status
 	//app.get('/purchase/accept', routes.views.purchase.accept) // ?user=MongoKey & product=mongoKey & secret=String 
