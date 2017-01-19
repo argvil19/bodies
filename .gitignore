@@ -29,3 +29,6 @@ node_modules
 
 # Folder private
 /private_dev/*
+
+# private API PAYPAL CONFIG
+/config/*

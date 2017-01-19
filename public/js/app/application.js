@@ -86,36 +86,59 @@ $(document).ready(function () {
 	// Map contact
 
 	var pathname = window.location.pathname;
-	
-	
 
 	if(pathname === "/contact"){
+		
+		function initialize() {
 
-		var body = document.body, html = document.documentElement;
-		var height = Math.max(html.clientHeight);
-		var mapvar = document.getElementById('gmap-styled');
-		mapvar.style.height = height/2 + 'px';
+			var body = document.body, html = document.documentElement;
+			var height = Math.max(html.clientHeight);
+			var mapvar = document.getElementById('gmap-styled');
+			mapvar.style.height = height/2 + 'px';
 
-		var mapOptions = {
-			zoom: 14,
-			zoomControl: true,
-			mapTypeControl: false,
-			scaleControl: false,
-			streetViewControl: false,
-			rotateControl: false,
-			center: new google.maps.LatLng(40.6700, -73.9400), // New York
+			geocoder = new google.maps.Geocoder();
 
-			styles: [{"stylers":[{"saturation":-100},{"gamma":1}]},{"elementType":"labels.text.stroke","stylers":[{"visibility":"off"}]},{"featureType":"poi.business","elementType":"labels.text","stylers":[{"visibility":"off"}]},{"featureType":"poi.business","elementType":"labels.icon","stylers":[{"visibility":"off"}]},{"featureType":"poi.place_of_worship","elementType":"labels.text","stylers":[{"visibility":"off"}]},{"featureType":"poi.place_of_worship","elementType":"labels.icon","stylers":[{"visibility":"off"}]},{"featureType":"road","elementType":"geometry","stylers":[{"visibility":"simplified"}]},{"featureType":"water","stylers":[{"visibility":"on"},{"saturation":50},{"gamma":0},{"hue":"#50a5d1"}]},{"featureType":"administrative.neighborhood","elementType":"labels.text.fill","stylers":[{"color":"#333333"}]},{"featureType":"road.local","elementType":"labels.text","stylers":[{"weight":0.5},{"color":"#333333"}]},{"featureType":"transit.station","elementType":"labels.icon","stylers":[{"gamma":1},{"saturation":50}]}]
-		};
+			var address = "1365 Atlantic Ave, Brooklyn, NY 11216, EE. UU.";
 
-		var mapElement = document.getElementById('gmap-styled');
+			geocoder.geocode({
+				'address': address
+			}, function (results, status) {
 
-		var map = new google.maps.Map(mapElement, mapOptions);
+				if (status == google.maps.GeocoderStatus.OK) {
 
-		var marker = new google.maps.Marker({
-			position: new google.maps.LatLng(40.6700, -73.9400),
-			map: map,
-			title: 'Hello!!'
-		});
+					var latitude = results[0].geometry.location.lat();
+
+					var longitude = results[0].geometry.location.lng();
+
+					var latlng = new google.maps.LatLng(latitude, longitude);
+
+					var mapOptions = {
+						center: latlng,
+						mapTypeId: google.maps.MapTypeId.ROADMAP,
+						zoom: 14,
+						zoomControl: true,
+						mapTypeControl: false,
+						scaleControl: false,
+						streetViewControl: false,
+						rotateControl: false,
+						styles: [{"stylers":[{"saturation":-100},{"gamma":1}]},{"elementType":"labels.text.stroke","stylers":[{"visibility":"off"}]},{"featureType":"poi.business","elementType":"labels.text","stylers":[{"visibility":"off"}]},{"featureType":"poi.business","elementType":"labels.icon","stylers":[{"visibility":"off"}]},{"featureType":"poi.place_of_worship","elementType":"labels.text","stylers":[{"visibility":"off"}]},{"featureType":"poi.place_of_worship","elementType":"labels.icon","stylers":[{"visibility":"off"}]},{"featureType":"road","elementType":"geometry","stylers":[{"visibility":"simplified"}]},{"featureType":"water","stylers":[{"visibility":"on"},{"saturation":50},{"gamma":0},{"hue":"#50a5d1"}]},{"featureType":"administrative.neighborhood","elementType":"labels.text.fill","stylers":[{"color":"#333333"}]},{"featureType":"road.local","elementType":"labels.text","stylers":[{"weight":0.5},{"color":"#333333"}]},{"featureType":"transit.station","elementType":"labels.icon","stylers":[{"gamma":1},{"saturation":50}]}]
+					}
+
+					map = new google.maps.Map(document.getElementById('gmap-styled'), mapOptions);
+
+					var latlng = new google.maps.LatLng(latitude, longitude);
+					map.setCenter(latlng);
+
+					var marker = new google.maps.Marker({
+						position:  latlng,
+						map: map,
+						title: "I'm here!"
+					});
+				}
+
+			});
+		}
+		
+		google.maps.event.addDomListener(window, 'load', initialize);
 	}
 });

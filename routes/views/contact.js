@@ -5,6 +5,8 @@ module.exports = (req, res, next) => {
     const View = new keystone.View(req, res);
     const locals = res.locals;
 
+    locals.section = 'contact';
+
     Contact.model.find({}, {
         _id: 0,
         __v: 0,
