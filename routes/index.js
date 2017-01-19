@@ -53,6 +53,10 @@ exports = module.exports = function(app) {
 	// This route for getting message from payment system about paument status
 	app.get('/purchase/accept', routes.views.purchase.accept) // ?user=MongoKey & product=mongoKey & secret=String 
 
+	// Auth route
+	app.get('/signup', routes.views.auth.register);
+	app.post('/signup', routes.views.auth.register_post);
+
 	// NOTE: To protect a route so that only admins can see it, use the requireUser middleware:
 	// app.get('/protected', middleware.requireUser, routes.views.protected);
 
