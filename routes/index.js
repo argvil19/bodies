@@ -51,7 +51,7 @@ exports = module.exports = function(app) {
 	app.get('/article/:id', middleware.requireUser, middleware.articleIsLocked, routes.views.article) // :id=INT
 
 	// This route for getting message from payment system about paument status
-	app.get('/purchase/accept', routes.views.purchase.accept) // ?user=MongoKey & product=mongoKey & secret=String 
+	//app.get('/purchase/accept', routes.views.purchase.accept) // ?user=MongoKey & product=mongoKey & secret=String 
 
 	// Auth route
 	app.get('/signup', routes.views.auth.register);
@@ -60,6 +60,10 @@ exports = module.exports = function(app) {
 	// Autocomplete
 	app.get('/store/autocomplete/search?', routes.views.search.autocomplete);
 	app.get('/store/search?', routes.views.search.search);
+
+	// Payment routes
+	app.get('/payment/checkout?', middleware.requireUser, routes.views.payment.process);
+	app.get('/payment/receive?', middleware.requireUser, routes.views.payment.receive);
 
 	// NOTE: To protect a route so that only admins can see it, use the requireUser middleware:
 	// app.get('/protected', middleware.requireUser, routes.views.protected);
