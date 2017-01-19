@@ -143,6 +143,11 @@ keystone.set('signin redirect', function(user, req, res) {
 	res.redirect(url);
 });
 
+keystone.set('signout redirect', function(req, res) {
+	var url = '/';
+	res.redirect(url);
+});
+
 // Start Keystone to connect to your database and initialise the web server
 
 keystone.start();

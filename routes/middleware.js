@@ -56,7 +56,7 @@ exports.flashMessages = function(req, res, next) {
 exports.requireUser = function(req, res, next) {
 	if (!req.user) {
 		req.flash('error', 'Please sign in to access this page.');
-		res.redirect('/keystone/signin');
+		res.redirect('/keystone/signin?from=' + req.url);
 	}
 	else {
 		next();
@@ -105,8 +105,6 @@ exports.categoryIsLocked = function(req, res, next) {
 	 */
 	var View = new keystone.View(req, res);
 	res.locals.categoryStatus = 0;
-
-	console.log(req.user);
 
 	req.user.purchases.map(function(serie, i) {
 		if (serie.product === req.params.category) {
