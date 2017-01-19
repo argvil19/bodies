@@ -1,6 +1,7 @@
 const keystone = require('keystone');
 const Order = keystone.list('Order');
 const Post = keystone.list('Post');
+const PostCategory = keystone.list('PostCategory');
 const User = keystone.list('User');
 const paypal = require('../../../config/paypal');
 const async = require('async');
@@ -43,6 +44,13 @@ module.exports = (req, res, next) => {
 
                             return done(null, articles);
                         });
+                },
+                (done) => {
+                    PostCategory.model.findOne({
+                        _id: req.session.itemBoughtId,
+                    }, {}, (err, category) => {
+                        return done(err, category);
+                    });
                 }
             ], (err, results) => {
                 if (err) {
@@ -75,6 +83,7 @@ module.exports = (req, res, next) => {
                     locals.puchaseSchedule = userSaved.purchases[userSaved.purchases.length - 1];
                     locals.purchaseDate = purchaseDate;
                     locals.purchaseMethod = 'Paypal';
+                    locals.itemBought = results[2];
 
                     Order.model.create({
                         purchaseDate: Date.now(),
@@ -92,5 +101,9 @@ module.exports = (req, res, next) => {
                 });
             });
         });
+    }
+    else {
+        locals.error = 'The payment has been canceled';
+        return View.render('error', locals);
     }
 };
