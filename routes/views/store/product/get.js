@@ -27,10 +27,10 @@ exports = module.exports = function(req, res, next) {
 				return next(err);
 			}
 
-			//console.log('CATEGORY DETAILS');
-			//console.log(category);
-			//console.log('POSTS DETAILS');
-			//console.log(articles);
+			console.log('CATEGORY DETAILS');
+			console.log(category);
+			console.log('POSTS DETAILS');
+			console.log(articles);
 
 			locals.category = category;
 			locals.articles = articles;

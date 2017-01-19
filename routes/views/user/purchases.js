@@ -1,11 +1,16 @@
 var keystone = require('keystone');
 var PostCategory = keystone.list('PostCategory').model;
+
 exports = module.exports = function (req, res, next) {
+
 	console.log('user purchases end point');
+
 	var view = new keystone.View(req, res);
 	var locals = res.locals;
+
 	// Init locals
 	locals.section = 'user';
+
 	/**
 	 * Getting user model from request object
 	 * We can get correctly user object because this route checked by middleware.requireUser
@@ -28,6 +33,7 @@ exports = module.exports = function (req, res, next) {
 		}
 		
 		locals.purchases = purchases;
+
 		view.render('user/purchases', locals);
 	});
 };

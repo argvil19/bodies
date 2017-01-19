@@ -37,7 +37,7 @@ exports = module.exports = function(app) {
 	app.get('/', routes.views.index);
 	app.get('/blog/:category?', routes.views.blog);
 	app.get('/blog/post/:post', routes.views.post);
-	app.get('/contact', routes.views.contact.index);
+
 	// End points
 	app.get('/store/get', routes.views.store.get) // ?page=INT
 	app.get('/store/product/get', routes.views.store.product.get) // ?id=INT
@@ -49,13 +49,22 @@ exports = module.exports = function(app) {
 	app.get('/user/purchases', middleware.requireUser, routes.views.user.purchases)
 	app.get('/user/item/:id/details', middleware.requireUser, routes.views.user.item.details) // :id=INT
 	app.get('/article/:id', middleware.requireUser, middleware.articleIsLocked, routes.views.article) // :id=INT
+	app.get('/contact', routes.views.contact);
 
 	// This route for getting message from payment system about paument status
-	app.get('/purchase/accept', routes.views.purchase.accept) // ?user=MongoKey & product=mongoKey & secret=String 
+	//app.get('/purchase/accept', routes.views.purchase.accept) // ?user=MongoKey & product=mongoKey & secret=String 
 
 	// Auth route
 	app.get('/signup', routes.views.auth.register);
 	app.post('/signup', routes.views.auth.register_post);
+
+	// Autocomplete
+	app.get('/store/autocomplete/search?', routes.views.search.autocomplete);
+	app.get('/store/search?', routes.views.search.search);
+
+	// Payment routes
+	app.get('/payment/checkout?', middleware.requireUser, routes.views.payment.process);
+	app.get('/payment/receive?', middleware.requireUser, routes.views.payment.receive);
 
 	// NOTE: To protect a route so that only admins can see it, use the requireUser middleware:
 	// app.get('/protected', middleware.requireUser, routes.views.protected);
