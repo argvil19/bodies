@@ -40,6 +40,10 @@ nav .button-collapse {
         border-top: 1px solid $color-separators;
         padding: 0;
     }
+
+    nav .brand-logo {
+        padding: 5px 0px 0px 0px;
+    }
 }
 
 @media only screen and (max-width: 426px) {
@@ -50,6 +54,10 @@ nav .button-collapse {
         border: 0;
         border-top: 1px solid $color-separators;
         padding: 0;
+    }
+
+    nav .brand-logo {
+        padding: 6px 0px 0px 0px;
     }
 }
 
@@ -65,7 +73,7 @@ nav .button-collapse {
         top: 64px;
     }
     nav .brand-logo {
-        padding: 5px 0px 0px 50px;
+        padding: 6px 0px 0px 50px;
     }
 }
 
@@ -120,7 +128,7 @@ ul#mobile-menu h4 {
 }
 
 .page-act {
-    padding: 5px 0px 0px 200px;
+    padding: 5px 0px 0px 280px;
     position: absolute;
     color: #fff;
     display: inline-block;
@@ -129,7 +137,7 @@ ul#mobile-menu h4 {
 }
 
 .header-search-wrapper {
-    margin: 10px auto 0 350px;
+    margin: 10px auto 0 500px;
     width: calc(80% - 600px);
     height: 40px;
     display: inline-block;
@@ -160,7 +168,7 @@ input.header-search-input:hover {
 input.header-search-input {
     display: block;
     padding: 8px 8px 8px 72px;
-    width: 100%;
+    width: 90%;
     background: $color-input-menu;
     height: 24px;
     -webkit-transition: all 200ms ease;

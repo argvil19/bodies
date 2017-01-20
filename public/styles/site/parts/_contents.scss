@@ -4,6 +4,30 @@ div#nav-content{
     margin-right: -1rem;
 }
 
+div#banner{
+    width: 100%;
+    height: 300px;
+    overflow: hidden;
+    position: relative;
+}
+
+@media only screen and (max-width: 769px) {
+    div#banner{
+        height: 250px;
+    }
+}
+
+div#banner img{
+    position: absolute;
+    left: -1000%;
+    right: -1000%;
+    top: -1000%;
+    bottom: -1000%;
+    margin: auto;
+    min-height: 100%;
+    min-width: 100%;
+}
+
 div#nav-prev, div#nav-next{
     padding: 0;
 }
