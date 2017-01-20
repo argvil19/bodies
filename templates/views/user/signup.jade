@@ -1,7 +1,58 @@
 extends ../../layouts/default
 
 block content
-	.container
-		.row
+	.container#signup
+		.row.bot80.top30
 			.col.s12
-                h1 Register
+				.row#title
+					.col.s12.m10.l8.offset-m1.offset-l2
+						h3.header.center-align Registration
+				.row#error
+					.col.s12.m10.l8.offset-m1.offset-l2
+						div.hide#message
+				form(method="POST")#register.col.s12
+					.row
+						.input-field.col.s12.m10.l8.offset-m1.offset-l2
+							input#first(type="text", name="first", length="100", maxlength="100", data-error=".errorTxt1", data-success="I like it!")
+							|             
+							label(for="first") First name *
+							|             
+							div.errorTxt1
+					.row
+						.input-field.col.s12.m10.l8.offset-m1.offset-l2
+							input#last(type="text", name="last", length="100", maxlength="100", data-error=".errorTxt2", data-success="Strong!")
+							|             
+							label(for="last") Last name *
+							|             
+							div.errorTxt2
+					.row
+						.input-field.col.s12.m10.l8.offset-m1.offset-l2
+							input#email.validate(type="email", name="email", length="100", maxlength="100", data-error=".errorTxt3", data-success="Perfect!")
+							|             
+							label(for="email") Email *
+							|             
+							div.errorTxt3
+					.row
+						.input-field.col.s12.m10.l8.offset-m1.offset-l2
+							input#password(type="password", name="password", length="16", maxlength="16", data-error=".errorTxt4")
+							|             
+							label(for="password") Password *
+							|             
+							div.errorTxt4
+					.row.bot30
+						.input-field.col.s12.m10.l8.offset-m1.offset-l2
+							input#repassword(type="password", name="repassword", length="16", maxlength="16", data-error=".errorTxt5")
+							|             
+							label(for="repassword") Repeat password
+							|             
+							div.errorTxt5
+					.row
+						.input-field.col.s12.m10.l8.offset-m1.offset-l2
+							button.btn.waves-effect.waves-light.right(type="submit", name="action", id="submit")
+								| Submit 
+								i.fa.fa-arrow-right(aria-hidden="true")
+					.row
+						.input-field.col.s12.m10.l8.offset-m1.offset-l2
+							p.margin.center.left-small.sign-up
+								| Already have an account? 
+								a(href="keystone/signin") Login

@@ -9,7 +9,7 @@ module.exports = (req, res, next) => {
     const View = new keystone.View(req, res);
     const locals = res.locals;
 
-    if (!(name && email && password)) {
+    if ((name || email || password) === {}) {
         return res.status(403).send({
             message: 'Missing required parameter'
         });
@@ -38,8 +38,12 @@ module.exports = (req, res, next) => {
                 return View.render('error', locals);
             }
 
-            req.flash('success', 'Success! You can log in with your new account.');
-            return res.redirect('/keystone/signin');
+            return res.send({
+                message: 'Success! You can log in with your new account.',
+                success: true,
+                redirect: '/keystone/signin',
+            });
+
         });
     });
 };

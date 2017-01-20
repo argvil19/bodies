@@ -22,11 +22,11 @@ header
                         a#sidemenu
                             i.fa.fa-chevron-left#sidemenu(aria-hidden="true")
                     hr
-                    li: a(href='/') Home
+                    li.top15: a(href='/') Home
                     li: a(href='/store/get') Store
-                    li: a(href='/contact') Contact
+                    li.bot15: a(href='/contact') Contact
                     hr
-                    li
+                    li.top15
                         if user
                             if user.canAccessKeystone
                                 a.waves-effect.waves-light.btn(href='/keystone') Dashboard
@@ -37,3 +37,4 @@ header
                                 a.waves-effect.waves-light.btn.option-red(href='/keystone/signout') Sign Out
                         else
                             a.waves-effect.waves-light.btn(href='/keystone/signin') Sign in
+                            a.waves-effect.waves-light.btn.option-signup(href='/signup') Sign up

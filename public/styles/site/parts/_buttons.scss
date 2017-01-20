@@ -46,6 +46,30 @@
     background-color: $color-secondary-hover;
 }
 
+.option-signup.btn,
+.option-signup.btn-large {
+    color: $color-font-btn;
+    background-color: $color-signup;
+    text-align: center;
+}
+
+.option-signup.btn:focus,
+.option-signup.btn-large:focus,
+.option-signup.btn-floating:focus {
+    background-color: $color-signup-focus;
+}
+
+.option-signup.btn:hover,
+.option-signup.btn-large:hover {
+    background-color: $color-signup-hover;
+}
+
+.side-nav a.option-signup.btn:hover,
+.side-nav a.option-signup.btn-large:hover,
+.side-nav a.option-signup.btn-large:hover {
+    background-color: $color-signup-hover;
+}
+
 .btn-floating i#menu {
     width: inherit;
     display: inline-block;

@@ -13,6 +13,7 @@ $(document).ready(function () {
 	var win_width = $(window).width(); // Width of screen resolution.
 	var ani_duration = 400; // Animation duration.
 	var sizex_sidemenu = 250; // Side-Menu width.
+	var pathname = window.location.pathname;
 
 	$(window).resize(function () {
 		win_width = $(window).width();
@@ -83,9 +84,162 @@ $(document).ready(function () {
 		});
 	}
 
-	// Map contact
+	// Signup validators
+	if(pathname === "/signup"){
 
-	var pathname = window.location.pathname;
+		var form = $('#register');
+		var Msg = $('div#message');
+		var submit = form.find('button#submit');
+
+		var validator = form.validate({
+			rules: {
+				first: {
+					required: true,
+					minlength: 1,
+					maxlength: 100
+				},
+				last: {
+					required: true,
+					minlength: 1,
+					maxlength: 100
+				},
+				email: {
+					required: true,
+					email:true,
+					maxlength: 100
+				},
+				password: {
+					required: true,
+					minlength: 8,
+					maxlength: 16
+				},
+				repassword: {
+					required: true,
+					minlength: 8,
+					maxlength: 16,
+					equalTo: "#password"
+				},
+			},
+			//Messages
+			messages: {
+				first:{
+					required: "Enter your first name.",
+					minlength: "Enter at least 1 character."
+				},
+				last:{
+					required: "Enter your last name.",
+					minlength: "Enter at least 1 character."
+				},
+				email:{
+					required: "Enter your email."
+				},
+				password:{
+					required: "Enter your password.",
+					minlength: "Enter at least 8 characters."
+				},
+				repassword:{
+					required: "Enter your password again.",
+					equalTo: "Passwords do not match."
+				},
+			},
+			errorElement : 'div',
+			errorPlacement: function(error, element) {
+				var placement = $(element).data('error');
+
+				if (placement) {
+					$(placement).append(error);
+				} else {
+					error.insertAfter(element);
+				}
+			}
+		});
+
+		submit.click(function() {
+			
+			if(validator.form() === true){
+ 
+				// Stop form from submitting normally
+				event.preventDefault();
+				
+				// Get some values from elements on the page
+				var firstName = form.find('input[name="first"]').val();
+				var lastName = form.find('input[name="last"]').val();
+				var email = form.find('input[name="email"]').val();
+				var pass = form.find('input[name="password"]').val();
+				var rePass = form.find('input[name="repassword"]').val();
+
+				var	url = "/signup";
+				var data = { name: {first: firstName , last: lastName}, email: email, password: pass};
+				
+				// Send the data using post
+
+				$.post( 
+					url, 
+					{ name: {first: firstName , last: lastName}, email: email, password: pass},
+					(function (res) {
+
+    					if (res.success === true) {
+							Msg.removeClass();
+							Msg.addClass("show alert alert-success");
+							Msg.html('<span>' + res.message + '</span>');
+
+							$('input#first').attr("disabled", "true");
+							$('input#last').attr("disabled", "true");
+							$('input#email').attr("disabled", "true");
+							$('input#password').attr("disabled", "true");
+							$('input#repassword').attr("disabled", "true");
+
+							var timeout = 3; // in seconds
+
+							var msgContainer = $('<div />').appendTo(Msg),
+								msg = $('<span />').appendTo(msgContainer),
+								dots = $('<span />').appendTo(msgContainer); 
+
+							var timeoutInterval = setInterval(function() {
+
+							timeout--;
+
+							msg.html('Redirecting in ' + timeout + ' seconds');
+
+							if (timeout == 0) {
+								strUrl = res.redirect;  
+								clearInterval(timeoutInterval);
+								redirect(strUrl);
+							} 
+
+							}, 1000);
+
+							setInterval(function() {
+
+							if (dots.html().length == 3) {
+								dots.html('');
+							}
+
+							dots.html(function(i, oldHtml) { return oldHtml += '.' });
+							}, 500);
+							
+
+							function redirect(url) {
+								window.location.href = url;   
+							}
+
+    					} else {
+							Msg.removeClass();
+							Msg.addClass("show alert alert-danger");
+							Msg.html('<span>' + res.message + '</span>');
+    					}
+  					})
+				);
+			}else{
+				Msg.removeClass();
+				Msg.addClass("show alert alert-danger");
+				Msg.html('<span> Check the missing data. </span>');
+			}
+			
+		});
+	}
+
+	// Map contact
 
 	if(pathname === "/contact"){
 		
