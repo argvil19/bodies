@@ -38,6 +38,7 @@ module.exports = (req, res, next) => {
                 if (item.rel === 'approval_url') {
                     req.session.paymentId = payment.id;
                     req.session.itemBoughtId = category._id;
+                    req.session.totalPrice = category.price.toFixed(2);
                     return res.redirect(item.href);
                 }
             });
