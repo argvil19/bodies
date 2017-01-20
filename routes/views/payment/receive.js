@@ -87,6 +87,7 @@ module.exports = (req, res, next) => {
                     locals.purchaseDate = purchaseDate;
                     locals.purchaseMethod = 'Paypal';
                     locals.itemBought = results[2];
+                    locals.section = 'payment';
 
                     Order.model.create({
                         purchaseDate: Date.now(),

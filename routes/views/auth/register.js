@@ -9,6 +9,7 @@ module.exports = (req, res, next) => {
     const locals = res.locals;
 
     locals.error = req.flash('error');
+    locals.section = 'register';
 
     View.render('user/signup', locals);
 };
