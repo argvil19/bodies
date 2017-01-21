@@ -154,74 +154,29 @@ $(document).ready(function () {
 			}
 		});
 
-		submit.click(function() {
-			
+		form.submit(function(event) {
+
+				event.preventDefault();
+
 			if(validator.form() === true){
  
-				// Stop form from submitting normally
-				event.preventDefault();
-				
 				// Get some values from elements on the page
 				var firstName = form.find('input[name="first"]').val();
 				var lastName = form.find('input[name="last"]').val();
 				var email = form.find('input[name="email"]').val();
 				var pass = form.find('input[name="password"]').val();
 				var rePass = form.find('input[name="repassword"]').val();
-
 				var	url = "/signup";
 				var data = { name: {first: firstName , last: lastName}, email: email, password: pass};
-				
-				// Send the data using post
 
 				$.post( 
 					url, 
-					{ name: {first: firstName , last: lastName}, email: email, password: pass},
+					data,
 					(function (res) {
 
-    					if (res.success === true) {
-							Msg.removeClass();
-							Msg.addClass("show alert alert-success");
-							Msg.html('<span>' + res.message + '</span>');
+    					if (res.success) {
 
-							$('input#first').attr("disabled", "true");
-							$('input#last').attr("disabled", "true");
-							$('input#email').attr("disabled", "true");
-							$('input#password').attr("disabled", "true");
-							$('input#repassword').attr("disabled", "true");
-
-							var timeout = 3; // in seconds
-
-							var msgContainer = $('<div />').appendTo(Msg),
-								msg = $('<span />').appendTo(msgContainer),
-								dots = $('<span />').appendTo(msgContainer); 
-
-							var timeoutInterval = setInterval(function() {
-
-							timeout--;
-
-							msg.html('Redirecting in ' + timeout + ' seconds');
-
-							if (timeout == 0) {
-								strUrl = res.redirect;  
-								clearInterval(timeoutInterval);
-								redirect(strUrl);
-							} 
-
-							}, 1000);
-
-							setInterval(function() {
-
-							if (dots.html().length == 3) {
-								dots.html('');
-							}
-
-							dots.html(function(i, oldHtml) { return oldHtml += '.' });
-							}, 500);
-							
-
-							function redirect(url) {
-								window.location.href = url;   
-							}
+							window.location.pathname = res.redirect;
 
     					} else {
 							Msg.removeClass();

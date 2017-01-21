@@ -126,9 +126,11 @@ module.exports = (req, res, next) => {
                 });
             });
         });
+        console.log(locals);
     }
     else {
         locals.error = 'The payment has been canceled';
         return View.render('error', locals);
+        console.log(locals);
     }
 };
