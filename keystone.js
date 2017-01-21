@@ -56,7 +56,7 @@ keystone.set('nav', {
  */
 var nodemailer = require('nodemailer');
 var mailSender = '"HVU site administrator" <account@gmail.com>';
-var transporter = nodemailer.createTransport('smtps://account%40gmail.com:password@smtp.gmail.com');
+var transporter = nodemailer.createTransport('smtps://hitbodies%40gmail.com:hitbodiestesting@smtp.gmail.com');
 
 /**
  * User notification system
@@ -64,7 +64,7 @@ var transporter = nodemailer.createTransport('smtps://account%40gmail.com:passwo
 var User = keystone.list('User').model,
 	Post = keystone.list('Post').model,
 	CronJob = require('cron').CronJob,
-	cronInterval = 20; // It means searching every 20 seconds
+	cronInterval = 60; // It means searching every 20 seconds
 
 // Generate template for mail text
 var jade = require('jade'),
@@ -140,6 +140,11 @@ new CronJob('*/' + cronInterval + ' * * * * *',
 // Set redirect after successful login
 keystone.set('signin redirect', function(user, req, res) {
 	var url = (user.isAdmin) ? '/keystone' : '/';
+	res.redirect(url);
+});
+
+keystone.set('signout redirect', function(req, res) {
+	var url = '/';
 	res.redirect(url);
 });
 

@@ -35,3 +35,15 @@ module.exports.authorize = (params) => {
         }]
     };
 };
+
+module.exports.execute = (params) => {
+    return {
+        "payer_id": params.payerId,
+        "transactions": [{
+            "amount": {
+                "currency": "USD",
+                "total": params.total,
+            }
+        }]
+    };
+};

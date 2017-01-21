@@ -35,20 +35,16 @@ var routes = {
 exports = module.exports = function(app) {
 	// Views
 	app.get('/', routes.views.index);
-	app.get('/blog/:category?', routes.views.blog);
-	app.get('/blog/post/:post', routes.views.post);
+	app.get('/blog/:category?', middleware.requireUser, middleware.categoryIsLocked, routes.views.blog);
+	app.get('/blog/post/:post', middleware.requireUser, middleware.articleIsLocked, routes.views.post);
 
 	// End points
-	app.get('/store/get', routes.views.store.get) // ?page=INT
-	app.get('/store/product/get', routes.views.store.product.get) // ?id=INT
-	app.get('/cart', middleware.requireUser, routes.views.cart.index)
-	app.get('/cart/add', middleware.requireUser, routes.views.cart.add)
-	app.get('/cart/delete', middleware.requireUser, routes.views.cart.delete)
-	app.get('/purchase/success', middleware.requireUser, routes.views.purchase.success)
-	app.get('/purchase/failed', middleware.requireUser, routes.views.purchase.failed)
-	app.get('/user/purchases', middleware.requireUser, routes.views.user.purchases)
-	app.get('/user/item/:id/details', middleware.requireUser, routes.views.user.item.details) // :id=INT
-	app.get('/article/:id', middleware.requireUser, middleware.articleIsLocked, routes.views.article) // :id=INT
+	app.get('/store/get', routes.views.store.get); // ?page=INT
+	app.get('/store/product/get', routes.views.store.product.get); // ?id=INT
+	app.get('/cart', middleware.requireUser, routes.views.cart.index);
+	app.get('/cart/add', middleware.requireUser, routes.views.cart.add);
+	app.get('/cart/delete', middleware.requireUser, routes.views.cart.delete);
+	app.get('/user/purchases', middleware.requireUser, routes.views.user.purchases);
 	app.get('/contact', routes.views.contact);
 
 	// This route for getting message from payment system about paument status

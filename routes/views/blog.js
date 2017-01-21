@@ -7,7 +7,7 @@ exports = module.exports = function(req, res) {
 	var locals = res.locals;
 
 	// Init locals
-	locals.section = 'blog';
+	locals.section = 'purchases';
 	locals.filters = {
 		category: req.params.category,
 	};
@@ -46,7 +46,7 @@ exports = module.exports = function(req, res) {
 
 		if (req.params.category) {
 			keystone.list('PostCategory').model.findOne({
-				key: locals.filters.category
+				_id: locals.filters.category
 			}).exec(function(err, result) {
 				locals.data.category = result;
 				next(err);

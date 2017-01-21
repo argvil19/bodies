@@ -5,7 +5,7 @@ extends ../layouts/default
 		.post(data-ks-editable=editable(user, { list: 'Post', id: post.id }))
 			.col.s12.m6.l4.center-align#post
 				if post.image.exists
-					a(href='/blog/post/' + post.slug)
+					a(href='/blog/post/' + post.id)
 						img.hoverable(src=post._.image.fit(400,400))
 				.row.date
 						.col.s12
@@ -16,7 +16,7 @@ extends ../layouts/default
 				.row.info
 					.row.title
 						.col.s12
-							h5.valign-wrapper.wraplines: a(href='/blog/post/' + post.slug)= post.title
+							h5.valign-wrapper.wraplines: a(href='/blog/post/' + post.id)= post.title
 					//- .row.brief
 					//- 	p!= post.content.brief
 					.row.author

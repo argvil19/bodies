@@ -7,9 +7,9 @@ module.exports = (req, res, next) => {
 
     const View = new keystone.View(req, res);
     const locals = res.locals;
-    locals.section = 'signup';
 
     locals.error = req.flash('error');
+    locals.section = 'register';
 
     View.render('user/signup', locals);
 };

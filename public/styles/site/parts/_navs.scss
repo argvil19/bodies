@@ -16,6 +16,11 @@ nav {
     line-height: 40px;
 }
 
+nav .brand-logo {
+    position: absolute;
+    display: inline-flex;
+}
+
 a.collection-item.avatar:hover {
     color: black;
 }
@@ -72,8 +77,9 @@ nav .button-collapse {
         width: 250px;
         top: 64px;
     }
-    nav .brand-logo {
-        padding: 6px 0px 0px 50px;
+    nav .brand-logo{
+        padding: 6px 0px 0px 20px;
+        z-index: 1;
     }
 }
 
@@ -128,7 +134,7 @@ ul#mobile-menu h4 {
 }
 
 .page-act {
-    padding: 5px 0px 0px 280px;
+    padding: 5px 0px 0px 250px;
     position: absolute;
     color: #fff;
     display: inline-block;
