@@ -6,9 +6,6 @@ module.exports = (req, res, next) => {
     const email = req.body.email;
     const password = req.body.password;
 
-    const View = new keystone.View(req, res);
-    const locals = res.locals;
-
     if (!(name && email && password)) {
         return res.status(403).send({
             message: 'Missing required parameter'
@@ -19,8 +16,10 @@ module.exports = (req, res, next) => {
         email
     }, {}, (err, user) => {
         if (err) {
-            locals.error = 'Internal Server Error';
-            return View.render('error', locals);
+            return res.status(500).send({
+                message: 'Internal Server Error',
+                success: false,
+            });
         }
         else if (user) {
             return res.status(403).send({
@@ -34,12 +33,17 @@ module.exports = (req, res, next) => {
             password,
         }, (err, created) => {
             if (err) {
-                locals.error = 'Internal Server Error';
-                return View.render('error', locals);
+                return res.status(500).send({
+                    message: 'Internal Server Error',
+                    success: false,
+                });
             }
 
-            req.flash('success', 'Success! You can log in with your new account.');
-            return res.redirect('/keystone/signin');
+            return res.send({
+                message: 'Success! You can log in with your new account.',
+                success: true,
+                redirect: '/keystone/signin',
+            });
         });
     });
 };
