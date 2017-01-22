@@ -16,71 +16,33 @@ exports = module.exports = function(req, res) {
 		categories: [],
 	};
 
-	// Load all categories
-	view.on('init', function(next) {
+	const unlockedArticles = req.user.purchases.filter(item => item.product === req.params.category)[0].unlockSheddule.filter(item => new Date() > item.unlockDate).map(item => item.article);
 
-		keystone.list('PostCategory').model.find().sort('name').exec(function(err, results) {
+	keystone.list('Post').model.find({
+		categories: req.params.category,
+		_id: {
+			$in: unlockedArticles,
+		},
+	}, {}, (err, posts) => {
+		if (err) {
+			locals.error = 'Internal Server Error';
+			return view.render('error', locals);
+		}
 
-			if (err || !results.length) {
-				return next(err);
+		keystone.list('PostCategory').model.find({
+			_id: {
+				$in: req.user.purchases.map(item => item.product),
+			},
+		}, {}, (err, category) => {
+			if (err) {
+				locals.error = 'Internal Server Error';
+				return view.render('error', locals);
 			}
 
-			locals.data.categories = results;
+			locals.data.categories.push(category);
+			locals.data.posts = posts;
 
-			// Load the counts for each category
-			async.each(locals.data.categories, function(category, next) {
-
-				keystone.list('Post').model.count().where('categories').in([category.id]).exec(function(err, count) {
-					category.postCount = count;
-					next(err);
-				});
-
-			}, function(err) {
-				next(err);
-			});
+			return view.render('blog', locals);
 		});
 	});
-
-	// Load the current category filter
-	view.on('init', function(next) {
-
-		if (req.params.category) {
-			keystone.list('PostCategory').model.findOne({
-				_id: locals.filters.category
-			}).exec(function(err, result) {
-				locals.data.category = result;
-				next(err);
-			});
-		}
-		else {
-			next();
-		}
-	});
-
-	// Load the posts
-	view.on('init', function(next) {
-
-		var q = keystone.list('Post').paginate({
-				page: req.query.page || 1,
-				perPage: 10,
-				maxPages: 10,
-				filters: {
-					state: 'published',
-				},
-			})
-			.sort('-publishedDate')
-			.populate('author categories');
-
-		if (locals.data.category) {
-			q.where('categories').in([locals.data.category]);
-		}
-
-		q.exec(function(err, results) {
-			locals.data.posts = results;
-			next(err);
-		});
-	});
-
-	// Render the view
-	view.render('blog');
 };
