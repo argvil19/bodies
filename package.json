@@ -15,7 +15,8 @@
     "node-sass": "^3.3.2",
     "node-sass-middleware": "^0.9.7",
     "nodemailer": "^2.7.0",
-    "paypal-rest-sdk": "^1.7.1"
+    "paypal-rest-sdk": "^1.7.1",
+    "stripe": "^4.15.0"
   },
   "devDependencies": {
     "eslint": "^2.12.0",
