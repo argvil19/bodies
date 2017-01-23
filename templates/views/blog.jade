@@ -19,10 +19,10 @@ extends ../layouts/default
 							h5.valign-wrapper.wraplines: a(href='/blog/post/' + post.id)= post.title
 					//- .row.brief
 					//- 	p!= post.content.brief
-					.row.author
-						p.lead.text-muted
-							if post.author
-								| by #{post.author.name.first}
+					//- .row.author
+					//- 	p.lead.text-muted
+					//- 		if post.author
+					//- 			| by #{post.author.name.first}
 
 	block content
 		.container: .row.top80.bot30
@@ -31,10 +31,10 @@ extends ../layouts/default
 
 		.container: .row.bot80
 			.col.s12.m12.l12
-				if filters.category && !data.category
+				if filters.category && !data.categories
 					h3.text-muted Invalid Category.
 				else
-					if data.posts.results.length
+					if data.posts.length
 						if data.posts.totalPages > 1
 							h6.bot15.text-weight-normal Showing 
 								strong #{data.posts.first}
@@ -44,15 +44,15 @@ extends ../layouts/default
 								strong #{data.posts.total}
 								|  articles.
 						else
-							h4.text-weight-normal Showing #{utils.plural(data.posts.results.length, '* article')}.
+							h4.text-weight-normal Showing #{utils.plural(data.posts.length, '* article')}.
 						.blog
-							each post in data.posts.results
+							each post in data.posts
 								+post(post)
 						
 						if data.posts.totalPages > 1
 							.row
 								.col.s12.m12.l12.top30
-									if data.posts.results.length
+									if data.posts.length
 										if data.posts.totalPages > 1
 											h6.text-weight-normal Showing 
 												strong #{data.posts.first}

@@ -34,6 +34,7 @@ exports = module.exports = function(req, res) {
 			}
 			locals.data.categories.push(category);
 			locals.data.posts = posts;
+			console.log(locals);
 			return view.render('blog', locals);
 		});
 	});
