@@ -1,44 +1,40 @@
-div#nav-content{
+div#nav-content {
     display: block;
     margin-left: -1rem;
     margin-right: -1rem;
 }
 
-div#banner{
+img.img-banner {
     width: 100%;
-    height: 300px;
-    overflow: hidden;
+    top: 0;
+    left: 0;
+}
+
+div#banner {
     position: relative;
 }
 
-@media only screen and (max-width: 769px) {
-    div#banner{
-        height: 250px;
+@media only screen and (max-width: 425px) {
+    img.img-banner {
+        width: 100%;
+        top: 0;
+        left: 0;
+        height: auto;
     }
 }
 
-div#banner img{
-    position: absolute;
-    left: -1000%;
-    right: -1000%;
-    top: -1000%;
-    bottom: -1000%;
-    margin: auto;
-    min-height: 100%;
-    min-width: 100%;
-}
-
-div#nav-prev, div#nav-next{
+div#nav-prev,
+div#nav-next {
     padding: 0;
 }
 
-div#nav-prev{
+div#nav-prev {
     width: 50%;
     float: left;
     text-align: left;
 }
 
-div#nav-next{
+div#nav-next {
     width: 50%;
     float: right;
     text-align: right;
@@ -74,16 +70,16 @@ a#nav-link {
     color: #999;
     font-size: 11px;
     font-weight: 400;
-    font-family: Montserrat,sans-serif;
+    font-family: Montserrat, sans-serif;
     letter-spacing: 1px;
     text-transform: uppercase;
     line-height: 1.5;
     background: transparent;
 }
 
-a#content-link{
+a#content-link {
     color: $color-primary;
-    h4{
+    h4 {
         font-weight: 500;
     }
 }
@@ -92,7 +88,7 @@ div#date-line {
     border-top: 1px solid #ddd;
 }
 
-span#date-pub{
+span#date-pub {
     background: #fff;
     padding: 0 10px;
     position: relative;
@@ -102,10 +98,8 @@ span#date-pub{
 }
 
 // Side content - social
-
-div#side-content{
+div#side-content {
     margin-top: 18%;
-
     .social-side {
         padding: 0px 20px;
         margin: 0 0 0 -8px;
@@ -113,7 +107,6 @@ div#side-content{
         display: inline-block;
         text-align: center;
     }
-
     .social-side i {
         font-size: 18px;
         color: $color-general-font;
@@ -122,11 +115,9 @@ div#side-content{
         height: 100%;
         width: 100%;
     }
-
     .social-side i:hover {
         color: $color-primary;
     }
-
     .social-side a {
         display: inline-block;
         width: 35px;
@@ -134,17 +125,14 @@ div#side-content{
         border-top: 1px solid $white;
         border-bottom: 1px solid $white;
     }
-
     .social-side a:hover {
         border-top: 1px solid $color-primary-hover;
         border-bottom: 1px solid $color-primary-hover;
     }
-
     .social-side li {
         margin-left: 8px;
         display: inline;
     }
-
     .fa-side {
         display: inline-block;
         font: normal normal normal 14px/1 FontAwesome;
@@ -154,6 +142,4 @@ div#side-content{
         -moz-osx-font-smoothing: grayscale;
         transform: translate(0, 0);
     }
-
 }
-

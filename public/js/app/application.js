@@ -17,13 +17,26 @@ $(document).ready(function () {
 
 	$(window).resize(function () {
 		win_width = $(window).width();
-
 		if (active === true) {
 			$(main).css("padding-left", 0);
 			$(footer).css("padding-left", 0);
 		}
 
 	});
+
+	// Banner
+	$(window).resize(function () {
+		win_width = $(window).width();
+		if (win_width > 768  && win_width < 1440) {
+			$(".img-banner").attr("src", "/images/logos/hb-banner-v2b-1440px.jpg");
+		}else if (win_width > 426  && win_width < 770) {
+			$(".img-banner").attr("src", "/images/logos/hb-banner-v2b-768px.jpg");
+		}else if (win_width > 300  && win_width < 426) {
+			$(".img-banner").attr("src", "/images/logos/hb-banner-v2b-425px.jpg");
+		}
+	});
+
+	// Menu
 
 	$(B_collapse).click(function () {
 
@@ -190,6 +203,15 @@ $(document).ready(function () {
 			 	Msg.html('<span> Check the missing data. </span>');
 			 }
 		});
+	}
+
+
+	
+	
+	else if(768 < win_width && win_width < 1023){
+		$(".img-banner").attr("src", "/images/logos/hb-banner-v2b-768px.jpg");
+	}else if(320 < win_width && win_width < 426){
+		$(".img-banner").attr("src", "/images/logos/hb-banner-v2b-425px.jpg");
 	}
 
 	// Search menu bar

@@ -14,12 +14,12 @@ block content
 			div.row.top30.container
 				if recent
 					each item in recent
-						div#main-series.col.s12.m6.l3.top15.bot15
+						div#main-series.col.s12.m6.l3.top15.bot15.hoverable: a(href='/store/product/get?id='+item.id)
 							div#series-title.text-center
 								h5#series-title= item.name
 							div#series-img
 								div#article.content
-									a(href='/store/product/get?id='+item.id): img.responsive-img.hoverable(src= item.images.url)
+									img.responsive-img(src= item.images.url)
 				else
 					div.col.s12.top15
 						h5.text-center Sorry, there are no series to show.

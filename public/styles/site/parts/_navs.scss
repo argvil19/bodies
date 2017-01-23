@@ -17,8 +17,25 @@ nav {
 }
 
 nav .brand-logo {
-    position: absolute;
-    display: inline-flex;
+
+    background-image: url(../images/logos/hb-logo-white-180px.png);
+    height: 60px;
+    width: 180px;
+    margin-top: 6px;
+    margin-left: 15px;
+}
+
+
+/* for high resolution display */
+
+@media only screen and (min--moz-device-pixel-ratio: 2),
+only screen and (-o-min-device-pixel-ratio: 2/1),
+only screen and (-webkit-min-device-pixel-ratio: 2),
+only screen and (min-device-pixel-ratio: 2) {
+    nav .brand-logo {
+        background: url(../images/logos/hb-logo-white-180px.png) no-repeat;
+        background-size: 180px 60px;
+    }
 }
 
 a.collection-item.avatar:hover {
@@ -45,10 +62,6 @@ nav .button-collapse {
         border-top: 1px solid $color-separators;
         padding: 0;
     }
-
-    nav .brand-logo {
-        padding: 5px 0px 0px 0px;
-    }
 }
 
 @media only screen and (max-width: 426px) {
@@ -59,10 +72,6 @@ nav .button-collapse {
         border: 0;
         border-top: 1px solid $color-separators;
         padding: 0;
-    }
-
-    nav .brand-logo {
-        padding: 6px 0px 0px 0px;
     }
 }
 
@@ -77,8 +86,7 @@ nav .button-collapse {
         width: 250px;
         top: 64px;
     }
-    nav .brand-logo{
-        padding: 6px 0px 0px 20px;
+    nav .brand-logo {
         z-index: 1;
     }
 }
@@ -90,8 +98,10 @@ nav .button-collapse {
 .side-nav.fixed {
     left: 0;
     transform: translateX(-100%);
-    -ms-transform: translateX(-100%); /* IE 9 */
-    -webkit-transform: translateX(-100%); /* Safari */
+    -ms-transform: translateX(-100%);
+    /* IE 9 */
+    -webkit-transform: translateX(-100%);
+    /* Safari */
     position: fixed;
     //-webkit-backface-visibility: hidden;
 }
@@ -198,5 +208,5 @@ nav ul a#icon-nav {
 }
 
 nav ul a:hover {
-   background-color: transparent;
+    background-color: transparent;
 }
