@@ -13,7 +13,7 @@ block content
 				.row#error
 					.col.s12.m10.l8.offset-m1.offset-l2
 						div.hide#message
-				form(method="POST")#register.col.s12
+				form#register.col.s12
 					.row
 						.input-field.col.s12.m10.l8.offset-m1.offset-l2
 							input#first(type="text", name="first", length="100", maxlength="100", data-error=".errorTxt1", data-success="I like it!")
@@ -51,7 +51,7 @@ block content
 							div.errorTxt5
 					.row
 						.input-field.col.s12.m10.l8.offset-m1.offset-l2
-							button.btn.waves-effect.waves-light.right(type="submit", name="action", id="submit")
+							button.btn.waves-effect.waves-light.right(type="submit")
 								| Submit 
 								i.fa.fa-arrow-right(aria-hidden="true")
 					.row

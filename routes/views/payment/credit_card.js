@@ -1,25 +1,38 @@
+const stripe = require('stripe')('SECRET_KEY');
 const keystone = require('keystone');
 const Order = keystone.list('Order');
-const Post = keystone.list('Post');
-const PostCategory = keystone.list('PostCategory');
 const User = keystone.list('User');
-const paypal = require('../../../config/paypal');
+const PostCategory = keystone.list('PostCategory');
+const Post = keystone.list('Post');
 const async = require('async');
 const mailer = require('../../../helpers/mailer');
-const paypalTemplates = require('../../helpers/paypal_templates');
 
 module.exports = (req, res, next) => {
-    const locals = res.locals;
-    const View = new keystone.View(req, res);
+    const stripeToken = req.body.stripeToken;
 
-    if (req.query.success) {
-        paypal.payment.execute(req.session.paymentId, paypalTemplates.execute({
-            payerId: req.query.PayerID,
-            total: req.session.totalPrice,
-        }), (err, payment) => {
+    PostCategory.model.findOne({
+        _id: req.body.itemBoughtId,
+    }, {}, (err, itemBought) => {
+        if (err) {
+            return res.status(500).send({
+                message: 'Internal Server Error',
+                success: false
+            });
+        }
+        else if (!itemBought) {
+            return res.status(404).send({
+                message: 'The item you are trying to buy doesn\'t exist',
+                success: false
+            });
+        }
+
+        stripe.charges.create({
+            card: stripeToken,
+            currency: 'usd',
+            amount: parseInt(itemBought.price, 10),
+        }, (err, charge) => {
             if (err) {
-                locals.error = 'An error has occurred while occurred while executing the payment. You have not been charged.';
-                return View.render('error', locals);
+                return res.status(500).send(err);
             }
 
             async.parallel([
@@ -38,7 +51,7 @@ module.exports = (req, res, next) => {
                 },
                 (done) => {
                     Post.model.find()
-                        .where('categories', req.session.itemBoughtId)
+                        .where('categories', req.body.itemBoughtId)
                         .where('state', 'published')
                         .exec((err, articles) => {
                             if (err) {
@@ -47,18 +60,13 @@ module.exports = (req, res, next) => {
 
                             return done(null, articles);
                         });
-                },
-                (done) => {
-                    PostCategory.model.findOne({
-                        _id: req.session.itemBoughtId,
-                    }, {}, (err, category) => {
-                        return done(err, category);
-                    });
                 }
             ], (err, results) => {
                 if (err) {
-                    locals.error = 'An error has occurred while processing your order. Your payment ID is ' + req.query.paymentId + '. Please contact support and supply your Payment ID';
-                    return View.render('error', locals);
+                    return res.status(500).send({
+                        message: 'Internal Server Error',
+                        success: false
+                    });
                 }
 
                 const purchaseDate = new Date();
@@ -73,35 +81,29 @@ module.exports = (req, res, next) => {
 
                 results[0].purchases.push({
                     purchased: purchaseDate,
-                    product: req.session.itemBoughtId,
+                    product: req.body.itemBoughtId,
                     unlockSheddule: schedule,
                 });
+
                 results[0].save((err, userSaved) => {
                     if (err) {
-                        locals.error = 'An error has occurred while processing your order. Your payment ID is ' + req.query.paymentId + '. Please contact support and supply your Payment ID';
-                        return View.render('error', locals);
+                        console.log('Error saving User schedule');
                     }
-
-                    locals.paymentId = req.query.paymentId;
-                    locals.puchaseSchedule = userSaved.purchases[userSaved.purchases.length - 1];
-                    locals.purchaseDate = purchaseDate;
-                    locals.purchaseMethod = 'Paypal';
-                    locals.itemBought = results[2];
-                    locals.section = 'payment';
-                    locals.user = userSaved;
 
                     Order.model.create({
                         purchaseDate: Date.now(),
-                        itemBought: req.session.itemBoughtId,
+                        itemBought: req.body.itemBoughtId,
                         user: req.user._id,
-                        success: req.query.success,
-                        paymentId: req.query.paymentId,
+                        success: true,
                     }, (err, order) => {
                         if (err) {
-                            console.error('Order failed to save. The payment has been succeded anyway');
+                            console.log('Error saving order with CC. Payment still approved');
                         }
 
-                        mailer.getTemplate('purchase', locals, (err, html) => {
+                        mailer.getTemplate('purchase_cc', {
+                            order,
+                            itemBought,
+                        }, (err, html) => {
                             if (err) {
                                 return console.log('Error at sending purchase email');
                             }
@@ -119,19 +121,16 @@ module.exports = (req, res, next) => {
                                 }
 
                                 console.log('Confirmation email has been sent');
-                            })
-                        })
+                            });
+                        });
 
-                        return View.render('purchase/purchase_result', locals);
+                        return res.status(201).send({
+                            message: 'Purchase completed',
+                            success: true,
+                        });
                     });
                 });
             });
         });
-        console.log(locals);
-    }
-    else {
-        locals.error = 'The payment has been canceled';
-        return View.render('error', locals);
-        console.log(locals);
-    }
+    });
 };

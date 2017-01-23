@@ -61,6 +61,7 @@ exports = module.exports = function(app) {
 	// Payment routes
 	app.get('/payment/checkout?', middleware.requireUser, routes.views.payment.process);
 	app.get('/payment/receive?', middleware.requireUser, routes.views.payment.receive);
+	app.post('/payment/cc/checkout', middleware.requireUser, routes.views.payment.credit_card);
 
 	// NOTE: To protect a route so that only admins can see it, use the requireUser middleware:
 	// app.get('/protected', middleware.requireUser, routes.views.protected);

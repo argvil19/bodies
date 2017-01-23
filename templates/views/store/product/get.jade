@@ -43,9 +43,21 @@ block content
 										div.col.s4.m5.l5.hide-on-small-only
 											img.activator.responsive-img(src= article.image.url)
 					
-		div.row.bot80
-			div.col.s12.m6.l3.right
-				a.waves-effect.waves-light.btn(href='/payment/checkout?productId='+ category.id) Buy 
-					| 
-					= category.price
-					| $
+		div.row.bot80.text-center.valign-wrapper.hide-on-small-only
+			div.col.m4.l4
+				p Price: #{category.price} $
+			div.col.m4.l4
+				a#CC.waves-effect.waves-light.btn(href='#') Buy with CC
+			div.col.m4.l4
+				a#PP.waves-effect.waves-light.btn(href='/payment/checkout?productId='+ category.id) Buy in paypal
+		
+		div.row.bot80.text-center.hide-on-med-and-up
+			div.row
+				div.col.s12
+					p Price: #{category.price} $
+			div.row
+				div.col.s12
+					a#CC.waves-effect.waves-light.btn(href='#') Buy with CC
+			div.row
+				div.col.s12
+					a#PP.waves-effect.waves-light.btn(href='/payment/checkout?productId='+ category.id) Buy in paypal	

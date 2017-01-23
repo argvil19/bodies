@@ -89,7 +89,6 @@ $(document).ready(function () {
 
 		var form = $('#register');
 		var Msg = $('div#message');
-		var submit = form.find('button#submit');
 
 		var validator = form.validate({
 			rules: {
@@ -154,45 +153,80 @@ $(document).ready(function () {
 			}
 		});
 
+		// Signup post
+
 		form.submit(function(event) {
 
-				event.preventDefault();
+			event.preventDefault();
 
-			if(validator.form() === true){
- 
-				// Get some values from elements on the page
-				var firstName = form.find('input[name="first"]').val();
-				var lastName = form.find('input[name="last"]').val();
-				var email = form.find('input[name="email"]').val();
-				var pass = form.find('input[name="password"]').val();
-				var rePass = form.find('input[name="repassword"]').val();
-				var	url = "/signup";
-				var data = { name: {first: firstName , last: lastName}, email: email, password: pass};
+			var firstName = form.find('input[name="first"]').val();
+			var lastName = form.find('input[name="last"]').val();
+			var email = form.find('input[name="email"]').val();
+			var pass = form.find('input[name="password"]').val();
 
-				$.post( 
-					url, 
-					data,
-					(function (res) {
+			var	url = "/signup";
 
-    					if (res.success) {
-
-							window.location.pathname = res.redirect;
-
-    					} else {
-							Msg.removeClass();
-							Msg.addClass("show alert alert-danger");
-							Msg.html('<span>' + res.message + '</span>');
-    					}
-  					})
-				);
-			}else{
-				Msg.removeClass();
-				Msg.addClass("show alert alert-danger");
-				Msg.html('<span> Check the missing data. </span>');
-			}
+			var data = { name: {first: firstName , last: lastName}, email: email, password: pass };
 			
+			if(validator.form() === true){
+
+			$.post({
+                    url,
+                    data,
+                    success: function(res) {
+                        window.location.pathname = res.redirect;
+                    },
+                    error: function(err) {
+
+                        Msg.removeClass();
+                        Msg.addClass("show alert alert-danger");
+                        Msg.html('<span>' + err.responseJSON.message + '</span>');
+                    }
+                });
+
+			 }else{
+			 	Msg.removeClass();
+			 	Msg.addClass("show alert alert-danger");
+			 	Msg.html('<span> Check the missing data. </span>');
+			 }
 		});
 	}
+
+	// Search menu bar
+
+$('#inputSearch').autocomplete({
+        source: function(req,res) {
+            var dale = $.ajax({
+                url: "/store/autocomplete/search?",
+                type: "GET",
+				//dataType: 'jsonp',
+                data: {
+                    search: req.term
+                },
+                success: function(data) {
+						console.log(data);
+                    res$.map(data, function(data) {
+                        return {
+                            _id: res.data._id,
+                            name: res.data.name,
+							price: res.data.price
+                        };
+                    });
+                },
+                error: function(err) {
+                    alert(err.status + ' : ' + err.statusText);
+                }
+            })	
+			.fail(function() { console.log(dale); })
+  			.done(function() { console.log(dale); });
+				
+        },
+        select: function(event, ui) {
+			window.location.pathname = "/store/product/get?id=" + ui.item._id;
+        }
+});
+
+
 
 	// Map contact
 

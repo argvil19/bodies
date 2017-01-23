@@ -10,7 +10,7 @@ exports = module.exports = function(req, res, next) {
 	var locals = res.locals;
 
 	// Init locals
-	locals.section = 'store';
+	locals.section = 'product';
 
 	PostCategory.findOne({
 		_id: req.query.id,
