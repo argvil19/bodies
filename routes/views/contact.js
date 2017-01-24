@@ -16,8 +16,7 @@ module.exports = (req, res, next) => {
 
         contactInfo = contactInfo[0];
 
-        locals.latitude = contactInfo.latitude;
-        locals.longitude = contactInfo.longitude;
+        locals.address = contactInfo.address;
         locals.contactInfo = contactInfo.contactInfo;
         locals.section = 'contact';
 

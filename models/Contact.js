@@ -8,13 +8,8 @@ var Types = keystone.Field.Types;
 var Contact = new keystone.List('Contact');
 
 Contact.add({
-    longitude: {
-        type: Types.Number,
-        default: -43.81347656,
-    },
-    latitude: {
-        type: Types.Number,
-        default: 29.72622232,
+    address: {
+        type: String,
     },
     contactInfo: {
         type: Types.Html,
