@@ -89,6 +89,41 @@ $(document).ready(function () {
 			active = false;
 		}
 	});
+	
+	// Search Bar
+    
+    $('#inputSearch').autoComplete({
+        source: function(req, res) {
+            $.ajax({
+                url: '/store/autocomplete/search?search=' + req,
+                type: "GET",
+                success: function(response) {
+                    return res(response.data.map(function (item) { return item.name }));
+                },
+                error: function(err) {
+                    console.log(err);
+                }
+            });
+        },
+        onSelect: function(event, term) {
+            $.ajax({
+                url: '/store/autocomplete/search?search=' + term,
+                type: "GET",
+                success: function(response) {
+                    window.location.pathname = "/store/product/get?id=" + response.data[0]._id;
+                },
+                error: function(err) {
+                    console.log(err);
+                }
+            });
+        },
+        minChars: 1
+    });
+    
+    $('#searchForm').on('submit', function(e) {
+        e.preventDefault();
+        window.location.pathname = "/store/search?search=" + $('#inputSearch').val();
+    })
 
 	// collapsible init
 	if(pathname === "/store/product/get"){
@@ -213,12 +248,6 @@ $(document).ready(function () {
 	}else if(320 < win_width && win_width < 426){
 		$(".img-banner").attr("src", "/images/logos/hb-banner-v2b-425px.jpg");
 	}
-
-	// Search menu bar
-
-$('#inputSearch').autocomplete({
-
-});
 
 	// Map contact
 
