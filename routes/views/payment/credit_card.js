@@ -1,4 +1,4 @@
-const stripe = require('stripe')('SECRET_KEY');
+const stripe = require('stripe')('sk_test_WBPu9tPUmLJXbLaMmpOpUvAU');
 const keystone = require('keystone');
 const Order = keystone.list('Order');
 const User = keystone.list('User');
@@ -115,8 +115,9 @@ module.exports = (req, res, next) => {
                                 subject: 'You have purchased a new item',
                             };
 
-                            mailer.sendMail(mailOptions, (err, info) => {
+                            mailer.transporter.sendMail(mailOptions, (err, info) => {
                                 if (err) {
+                                    console.log(err);
                                     return console.log('Error sending confirmation email');
                                 }
 

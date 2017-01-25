@@ -79,6 +79,8 @@ html
 
 		if section === 'product'
 			script(src='/js/plugins/card/jquery.card.js')
+			script(src='https://checkout.stripe.com/checkout.js')
+			script(src='/js/app/stripe_config.js')
 		
 		if section === 'register' || section === 'contact'
 			script(src='/js/plugins/jqueryValidations/jquery.validate.min.js')

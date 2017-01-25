@@ -47,7 +47,9 @@ block content
 			div.col.m4.l4
 				p Price: #{category.price} $
 			div.col.m4.l4
-				a.waves-effect.waves-light.btn(href='#') Pay with Credit Card
+				input#input-hidden-id(type='hidden', value='#{category._id}')
+				input#input-price-hidden-id(type='hidden', value='#{parseInt(category.price)}00')
+				a#cc-buy-btn.waves-effect.waves-light.btn(href='#') Pay with Credit Card
 			div.col.m4.l4
 				a.waves-effect.waves-light.btn(href='/payment/checkout?productId='+ category.id) Pay with paypal
 		

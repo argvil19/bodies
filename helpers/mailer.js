@@ -21,5 +21,5 @@ module.exports.getTemplate = (templateName, params, cb) => {
     });
 };
 
-module.exports.sendMail = transporter.sendMail;
+module.exports.transporter = transporter;
 module.exports.mailSender = mailSender;
