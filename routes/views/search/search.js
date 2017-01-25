@@ -23,10 +23,10 @@ exports = module.exports = function(req, res) {
             locals.items = results.results;
             locals.currentPage = results.currentPage;
             locals.totalPages = results.totalPages,
-                locals.pages = results.pages,
-                locals.previous = results.previous,
-                locals.next = results.next,
-                locals.last = results.last,
+            locals.pages = results.pages,
+            locals.previous = results.previous,
+            locals.next = results.next,
+            locals.last = results.last,
 
                 next(err);
         });

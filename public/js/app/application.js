@@ -110,7 +110,7 @@ $(document).ready(function () {
                 url: '/store/autocomplete/search?search=' + term,
                 type: "GET",
                 success: function(response) {
-                    window.location.pathname = "/store/product/get?id=" + response.data[0]._id;
+                    window.location.href = "/store/product/get?id=" + response.data[0]._id;
                 },
                 error: function(err) {
                     console.log(err);
@@ -122,7 +122,7 @@ $(document).ready(function () {
     
     $('#searchForm').on('submit', function(e) {
         e.preventDefault();
-        window.location.pathname = "/store/search?search=" + $('#inputSearch').val();
+        window.location.href = "/store/search?search=" + $('#inputSearch').val();
     })
 
 	// collapsible init
