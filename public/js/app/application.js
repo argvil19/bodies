@@ -252,8 +252,6 @@ $(document).ready(function () {
 	// Map contact
 
 	if(pathname === "/contact"){
-
-
 		
 		function initialize() {
 
@@ -306,5 +304,26 @@ $(document).ready(function () {
 		}
 		
 		google.maps.event.addDomListener(window, 'load', initialize);
+		
+		// Handle contact
+		
+		function handleContact(e) {
+			e.preventDefault();
+			
+			var contactInfo = {
+				name: $('#name').val(),
+				email: $('#email').val(),
+				subject: $('#subject').val(),
+				messageContent: $('message').val()
+			};
+			
+			$.post('/contact', contactInfo).done(function(res) {
+				Materialize.toast(res.message, 5000);
+			}).fail(function(err) {
+				Materialize.toast(err.message, 5000);
+			});
+		}
+		
+		$('#contact-form').on('submit', handleContact);
 	}
 });
