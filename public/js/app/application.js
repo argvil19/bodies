@@ -217,42 +217,14 @@ $(document).ready(function () {
 	// Search menu bar
 
 $('#inputSearch').autocomplete({
-        source: function(req,res) {
-            var dale = $.ajax({
-                url: "/store/autocomplete/search?",
-                type: "GET",
-				//dataType: 'jsonp',
-                data: {
-                    search: req.term
-                },
-                success: function(data) {
-						console.log(data);
-                    res$.map(data, function(data) {
-                        return {
-                            _id: res.data._id,
-                            name: res.data.name,
-							price: res.data.price
-                        };
-                    });
-                },
-                error: function(err) {
-                    alert(err.status + ' : ' + err.statusText);
-                }
-            })	
-			.fail(function() { console.log(dale); })
-  			.done(function() { console.log(dale); });
-				
-        },
-        select: function(event, ui) {
-			window.location.pathname = "/store/product/get?id=" + ui.item._id;
-        }
+
 });
-
-
 
 	// Map contact
 
 	if(pathname === "/contact"){
+
+
 		
 		function initialize() {
 
@@ -263,7 +235,7 @@ $('#inputSearch').autocomplete({
 
 			geocoder = new google.maps.Geocoder();
 
-			var address = "1365 Atlantic Ave, Brooklyn, NY 11216, EE. UU.";
+			var address = localAddress;
 
 			geocoder.geocode({
 				'address': address

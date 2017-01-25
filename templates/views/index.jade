@@ -6,7 +6,7 @@ block content
 			#title.caption
 				span.border Title
 			#articles.caption
-				span.border: a(href='/store/get').waves-effect.waves-light.btn Visit the store
+				span.border: a(href='/store/get').waves-effect.waves-light.btn Visit the programs
 			.parallax
 
 		div#main-section.container.top80
@@ -26,19 +26,19 @@ block content
 			div.row.top20
 				div#btn-article.col.s12.text-right
 					a.waves-effect.waves-light.btn(href='/store/get') More series
-
-		div#main-section2.container.top80
-			h4#title-section.text-center Testimonials
-			div.row.top30.container
-				-for (var x=0; x<3; x++)
-					div.row.text-center
-						div.col.s4.m2.l2
-							img.circle(src= "images/witnesses/witnesses-test.png")
-						div.col.s7.m3.l3
-							h5#name-section2.text-left Sir test
-						div.col.s9.m7.l7.offset-s1.text-center
-							div#testimonial.content
-								p Very good articles, recommended.
+		div.row#main-section2
+			div#main-section2.container.top80
+				h4#title-section.text-center Testimonials
+				div.row.top30.container
+					-for (var x=0; x<3; x++)
+						div.row.text-center
+							div.col.s4.m2.l2
+								img.circle(src= "images/witnesses/witnesses-test.png")
+							div.col.s7.m3.l3
+								h5#name-section2.text-left Sir test
+							div.col.s9.m7.l7.offset-s1.text-center
+								div#testimonial.content
+									p Very good articles, recommended.
 
 				//- else
 				//- 	div.col.s12

@@ -4,9 +4,8 @@ block content
 	div#articles.container.top80
 		div.row
 			div.row.bot15
-				h3 Store
-				h6 Series in the store 
-					span= total
+				h3 Programs
+				h6 Number of series currently: #{total}
 			div.row
 				if items
 					each item in items
@@ -33,7 +32,7 @@ block content
 										| Description:
 									p#truncate.justify= item.description
 				else
-					h4 Now no items.
+					h4 Now no series.
 	div#pagination.container.top30.bot80
 		div.row
 			p.pagination-count Showing #{first} - #{last} of #{total} series

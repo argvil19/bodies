@@ -1,5 +1,5 @@
 #gmap-styled {
-    height: 500px;
+    height: 500px !important;
     width: 100%;
     min-height: 100%;
     max-height: none;
@@ -8,8 +8,6 @@
 #map {
     padding: 0;
 }
-
-#row_map_contact {}
 
 .row#main_content {
     margin-bottom: 0px;
@@ -22,6 +20,15 @@ div#container_contact {
 
 .row#row_image_contact {
     position: relative;
+    background-image: url(http://fpoimg.com/1024x768?text=Image);
+    width: 100%;
+    height:768px;
+    background-repeat: no-repeat; /* <- missing semi-colon */
+    background-position: center center; 
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
     span.border {
         background-color: #111;
         color: #fff;
@@ -45,6 +52,9 @@ div#container_contact {
     #row_map_contact {
         margin-bottom: 0px;
     }
+    #gmap-styled {
+        height: 300px !important;
+    }
 }
 
 @media (max-width: 768px) and (min-width:426px) {
@@ -55,6 +65,10 @@ div#container_contact {
     #row_map_contact {
         margin-bottom: 0px;
     }
+
+    .row#row_image_contact {
+        height:400px !important;
+    }
 }
 
 @media (min-width:1024px) {
@@ -64,6 +78,16 @@ div#container_contact {
     .row#row_image_contact,
     #row_map_contact {
         margin-bottom: 0px;
+    }
+
+    .row#row_image_contact {
+        height:500px !important;
+    }
+}
+
+@media (min-width:1440px) {
+    .row#row_image_contact {
+        height:768px !important;
     }
 }
 

@@ -9206,17 +9206,19 @@ html {
 
 div#main-section.container {
   background-color: #FFF;
-  width: 100%;
+  width: 85%;
   max-width: 100%;
-  margin: 0;
+  margin-top: 0px;
   padding: 1px; }
 
 div#main-section2.container {
-  background-color: #f8f8f8;
-  width: 100%;
+  width: 85%;
   max-width: 100%;
-  margin: 0;
+  margin-top: 0px;
   padding: 1px; }
+
+div.row#main-section2 {
+  background-color: #f8f8f8; }
 
 h4#title-section {
   margin-top: 60px;
@@ -9438,7 +9440,7 @@ td.cart {
   text-align: center; }
 
 #gmap-styled {
-  height: 500px;
+  height: 500px !important;
   width: 100%;
   min-height: 100%;
   max-height: none; }
@@ -9454,7 +9456,17 @@ div#container_contact {
   max-width: 1440px; }
 
 .row#row_image_contact {
-  position: relative; }
+  position: relative;
+  background-image: url(http://fpoimg.com/1024x768?text=Image);
+  width: 100%;
+  height: 768px;
+  background-repeat: no-repeat;
+  /* <- missing semi-colon */
+  background-position: center center;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover; }
   .row#row_image_contact span.border {
     background-color: #111;
     color: #fff;
@@ -9473,21 +9485,31 @@ div#container_contact {
     margin-bottom: 0px; }
   .row#row_image_contact,
   #row_map_contact {
-    margin-bottom: 0px; } }
+    margin-bottom: 0px; }
+  #gmap-styled {
+    height: 300px !important; } }
 
 @media (max-width: 768px) and (min-width: 426px) {
   div#container_contact #form-contact {
     margin-bottom: 0px; }
   .row#row_image_contact,
   #row_map_contact {
-    margin-bottom: 0px; } }
+    margin-bottom: 0px; }
+  .row#row_image_contact {
+    height: 400px !important; } }
 
 @media (min-width: 1024px) {
   div#container_contact #form-contact {
     margin-bottom: 0px; }
   .row#row_image_contact,
   #row_map_contact {
-    margin-bottom: 0px; } }
+    margin-bottom: 0px; }
+  .row#row_image_contact {
+    height: 500px !important; } }
+
+@media (min-width: 1440px) {
+  .row#row_image_contact {
+    height: 768px !important; } }
 
 div#side-content {
   margin-top: 0px; }
@@ -9603,3 +9625,6 @@ input:not([type]).valid, input:not([type]):focus.valid, input[type=text].valid, 
 
 .alert-success span {
   color: #00c853; }
+
+div#pay .btn, div#pay .btn-large {
+  letter-spacing: 0px; }
