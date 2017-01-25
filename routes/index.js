@@ -45,7 +45,8 @@ exports = module.exports = function(app) {
 	app.get('/cart/add', middleware.requireUser, routes.views.cart.add);
 	app.get('/cart/delete', middleware.requireUser, routes.views.cart.delete);
 	app.get('/user/purchases', middleware.requireUser, routes.views.user.purchases);
-	app.get('/contact', routes.views.contact);
+	app.get('/contact', routes.views.contact.contact);
+	app.post('/contact', routes.views.contact.contact_post);
 
 	// This route for getting message from payment system about paument status
 	//app.get('/purchase/accept', routes.views.purchase.accept) // ?user=MongoKey & product=mongoKey & secret=String 
@@ -62,6 +63,10 @@ exports = module.exports = function(app) {
 	app.get('/payment/checkout?', middleware.requireUser, routes.views.payment.process);
 	app.get('/payment/receive?', middleware.requireUser, routes.views.payment.receive);
 	app.post('/payment/cc/checkout', middleware.requireUser, routes.views.payment.credit_card);
+	
+	// Contact
+	//console.log(routes.views.contact);
+	//app.post('/contact', routes.views.contact.send_mail);
 
 	// NOTE: To protect a route so that only admins can see it, use the requireUser middleware:
 	// app.get('/protected', middleware.requireUser, routes.views.protected);

@@ -3,7 +3,7 @@ const jade = require('jade');
 const fs = require('fs');
 
 const transporter = nodemailer.createTransport('smtps://hitbodies%40gmail.com:hitbodiestesting@smtp.gmail.com');
-const mailSender = '"HVU site administrator" <account@gmail.com>';
+const mailSender = 'hitbodies@gmail.com';
 
 module.exports.getTemplate = (templateName, params, cb) => {
     if (!templateName && params && cb) {
@@ -12,7 +12,7 @@ module.exports.getTemplate = (templateName, params, cb) => {
 
     var html;
 
-    fs.readFile('../templates/mail/' + templateName + '.jade', 'utf8', (err, jadeFile) => {
+    fs.readFile(process.env.PWD + '/templates/mail/' + templateName + '.jade', 'utf8', (err, jadeFile) => {
         if (err) {
             return cb(err);
         }
@@ -21,5 +21,6 @@ module.exports.getTemplate = (templateName, params, cb) => {
     });
 };
 
+module.exports.transporter = transporter;
 module.exports.sendMail = transporter.sendMail;
 module.exports.mailSender = mailSender;
