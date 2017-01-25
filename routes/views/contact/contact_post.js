@@ -21,7 +21,7 @@ module.exports = (req, res, next) => {
         mailer.transporter.sendMail({
             html,
             from: mailer.mailSender,
-            to: 'argvil19@gmail.com',
+            to: contactInfo.email,
             subject: `HIT-Bodies - ${contactInfo.name} sent you a message`,
             text: 'asd',
         }, (err, info) => {
