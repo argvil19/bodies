@@ -15,14 +15,14 @@ block content
 				p Price: #{itemBought.price} $
 				p Name of serie: #{itemBought.name}
 				p Date: #{purchaseDate}
-		.row.bot30
-			.col.s12.m8.l8.offset-m4.offset-l4
-				each purchase in user.purchases
-					if purchase.product == itemBought._id
-						each unlock in purchase.unlockSheddule
-							p article id: #{unlock.article._id}
-							| 
-							p unlockDate: #{unlock.unlockDate.date}
+		//- .row.bot30
+		//- 	.col.s12.m8.l8.offset-m4.offset-l4
+		//- 		each purchase in user.purchases
+		//- 			if purchase.product == itemBought._id
+		//- 				each unlock in purchase.unlockSheddule
+		//- 					p article id: #{unlock.article._id}
+		//- 					| 
+		//- 					p unlockDate: #{unlock.unlockDate.date}
 		.row.bot80
 			.col.s12.m6.l6
 				a.btn.waves-effect.waves-light(href='/user/purchases') Your purchases

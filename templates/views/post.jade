@@ -25,10 +25,12 @@ block content
 											img.responsive-img(src= data.post._.image.fit(750,450))
 									div.row
 										!= data.post.content.full
-							div.row
-								div.col.s12.m12.l12
-									if data.post.author
-										h5.text-center.right= data.post.author.name.first
+							//- div.row
+							//- 	div.col.s12.m12.l12
+							//- 		if data.post.author
+							//- 			h5.text-center.right= data.post.author.name.first
+							div.row.top30
+								div#date-line.col.s12.m12.l12
 							div.row.top30.bot30
 								div.col.s4.m2.l2
 									each cat, cat_i in data.post.categories

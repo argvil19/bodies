@@ -7,12 +7,12 @@ extends ../layouts/default
 				if post.image.exists
 					a(href='/blog/post/' + post.id)
 						img.hoverable(src=post._.image.fit(400,400))
-				.row.date
-						.col.s12
-							p.lead.text-muted
-								if post.publishedDate
-									| #{post._.publishedDate.format('MMMM Do, YYYY')} 
-								if post.categories && post.categories.length
+				//- .row.date
+				//- 		.col.s12
+				//- 			p.lead.text-muted
+				//- 				if post.publishedDate
+				//- 					| #{post._.publishedDate.format('MMMM Do, YYYY')} 
+				//- 				if post.categories && post.categories.length
 				.row.info
 					.row.title
 						.col.s12
@@ -26,7 +26,7 @@ extends ../layouts/default
 
 	block content
 		.container: .row.top80.bot30
-			h3.bot30= data.category ? data.category.name : 'Blog'
+			h3.bot30= data.category ? data.category.name : 'Articles'
 			p: a(href='/user/purchases'): span.meta-nav &larr; Back to my series
 
 		.container: .row.bot80

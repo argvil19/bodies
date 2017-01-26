@@ -43,22 +43,51 @@ block content
 											img.activator.responsive-img(src= article.image.url)
 					
 		div.row.bot80.text-center.valign-wrapper.hide-on-small-only#pay
-			div.col.m4.l4
-				p Price: #{category.price} $
-			div.col.m4.l4
-				input#input-hidden-id(type='hidden', value='#{category._id}')
-				input#input-price-hidden-id(type='hidden', value='#{parseInt(category.price)}00')
-				a#cc-buy-btn.waves-effect.waves-light.btn(href='#') Pay with Credit Card
-			div.col.m4.l4
-				a.waves-effect.waves-light.btn(href='/payment/checkout?productId='+ category.id) Pay with paypal
+			if (!user)
+					div.col.m12.l12
+						h5 You have to log in before you make a purchase.
+					div.col.m6.l6
+						a.waves-effect.waves-light.btn(href="/keystone/signin") Sign in
+					div.col.m6.l6
+						a.waves-effect.waves-light.btn(href="/signup") Sign up
+			else
+				if alreadyBought === true
+					div.col.m6.l6
+						h5 You already have this series.
+					div.col.m6.l6
+						a.waves-effect.waves-light.btn(href="/user/purchases") Visit your purchases
+				else
+					div.col.m4.l4
+						p Price: #{category.price} $
+					div.col.m4.l4
+						input#input-hidden-id(type='hidden', value='#{category._id}')
+						input#input-price-hidden-id(type='hidden', value='#{parseInt(category.price)}00')
+						a#cc-buy-btn.waves-effect.waves-light.btn(href='#') Pay with Credit Card
+					div.col.m4.l4
+						a.waves-effect.waves-light.btn(href='/payment/checkout?productId='+ category.id) Pay with paypal
+			
 		
 		div.row.bot80.text-center.hide-on-med-and-up#pay
-			div.row
-				div.col.s12
-					p Price: #{category.price} $
-			div.row
-				div.col.s12
-					a.waves-effect.waves-light.btn(href='#') Pay with Credit Card
-			div.row
-				div.col.s12
-					a.waves-effect.waves-light.btn(href='/payment/checkout?productId='+ category.id) Pay with paypal
+			if (!user)
+				div.col.s12.bot15
+					h5 You have to log in before you make a purchase.
+				div.col.s12.bot15
+					a.waves-effect.waves-light.btn(href="/keystone/signin") Sign in
+				div.col.s12.bot15
+					a.waves-effect.waves-light.btn(href="/signup") Sign up
+			else
+				if alreadyBought === true
+					div.col.s12.bot15
+						h5 You already have this series.
+					div.col.s12
+						a.waves-effect.waves-light.btn(href="/user/purchases") Visit your purchases
+				else
+					div.row
+						div.col.s12.bot15
+							p Price: #{category.price} $
+					div.row
+						div.col.s12.bot15
+							a#cc-buy-btn.waves-effect.waves-light.btn(href='#') Pay with Credit Card
+					div.row
+						div.col.s12
+							a.waves-effect.waves-light.btn(href='/payment/checkout?productId='+ category.id) Pay with paypal
