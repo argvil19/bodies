@@ -106,7 +106,7 @@ html(xmlns="http://www.w3.org/1999/xhtml")
     center(style="width: 100%; background: #222222;")
       // Visually Hidden Preheader Text : BEGIN
       div(style="display:none;font-size:1px;line-height:1px;max-height:0px;max-width:0px;opacity:0;overflow:hidden;mso-hide:all;font-family: sans-serif;")
-        | HIT-BODIES CONTACT - #{contactInfo.name} sent you a message
+        | HIT-BODIES CONTACT - #{name} sent you a message
       // Visually Hidden Preheader Text : END
       .email-container(style="max-width: 680px; margin: auto;")
         //if mso
@@ -127,13 +127,13 @@ html(xmlns="http://www.w3.org/1999/xhtml")
               table(role="presentation", cellspacing="0", cellpadding="0", border="0", width="100%")
                 tr
                   td(style="padding: 20px; text-align: center; font-family: sans-serif; font-size: 15px; line-height: 20px; color: #555555;")
-                    h3 HIT-BODIES CONTACT - #{contactInfo.name} sent you a message.
+                    h3 HIT-BODIES CONTACT - #{name} sent you a message.
               table(role="presentation", cellspacing="0", cellpadding="0", border="0", width="100%")
                 tr
                   td(style="padding: 20px; text-align: justify; font-family: sans-serif; font-size: 15px; line-height: 20px; color: #555555;")
-                    h5 Message from: #{contactInfo.name}
-                    h5 Subject: #{contactInfo.subject}
-                    p= contactInfo.messageContent
+                    h5 Message from: #{name}
+                    h5 Subject: #{subject}
+                    p= messageContent
               br
 br
 br
