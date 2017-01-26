@@ -3,20 +3,20 @@ block content
 	div.container.top80
 		div.row
 			h2 Details
-			div.col.s12.m12.l12
+			div.col.s12.m12.l12.bot30
 				h3= category.name
-				p Description
-				p= category.description
+				h5 Description
+				!= category.description
 	div.container.top15
 		div.row
 			div.col.s12.m3.l3
 				img.activator.responsive-img(src= category.images.url)
-			div.col.s12.m9.l9   
-				h5 Content
+			div.col.s12.m9.l9.bot30
+				h5 Articles
 				ul.collapsible(data-collapsible="accordion")
 					each article, i in articles
 						if i == 0
-							li
+							li#collapse-content
 								div.collapsible-header
 									a(href='#c'+i) 1
 										| - 
@@ -27,9 +27,9 @@ block content
 											h5= article.title
 											!= article.content.brief
 										div.col.s4.m5.l5.hide-on-small-only
-											img.activator.responsive-img(src= article.image.url)
+											img#img-content.activator.responsive-img(src= article.image.url)
 						else
-							li
+							li#collapse-content
 								div.collapsible-header
 									a(href='#c'+i)= i+1
 										| - 
@@ -40,7 +40,7 @@ block content
 											h5= article.title
 											!= article.content.brief
 										div.col.s4.m5.l5.hide-on-small-only
-											img.activator.responsive-img(src= article.image.url)
+											img#img-content.activator.responsive-img(src= article.image.url)
 					
 		div.row.bot80.text-center.valign-wrapper.hide-on-small-only#pay
 			if (!user)
@@ -57,9 +57,9 @@ block content
 					div.col.m6.l6
 						a.waves-effect.waves-light.btn(href="/user/purchases") Visit your purchases
 				else
-					div.col.m4.l4
-						p Price: #{category.price} $
-					div.col.m4.l4
+					div.col.m3.l3
+						h5 Price: #{category.price} $
+					div.col.m5.l5
 						input#input-hidden-id(type='hidden', value='#{category._id}')
 						input#input-price-hidden-id(type='hidden', value='#{parseInt(category.price)}00')
 						a#cc-buy-btn.waves-effect.waves-light.btn(href='#') Pay with Credit Card
@@ -84,7 +84,7 @@ block content
 				else
 					div.row
 						div.col.s12.bot15
-							p Price: #{category.price} $
+							h5 Price: #{category.price} $
 					div.row
 						div.col.s12.bot15
 							a#cc-buy-btn.waves-effect.waves-light.btn(href='#') Pay with Credit Card
