@@ -11,6 +11,7 @@ exports = module.exports = function(req, res, next) {
 
 	// Init locals
 	locals.section = 'product';
+	locals.alreadyBought = false;
 
 	PostCategory.findOne({
 		_id: req.query.id,
@@ -28,7 +29,7 @@ exports = module.exports = function(req, res, next) {
 
 			if (req.user) {
 				req.user.purchases.forEach((item) => {
-					if (item.product === category._id) {
+					if (item.product === String(category._id)) {
 						locals.alreadyBought = true;
 					}
 				});
