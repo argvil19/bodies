@@ -1,1 +1,174 @@
-h1 Hello!
+doctype html
+html(xmlns="http://www.w3.org/1999/xhtml")
+  head
+    meta(charset="utf-8")
+    meta(name="viewport", content="width=device-width")
+    meta(http-equiv="X-UA-Compatible", content="IE=edge")
+    meta(name="x-apple-disable-message-reformatting")
+    title
+    // Web Font / @font-face : BEGIN
+    //if mso
+      style.
+        * {
+        font-family: sans-serif !important;
+        }
+    // [if !mso] <!
+    // insert web font reference, eg: <link href='https://fonts.googleapis.com/css?family=Roboto:400,700' rel='stylesheet' type='text/css'>
+    // <![endif]
+    // Web Font / @font-face : END
+    // CSS Reset
+    style.
+      html,
+      body {
+      margin: 0 auto !important;
+      padding: 0 !important;
+      height: 100% !important;
+      width: 100% !important;
+      }
+      * {
+      -ms-text-size-adjust: 100%;
+      -webkit-text-size-adjust: 100%;
+      }
+      div[style*="margin: 16px 0"] {
+      margin:0 !important;
+      }
+      table,
+      td {
+      mso-table-lspace: 0pt !important;
+      mso-table-rspace: 0pt !important;
+      }
+      table {
+      border-spacing: 0 !important;
+      border-collapse: collapse !important;
+      table-layout: fixed !important;
+      margin: 0 auto !important;
+      }
+      table table table {
+      table-layout: auto;
+      }
+      img {
+      -ms-interpolation-mode:bicubic;
+      }
+      .mobile-link--footer a,
+      a[x-apple-data-detectors] {
+      color:inherit !important;
+      text-decoration: underline !important;
+      }
+      .button-link {
+      text-decoration: none !important;
+      }
+      @media only screen and (min-device-width: 375px) and (max-device-width: 413px) {
+      .email-container {
+      min-width: 375px !important;
+      }
+      }
+    // Progressive Enhancements
+    style.
+      .button-td,
+      .button-a {
+      transition: all 100ms ease-in;
+      }
+      .button-td:hover,
+      .button-a:hover {
+      background: #3ACBC7 !important;
+      border-color: #3ACBC7 !important;
+      }
+      @media screen and (max-width: 480px) {
+      .fluid {
+      width: 100% !important;
+      max-width: 100% !important;
+      height: auto !important;
+      margin-left: auto !important;
+      margin-right: auto !important;
+      }
+      .stack-column,
+      .stack-column-center {
+      display: block !important;
+      width: 100% !important;
+      max-width: 100% !important;
+      direction: ltr !important;
+      }
+      .stack-column-center {
+      text-align: center !important;
+      }
+      .center-on-narrow {
+      text-align: center !important;
+      display: block !important;
+      margin-left: auto !important;
+      margin-right: auto !important;
+      float: none !important;
+      }
+      table.center-on-narrow {
+      display: inline-block !important;
+      }
+      }
+  body(width="100%", bgcolor="#222222", style="margin: 0; mso-line-height-rule: exactly;")
+    center(style="width: 100%; background: #222222;")
+      // Visually Hidden Preheader Text : BEGIN
+      div(style="display:none;font-size:1px;line-height:1px;max-height:0px;max-width:0px;opacity:0;overflow:hidden;mso-hide:all;font-family: sans-serif;")
+        | HIT-BODIES CONTACT - #{contactInfo.name} sent you a message
+      // Visually Hidden Preheader Text : END
+      .email-container(style="max-width: 680px; margin: auto;")
+        //if mso
+          table(role="presentation", cellspacing="0", cellpadding="0", border="0", width="680", align="center")
+            tr
+              td
+        // Email Header : BEGIN
+        table(role="presentation", cellspacing="0", cellpadding="0", border="0", align="center", width="100%", style="max-width: 680px;")
+          tr
+            td(style="padding: 20px 0; text-align: center")
+              img(src="http://hit-bodies.herokuapp.com/images/logos/hb-logo-white-180px.png", width="180", height="60", alt="alt_text", border="0", style="height: auto; font-family: sans-serif; font-size: 15px; line-height: 20px; color: #555555;")
+        // Email Header : END
+        // Email Body : BEGIN
+        table(role="presentation", cellspacing="0", cellpadding="0", border="0", align="center", width="100%", style="max-width: 680px;")
+          // 1 Column Text + Button : BEGIN
+          tr
+            td(bgcolor="#ffffff")
+              table(role="presentation", cellspacing="0", cellpadding="0", border="0", width="100%")
+                tr
+                  td(style="padding: 20px; text-align: center; font-family: sans-serif; font-size: 15px; line-height: 20px; color: #555555;")
+                    h3 HIT-BODIES CONTACT - #{contactInfo.name} sent you a message.
+              table(role="presentation", cellspacing="0", cellpadding="0", border="0", width="100%")
+                tr
+                  td(style="padding: 20px; text-align: justify; font-family: sans-serif; font-size: 15px; line-height: 20px; color: #555555;")
+                    h5 Message from: #{contactInfo.name}
+                    h5 Subject: #{contactInfo.subject}
+                    p= contactInfo.messageContent
+              br
+br
+br
+// Button : BEGIN
+table(role="presentation", cellspacing="0", cellpadding="0", border="0", align="center", style="margin: auto")
+  tr
+    td.button-td(style="border-radius: 3px; background: #222222; text-align: center;")
+      a.button-a(href="http://hit-bodies.herokuapp.com", style="background: #0ABAB5; border: 15px solid #0ABAB5; font-family: sans-serif; font-size: 13px; line-height: 1.1; text-align: center; text-decoration: none; display: block; border-radius: 3px; font-weight: bold;")
+        span.button-link(style="color:#ffffff;") Visit the website
+// Button : END
+// 1 Column Text + Button : END
+// Clear Spacer : BEGIN
+tr
+  td(height="40", style="font-size: 0; line-height: 0;")
+// Clear Spacer : END
+// 1 Column Text + Button : BEGIN
+tr
+  td(bgcolor="#ffffff")
+    table(role="presentation", cellspacing="0", cellpadding="0", border="0", width="100%")
+      tr
+// 1 Column Text + Button : BEGIN
+// Email Body : END
+// Email Footer : BEGIN
+table(role="presentation", cellspacing="0", cellpadding="0", border="0", align="center", width="100%", style="max-width: 680px;")
+  tr
+    td(style="padding: 40px 10px;width: 100%;font-size: 12px; font-family: sans-serif; line-height:18px; text-align: center; color: #888888;")
+      br
+      br
+      span.mobile-link--footer Direction: 123 Street, SpringField, OR, 97477 US
+      br
+      span.mobile-link--footer Email: hitbodies@contact.com
+      |                         
+      br
+      | 
+      br
+      span.mobile-link--footer © 2017 Hit-Bodies, all rights reserved
+      | 
+    // Email Footer : END
