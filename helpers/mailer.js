@@ -8,7 +8,7 @@ module.exports.getTemplate = (templateName, params, cb) => {
         return cb('Missing required parameter in getTemplate()');
     }
     var html;
-    fs.readFile('../templates/mail/' + templateName + '.jade', 'utf8', (err, jadeFile) => {
+    fs.readFile(process.env.PWD + '/templates/mail/' + templateName + '.jade', 'utf8', (err, jadeFile) => {
         if (err) {
             return cb(err);
         }

@@ -103,6 +103,9 @@ module.exports = (req, res, next) => {
                         mailer.getTemplate('purchase_cc', {
                             order,
                             itemBought,
+                            user: results[0],
+                            purchaseMethod: 'Credit Card',
+                            purchaseDate: new Date().toLocaleDateString()
                         }, (err, html) => {
                             if (err) {
                                 return console.log('Error at sending purchase email');

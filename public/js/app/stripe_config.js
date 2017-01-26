@@ -8,8 +8,9 @@ var stripeCheckoutInst = StripeCheckout.configure({
         itemBoughtId: $('#input-hidden-id').val()
     }).then(function (res) {
         Materialize.toast(res.message + ' Redirecting to your purchases...', 10000);
+        window.location.href = '/user/purchases';
     }).fail(function (err) {
-        console.log(err);
+        Materialize.toast('There has been an error while charging your credit card. The order has been canceled', 10000);
     });
   }
 });

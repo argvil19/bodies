@@ -309,16 +309,23 @@ $(document).ready(function () {
 		
 		function handleContact(e) {
 			e.preventDefault();
+			var name = $('#name');
+			var email = $('#email');
+			var subject = $('#subject');
+			var messageContent = $('#message');
 			
 			var contactInfo = {
-				name: $('#name').val(),
-				email: $('#email').val(),
-				subject: $('#subject').val(),
-				messageContent: $('message').val()
+				name: name.val(),
+				email: email.val(),
+				subject:subject.val(),
+				messageContent: messageContent.val()
 			};
 			
 			$.post('/contact', contactInfo).done(function(res) {
 				Materialize.toast(res.message, 5000);
+
+				// Cleans form
+				$('#contact-form').trigger('reset');
 			}).fail(function(err) {
 				Materialize.toast(err.message, 5000);
 			});
