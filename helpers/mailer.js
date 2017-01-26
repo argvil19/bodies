@@ -1,17 +1,13 @@
 const nodemailer = require('nodemailer');
 const jade = require('jade');
 const fs = require('fs');
-
 const transporter = nodemailer.createTransport('smtps://hitbodies%40gmail.com:hitbodiestesting@smtp.gmail.com');
 const mailSender = '"HVU site administrator" <account@gmail.com>';
-
 module.exports.getTemplate = (templateName, params, cb) => {
     if (!templateName && params && cb) {
         return cb('Missing required parameter in getTemplate()');
     }
-
     var html;
-
     fs.readFile('../templates/mail/' + templateName + '.jade', 'utf8', (err, jadeFile) => {
         if (err) {
             return cb(err);
@@ -20,6 +16,5 @@ module.exports.getTemplate = (templateName, params, cb) => {
         return cb(null, html);
     });
 };
-
 module.exports.transporter = transporter;
 module.exports.mailSender = mailSender;

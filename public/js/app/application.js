@@ -252,7 +252,7 @@ $(document).ready(function () {
 	// Map contact
 
 	if(pathname === "/contact"){
-		
+
 		function initialize() {
 
 			var body = document.body, html = document.documentElement;
@@ -304,7 +304,7 @@ $(document).ready(function () {
 		}
 		
 		google.maps.event.addDomListener(window, 'load', initialize);
-		
+
 		// Handle contact
 		
 		function handleContact(e) {
@@ -325,5 +325,6 @@ $(document).ready(function () {
 		}
 		
 		$('#contact-form').on('submit', handleContact);
+
 	}
 });

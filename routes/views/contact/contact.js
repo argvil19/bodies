@@ -15,6 +15,6 @@ module.exports = (req, res, next) => {
         locals.address = contactInfo.address;
         locals.contactInfo = contactInfo.contactInfo;
         locals.section = 'contact';
-        return View.render('contact', locals);
+        return View.render('contact/contact', locals);
     });
 };

@@ -13,7 +13,6 @@ var stripeCheckoutInst = StripeCheckout.configure({
     });
   }
 });
-
 $(document).ready(function () {
     var onCheckoutWithCC = function(e) {
         e.preventDefault();

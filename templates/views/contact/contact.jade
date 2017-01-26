@@ -3,19 +3,18 @@ extends ../../layouts/default
 block content
     .container#container_contact
         .row#main_content
-            .col.m8#map
+            .col.m8.hide-on-small-only#map
                 .row.center-align#row_map_contact
                     #gmap-styled
                 .row#row_image_contact
-                    img.responsive-img(src='http://fpoimg.com/1024x768?text=Image', alt='')
                     span.border Constancy, dedication and sacrifice.
             
             .col.m4.s12
-                .row
+                .row.top15
                     .col.s12#side-content
                         h5.center-align Social
                         div.row#row_side-content
-                            div.col
+                            div.col.s12.text-center
                                 section.social-side.text-center
                                     ul
                                         li
@@ -50,19 +49,18 @@ block content
                             .input-field.col.s12
                             label(for="message") Message
                             |                     
-                            textarea#message.materialize-textarea( placeholder= "Message..." )
+                            textarea#message.materialize-textarea(type="text" placeholder= "Message..." )
                         |                     
                         .row
                             .col.m12
                             p.right-align
-                                button.btn.waves-effect.waves-light(type="button", name="action") Send Message
+                                button.btn.waves-effect.waves-light(type="submit") Send Message
                             |                     
                             .divider.top30
                     |                     
                     .row
                         .col.m12
                             h5.left-align Other ways
-                            h6 Email
-                            h6 Phone
-
-
+                            != contactInfo
+    script(type='text/javascript').
+        var localAddress = !{JSON.stringify(address)};
