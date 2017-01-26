@@ -32,24 +32,32 @@ block content
                     form#contact-form.col.m12.s12
                         .row
                             .input-field.col.s12
-                            label(for="name") Name
-                            |                         
-                            input#name(type="text" placeholder="Name...")
+                                label(for="name") Name *
+                                |                         
+                                input#name(type="text" placeholder="Name...", name="name", length="80", maxlength="80", data-error=".errorTxt1")
+                                |             
+                                div.errorTxt1
                             |                    
                             .input-field.col.s12
-                            label(for="subject") Subject
-                            |                     
-                            input#subject.form-input(type="text" placeholder="Subject...") 
+                                label(for="subject") Subject *
+                                |                     
+                                input#subject.form-input(type="text" placeholder="Subject...", name="subject", length="120", maxlength="120", data-error=".errorTxt2")
+                                |             
+                                div.errorTxt2
                             |                         
                             .input-field.col.s12
-                            label(for="email") Email
-                            |                             
-                            input#email.form-input(type="email" placeholder="Email...")
+                                label(for="email") Email *
+                                |                             
+                                input#email.form-input(type="email" placeholder="Email...", name="email", length="100", maxlength="100", data-error=".errorTxt3")
+                                |             
+                                div.errorTxt3
                             |                                          
                             .input-field.col.s12
-                            label(for="message") Message
-                            |                     
-                            textarea#message.materialize-textarea(type="text" placeholder= "Message..." )
+                                label(for="message") Message *
+                                |                     
+                                textarea#message.materialize-textarea(type="text" placeholder= "Message...", name="message", length="320", maxlength="320", data-error=".errorTxt4")
+                                |             
+                                div.errorTxt4
                         |                     
                         .row
                             .col.m12

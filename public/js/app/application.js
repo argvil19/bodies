@@ -306,32 +306,92 @@ $(document).ready(function () {
 		google.maps.event.addDomListener(window, 'load', initialize);
 
 		// Handle contact
+
+		formContact = $('#contact-form');
+
+		var validator2 = formContact.validate({
+			rules: {
+				name: {
+					required: true,
+					minlength: 1,
+					maxlength: 80
+				},
+				subject: {
+					required: true,
+					minlength: 5,
+					maxlength: 120
+				},
+				email: {
+					required: true,
+					email:true,
+					maxlength: 100
+				},
+				message: {
+					required: true,
+					minlength: 60,
+					maxlength: 320
+				},
+			},
+			//Messages
+			messages: {
+				name:{
+					required: "Enter your name.",
+					minlength: "Enter at least 1 character."
+				},
+				subject:{
+					required: "Enter the subject.",
+					minlength: "Enter at least 5 character."
+				},
+				email:{
+					required: "Enter your email."
+				},
+				message:{
+					required: "Enter your message.",
+					minlength: "Enter at least 60 characters."
+				},
+			},
+			errorElement : 'div',
+			errorPlacement: function(error, element) {
+				var placement = $(element).data('error');
+
+				if (placement) {
+					$(placement).append(error);
+				} else {
+					error.insertAfter(element);
+				}
+			}
+		});
+
 		
 		function handleContact(e) {
 			e.preventDefault();
-			var name = $('#name');
-			var email = $('#email');
-			var subject = $('#subject');
-			var messageContent = $('#message');
 			
-			var contactInfo = {
-				name: name.val(),
-				email: email.val(),
-				subject:subject.val(),
-				messageContent: messageContent.val()
-			};
-			
-			$.post('/contact', contactInfo).done(function(res) {
-				Materialize.toast(res.message, 5000);
+			if(validator2.form() === true){
 
-				// Cleans form
-				$('#contact-form').trigger('reset');
-			}).fail(function(err) {
-				Materialize.toast(err.message, 5000);
-			});
+				var name = $('#name');
+				var email = $('#email');
+				var subject = $('#subject');
+				var messageContent = $('#message');
+				
+				var contactInfo = {
+					name: name.val(),
+					email: email.val(),
+					subject:subject.val(),
+					messageContent: messageContent.val()
+				};
+				
+				$.post('/contact', contactInfo).done(function(res) {
+					Materialize.toast(res.message, 5000);
+
+					// Cleans form
+					formContact.trigger('reset');
+				}).fail(function(err) {
+					Materialize.toast(err.message, 5000);
+				});
+			}
 		}
 		
-		$('#contact-form').on('submit', handleContact);
+		formContact.on('submit', handleContact);
 
 	}
 });
