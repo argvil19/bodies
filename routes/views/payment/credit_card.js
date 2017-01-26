@@ -29,7 +29,7 @@ module.exports = (req, res, next) => {
         stripe.charges.create({
             card: stripeToken,
             currency: 'usd',
-            amount: parseInt(itemBought.price, 10),
+            amount: parseInt(itemBought.price, 10) * 100,
         }, (err, charge) => {
             if (err) {
                 return res.status(500).send(err);
