@@ -2,7 +2,7 @@ const nodemailer = require('nodemailer');
 const jade = require('jade');
 const fs = require('fs');
 const transporter = nodemailer.createTransport('smtps://hitbodies%40gmail.com:hitbodiestesting@smtp.gmail.com');
-const mailSender = '"HVU site administrator" <account@gmail.com>';
+const mailSender = '"HVU site administrator" <hitbodies@gmail.com>';
 module.exports.getTemplate = (templateName, params, cb) => {
     if (!templateName && params && cb) {
         return cb('Missing required parameter in getTemplate()');

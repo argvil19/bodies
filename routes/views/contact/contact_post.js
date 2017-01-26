@@ -20,7 +20,7 @@ module.exports = (req, res, next) => {
 
         mailer.transporter.sendMail({
             html,
-            from: contactInfo.email,
+            from: mailer.mailSender,
             to: mailer.mailSender,
             subject: `HIT-Bodies - ${contactInfo.name} sent you a message`,
         }, (err, info) => {
