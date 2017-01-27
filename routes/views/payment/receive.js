@@ -113,7 +113,7 @@ module.exports = (req, res, next) => {
                                 subject: 'You have purchased a new item',
                             };
 
-                            mailer.sendMail(mailOptions, (err, info) => {
+                            mailer.transporter.sendMail(mailOptions, (err, info) => {
                                 if (err) {
                                     return console.log('Error sending confirmation email');
                                 }
