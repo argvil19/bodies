@@ -54,7 +54,7 @@ module.exports = () => {
                                         subject: 'HIT-Bodies - new article unlocked',
                                         html: mailTemplate({
                                             article: article,
-                                            category: article.categories,
+                                            category: article.categories[0],
                                         }),
                                     };
         
