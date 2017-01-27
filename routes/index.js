@@ -41,9 +41,9 @@ exports = module.exports = function(app) {
 	// End points
 	app.get('/store/get', routes.views.store.get); // ?page=INT
 	app.get('/store/product/get', routes.views.store.product.get); // ?id=INT
-	app.get('/cart', middleware.requireUser, routes.views.cart.index);
-	app.get('/cart/add', middleware.requireUser, routes.views.cart.add);
-	app.get('/cart/delete', middleware.requireUser, routes.views.cart.delete);
+	// app.get('/cart', middleware.requireUser, routes.views.cart.index);
+	// app.get('/cart/add', middleware.requireUser, routes.views.cart.add);
+	// app.get('/cart/delete', middleware.requireUser, routes.views.cart.delete);
 	app.get('/user/purchases', middleware.requireUser, routes.views.user.purchases);
 	app.get('/contact', routes.views.contact.contact);
 	app.post('/contact', routes.views.contact.contact_post);

@@ -1,7 +1,7 @@
 const paypal = require('paypal-rest-sdk');
 
-const clientID = "AVW34J5m8m2OKfTEzZa2HwPT2wmgU5nMmiP_UZ9a-QMORFANDtiJkYWKqurKIXZOfaHWR76CoabtszLH";
-const clientSecret = "ENvnw80-rvrDHYaRKYngB74VZH9WClQqRgvjbKl9OagM9ZwKsinjytX8TM6U2M1AObhIppP22lXSoRgu";
+const clientID = "INSERT YOUR CLIENT_ID HERE - PAYPAL DEV API";
+const clientSecret = "INSERT YOUR CLIENT_SECRET HERE - PAYPAL DEV API";
 
 paypal.configure({
     'mode': 'sandbox', //sandbox or live

@@ -19,7 +19,9 @@
     height: 500px;
 }
 
-.card.small .card-image + .card-content, .card.medium .card-image + .card-content, .card.large .card-image + .card-content {
+.card.small .card-image+.card-content,
+.card.medium .card-image+.card-content,
+.card.large .card-image+.card-content {
     max-height: 30%;
 }
 
@@ -30,11 +32,11 @@
     overflow: hidden;
 }
 
-.card-content.activator{
+.card-content.activator {
     cursor: pointer;
 }
 
-img.store{
+img.store {
     max-height: 500px;
     max-width: 360px;
 }
@@ -49,14 +51,13 @@ img.store{
         font-size: 16px;
     }
     .card.large.store {
-    height: 450px;
+        height: 450px;
     }
-
     p#truncate {
-    position: relative;
-    height: 9.75em;
-    margin: 0 0 1em 0;
-    overflow: hidden;
+        position: relative;
+        height: 9.75em;
+        margin: 0 0 1em 0;
+        overflow: hidden;
     }
 }
 
@@ -70,7 +71,6 @@ img.store{
 p#truncate {
     position: relative;
     height: 14.75em;
-    /* exactly three lines */
     margin: 0 0 1em 0;
     overflow: hidden;
 }

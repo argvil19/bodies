@@ -14,7 +14,6 @@ html
 
 		//- Customise the stylesheet for your site by editing /public/styles/site.sass
 		link(rel='stylesheet', href='https://fonts.googleapis.com/icon?family=Material+Icons')
-		link(href="/styles/jquery-autocomplete/jquery.auto-complete.css", rel="stylesheet")
 		link(href="/styles/site.css", rel="stylesheet")
 
 		//- This file provides the default styling for the KeystoneJS Content Editor
@@ -58,11 +57,11 @@ html
 
 		//- jQuery 1.11.3 is included by default, and required by both Bootstrap
 		//- and the KeystoneJS Content Editor. If you are not targeting IE8,
-		//- you can upgrade to 2.1.4 (also bundled) for better performance.
+		//- you can upgrade to 2.1.4 or 3.1.1 (also bundled) for better performance.
 		script(src='/js/jquery/jquery-3.1.1.min.js')
 
-		//- Customise which Bootstrap javascript files are served by including
-		//- them specifically here, instead of bootstrap-3.3.5.min.js
+		//- Customise which materialize javascript files are served by including
+		//- them specifically here, instead of materialize.min.js
 		script(src='/js/materialize/bin/materialize.min.js')
 
 		//- The KeystoneJS Content Editor provides support for ks-editable data attributes,
@@ -78,7 +77,6 @@ html
 			script(src='/js/plugins/mapPlace/maplace.min.js')
 
 		if section === 'product'
-			script(src='/js/plugins/card/jquery.card.js')
 			script(src='https://checkout.stripe.com/checkout.js')
 			script(src='/js/app/stripe_config.js')
 		

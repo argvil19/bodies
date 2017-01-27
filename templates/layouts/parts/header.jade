@@ -3,8 +3,6 @@ header
         nav
             div.nav-wrapper
                 a.brand-logo(href="/")
-                    //-img(src="/images/logos/hb-logo-white-180px.png")
-                //-a.page-act.hide-on-med-and-down: h5= section
                 .header-search-wrapper.hide-on-med-and-down.ui-widget
                     i.material-icons search
                     form(id="searchForm")
@@ -14,7 +12,8 @@ header
                 ul.right.hide-on-small-and-down
                     li
                         if user
-                            a#icon-nav.collection-item.avatar(href='/keystone'): img.circle.responsive-img(src='/images/profile/profile-test.png', alt='')
+                            a#icon-nav.btn-floating.btn-floating-user(href='/keystone')
+                                i.material-icons#menu account_circle
                         else
                             a#icon-nav.btn-floating(href='/keystone/signin')
                                 i.material-icons#menu account_circle

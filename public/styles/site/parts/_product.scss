@@ -1,19 +1,17 @@
-div#pay .btn{
+div#pay .btn {
     letter-spacing: 0px;
 }
 
-
-li#collapse-content{
+li#collapse-content {
     div.collapsible-header {
         background-color: rgba(236, 236, 236, 0.3);
-
-        a{
+        a {
             color: $color-general-font;
         }
     }
 }
 
-img#img-content{
+img#img-content {
     max-height: 250px;
     border-radius: 1%;
 }

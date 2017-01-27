@@ -7,22 +7,10 @@ extends ../layouts/default
 				if post.image.exists
 					a(href='/blog/post/' + post.id)
 						img.hoverable(src=post._.image.fit(400,400))
-				//- .row.date
-				//- 		.col.s12
-				//- 			p.lead.text-muted
-				//- 				if post.publishedDate
-				//- 					| #{post._.publishedDate.format('MMMM Do, YYYY')} 
-				//- 				if post.categories && post.categories.length
 				.row.info
 					.row.title
 						.col.s12
 							h5.valign-wrapper.wraplines: a(href='/blog/post/' + post.id)= post.title
-					//- .row.brief
-					//- 	p!= post.content.brief
-					//- .row.author
-					//- 	p.lead.text-muted
-					//- 		if post.author
-					//- 			| by #{post.author.name.first}
 
 	block content
 		.container: .row.top80.bot30
@@ -76,14 +64,6 @@ extends ../layouts/default
 											li.disabled: a(): span: i.material-icons chevron_right
 					else
 						if data.category
-							h3.text-muted There are no articles in the category #{data.category.name}.
+							h3.text-muted There are no articles in the series #{data.category.name}.
 						else
 							h3.text-muted There are no articles yet.
-			
-			//- if data.categories.length
-			//- 	.col.s4.m3
-			//- 		h5 Categories
-			//- 		.list-group(style='margin-top: 70px;')
-			//- 			a(href='/blog', class=!data.category ? 'active' : false).list-group-item All Categories
-			//- 			each cat in data.categories
-			//- 				a(href='/blog/' + cat.key, class=data.category && data.category.id == cat.id ? 'active' : false).list-group-item= cat.name

@@ -1,4 +1,5 @@
-.tabs .tab a:hover, .tabs .tab a.active {
+.tabs .tab a:hover,
+.tabs .tab a.active {
     color: $color-primary;
 }
 
@@ -10,7 +11,8 @@
     background-color: $color-primary;
 }
 
-.tabs .tab.disabled a, .tabs .tab.disabled a:hover {
+.tabs .tab.disabled a,
+.tabs .tab.disabled a:hover {
     color: $color-link-tab-hover;
     cursor: default;
 }

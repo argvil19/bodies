@@ -25,10 +25,6 @@ block content
 											img.responsive-img(src= data.post._.image.fit(750,450))
 									div.row
 										!= data.post.content.full
-							//- div.row
-							//- 	div.col.s12.m12.l12
-							//- 		if data.post.author
-							//- 			h5.text-center.right= data.post.author.name.first
 							div.row.top30
 								div#date-line.col.s12.m12.l12
 							div.row.top30.bot30
@@ -36,21 +32,6 @@ block content
 									each cat, cat_i in data.post.categories
 										p: a(href='/blog/' + cat.id): span.meta-nav &larr;
 											| Back 
-
-					//- div#nav-content.row.top30.bot30
-					//- 	div.col.s12.m12.l12
-					//- 		div#nav-prev.col.s6.m6.l6
-					//- 			a#nav-link(href='#')
-					//- 				span.meta-nav
-					//- 					i.fa.fa-chevron-left#icon-content(aria-hidden="true")
-					//- 					| Previous article
-					//- 				|  Name previous article
-					//- 		div#nav-next.col.s6.m6.l6
-					//- 			a#nav-link(href='#')
-					//- 				span.meta-nav
-					//- 					| Next article
-					//- 					i.fa.fa-chevron-right#icon-content(aria-hidden="true")
-					//- 				|  Name next article
 
 					div#side-content.col.s12.m3.l3.hide-on-small-and-down
 						div.row

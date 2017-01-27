@@ -80,13 +80,21 @@
 }
 
 .btn-floating {
+    background-color: #5f5f5f;
+}
+
+.btn-floating.btn-floating-user {
     background-color: $color-primary;
 }
 
-.btn:focus, .btn-large:focus, .btn-large:focus, .btn-floating:focus {
+.btn:focus,
+.btn-large:focus,
+.btn-large:focus,
+.btn-floating.btn-floating-user:focus {
     background-color: $color-primary-focus;
 }
-.btn-floating:hover {
+
+.btn-floating.btn-floating-user:hover {
     background-color: $color-primary-hover;
 }
 

@@ -28,4 +28,4 @@ node_modules
 .DS_Store
 
 # Folder private
-/private_dev/*
+/.vscode/*
