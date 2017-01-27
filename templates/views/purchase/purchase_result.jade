@@ -6,12 +6,12 @@ block content
 			.col.s12.m4.l4
 				img.responsive-img(src= "/images/logos/hb-logo-color-500px.jpg")
 			.col.s12.m8.l8
-				h5 Payment information
+				h3 Payment information
 		.row.bot30.bot15
 			.col.s12.m4.l4
 				img.responsive-img(src= itemBought.images.url)
 			.col.s12.m8.l8
-				p Hey user.name.first, your payment was successful on purchaseMethod.
+				p Hey #{user.name.first}, your payment was successful on #{purchaseMethod}.
 				p 
 					b Payment ID:
 					| #{paymentId}
@@ -23,7 +23,7 @@ block content
 					| #{itemBought.name}
 				p
 					b Date: 
-					| #{purchaseDate}|
+					| #{purchaseDate}
 		.row.bot80.text-center
 			.col.s12.m6.l6.bot30
 				a.btn.waves-effect.waves-light(href='/user/purchases') Your purchases
