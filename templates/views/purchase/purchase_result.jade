@@ -4,27 +4,28 @@ block content
 	.container
 		.row.top30.bot30
 			.col.s12.m4.l4
-				img.responsive-img(src= "https://placeholdit.imgix.net/~text?txtsize=20&txt=Logo&w=200&h=100")
+				img.responsive-img(src= "/images/logos/hb-logo-color-500px.jpg")
 			.col.s12.m8.l8
-				h5 Payment ID:  #{paymentId}
-		.row.bot30
+				h5 Payment information
+		.row.bot30.bot15
 			.col.s12.m4.l4
 				img.responsive-img(src= itemBought.images.url)
 			.col.s12.m8.l8
-				p Hey #{user.name.first}, your payment was successful on #{purchaseMethod}.
-				p Price: #{itemBought.price} $
-				p Name of serie: #{itemBought.name}
-				p Date: #{purchaseDate}
-		//- .row.bot30
-		//- 	.col.s12.m8.l8.offset-m4.offset-l4
-		//- 		each purchase in user.purchases
-		//- 			if purchase.product == itemBought._id
-		//- 				each unlock in purchase.unlockSheddule
-		//- 					p article id: #{unlock.article._id}
-		//- 					| 
-		//- 					p unlockDate: #{unlock.unlockDate.date}
-		.row.bot80
-			.col.s12.m6.l6
+				p Hey user.name.first, your payment was successful on purchaseMethod.
+				p 
+					b Payment ID:
+					| #{paymentId}
+				p 
+					b Price: 
+					| #{itemBought.price} $
+				p 
+					b Name of serie: 
+					| #{itemBought.name}
+				p
+					b Date: 
+					| #{purchaseDate}|
+		.row.bot80.text-center
+			.col.s12.m6.l6.bot30
 				a.btn.waves-effect.waves-light(href='/user/purchases') Your purchases
 			.col.s12.m6.l6
 				a.btn.waves-effect.waves-light(href='/blog/'+itemBought._id) Visit the programs
