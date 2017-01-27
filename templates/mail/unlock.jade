@@ -106,7 +106,7 @@ html(xmlns="http://www.w3.org/1999/xhtml")
     center(style="width: 100%; background: #222222;")
       // Visually Hidden Preheader Text : BEGIN
       div(style="display:none;font-size:1px;line-height:1px;max-height:0px;max-width:0px;opacity:0;overflow:hidden;mso-hide:all;font-family: sans-serif;")
-        | Unlock information HIT-BODIES
+        | Unlock article information HIT-BODIES
       // Visually Hidden Preheader Text : END
       .email-container(style="max-width: 680px; margin: auto;")
         //if mso
@@ -127,7 +127,11 @@ html(xmlns="http://www.w3.org/1999/xhtml")
               table(role="presentation", cellspacing="0", cellpadding="0", border="0", width="100%")
                 tr
                   td(style="padding: 20px; text-align: center; font-family: sans-serif; font-size: 15px; line-height: 20px; color: #555555;")
-                    h3 Hello, your article #{article.title} of series #{category.name} was unlocked.
+                    h3 Hello, your article 
+                      b #{article.title} 
+                      | of series 
+                      b #{category.name} 
+                      | was unlocked.
               table(role="presentation", cellspacing="0", cellpadding="0", border="0", width="100%")
                 tr
                   td(style="padding: 20px; text-align: center")
@@ -135,8 +139,8 @@ html(xmlns="http://www.w3.org/1999/xhtml")
               table(role="presentation", cellspacing="0", cellpadding="0", border="0", align="center", style="margin: auto")
                 tr(style="")
                   td.button-td(style="border-radius: 3px; background: #222222; text-align: center;")
-                    a.button-a(href="http://hit-bodies.herokuapp.com/user/purchases", style="background: #0ABAB5; border: 15px solid #0ABAB5; font-family: sans-serif; font-size: 13px; line-height: 1.1; text-align: center; text-decoration: none; display: block; border-radius: 3px; font-weight: bold;")
-                      span.button-link(style="color:#ffffff;") Visit your programs
+                    a.button-a(href="http://hit-bodies.herokuapp.com/blog/post/"+article.id, style="background: #0ABAB5; border: 15px solid #0ABAB5; font-family: sans-serif; font-size: 13px; line-height: 1.1; text-align: center; text-decoration: none; display: block; border-radius: 3px; font-weight: bold;")
+                      span.button-link(style="color:#ffffff;") Read article
               br
           br
           br
