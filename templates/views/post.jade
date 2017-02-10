@@ -4,43 +4,46 @@ block content
 	div#banner.imagebanner
 		img.img-banner(src = "/images/logos/hb-banner-v2b-1440px.jpg")
 	div.container.top30
-			div.col.s12.m12.l12
-				div.row
-					div.col.s12.m8.l8.offset-m1.offset-l1
-						div.row.bot15
-							each cat, cat_i in data.post.categories
-								div.col.s4.m2.l2
-									p: a(href='/blog/' + cat.id): span.meta-nav &larr;
-											| Back 
+		div.col.s12.m12.l12
+			div.row
+				div.col.s12.m8.l8.offset-m1.offset-l1
+					div.row.bot15
 						each cat, cat_i in data.post.categories
-							a#content-link(href='/blog/' + cat.id): h4= cat.name
-							| 
-							h5.bot15= data.post.title
-							div.row.top30
-								div#date-line.col.s12.m12.l12
-							div.row.bot80
-								div.col.s12.m12.l12
-									div.row.center-align
-										if data.post.image.exists
-											img.responsive-img(src= data.post._.image.fit(750,450))
-									div.row
-										!= data.post.content.full
-							div.row.top30
-								div#date-line.col.s12.m12.l12
-							div.row.top30.bot30
-								div.col.s4.m2.l2
-									each cat, cat_i in data.post.categories
-										p: a(href='/blog/' + cat.id): span.meta-nav &larr;
-											| Back 
+							div.col.s4.m2.l2
+								p: a(href='/blog/' + cat.id): span.meta-nav &larr;
+									| Back 
+					each cat, cat_i in data.post.categories
+						a#content-link(href='/blog/' + cat.id): h4= cat.name
+						| 
+						h5.bot15= data.post.title
+						div.row.top30
+							div#date-line.col.s12.m12.l12
+						div.row.bot80
+							div.col.s12.m12.l12
+								div.row.center-align
+									if data.post.image.exists
+										img.responsive-img(src= data.post._.image.fit(750,450))
+								div.row
+									!= data.post.content.full
+						div.row.top30
+							div#date-line.col.s12.m12.l12
+						div.row.top30.bot30
+							div.col.s4.m2.l2
+								each cat, cat_i in data.post.categories
+									p: a(href='/blog/' + cat.id): span.meta-nav &larr;
+										| Back 
 
-					div#side-content.col.s12.m3.l3.hide-on-small-and-down
-						div.row
-							div.col
-								section.social-side.text-center
-									ul
-										li
-											a(href='#')
-												i.fa-side.fa-facebook
-										li
-											a(href='#')
-												i.fa-side.fa-twitter
+				div#side-content.col.s12.m3.l3.hide-on-small-and-down
+					div.row
+						div.col
+							section.social-side.text-center
+								ul
+									li
+										a(href=settings.facebookUrl)
+											i.fa-side.fa-facebook
+									li
+										a(href=settings.twitterUrl)
+											i.fa-side.fa-twitter
+									li
+										a(href=settings.instagramUrl)
+											i.fa.fa-instagram
