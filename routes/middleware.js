@@ -9,6 +9,7 @@
  */
 var _ = require('lodash');
 var keystone = require('keystone');
+var Settings = keystone.list('Settings');
 
 
 /**
@@ -29,7 +30,18 @@ exports.initLocals = function(req, res, next) {
 		href: '/blog'
 	}, ];
 	res.locals.user = req.user;
-	next();
+	
+	Settings.model.findOne({}, { _id: 0, __v: 0 }, (err, settings) => {
+		if (err) {
+			return next(err);
+		}
+		
+		res.locals.settings = settings;
+		
+		console.log(res.locals);
+		
+		next();
+	});
 };
 
 

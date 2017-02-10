@@ -20,6 +20,7 @@ keystone.init({
 	'favicon': 'public/favicon.ico',
 	'views': 'templates/views',
 	'view engine': 'jade',
+	'signin logo': ['../images/logos/hb-logo-color-500px.jpg', 250, 100],
 
 	'auto update': true,
 	'session': true,
@@ -49,6 +50,7 @@ keystone.set('nav', {
 	posts: ['posts', 'post-categories'],
 	users: 'users',
 	contact: 'contacts',
+	settings: 'settings'
 });
 
 // Unlock watcher - mail sender.
