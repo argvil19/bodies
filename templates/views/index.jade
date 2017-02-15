@@ -4,13 +4,14 @@ block content
 	div#main-content.container
 		div#main.parallax-container
 			#title.caption
-				span.border Title
+				span.border 
+					img.brand-logo(src = settings.logo.url)
 			#articles.caption
-				span.border: a(href='/store/get').waves-effect.waves-light.btn Visit the programs
+				span.border: a(href='/store/get').waves-effect.waves-light.btn Start your transformation
 			.parallax
 
 		div#main-section.container.top80
-			h4#title-section.text-center Recent Series
+			//-- h4#title-section.text-center Recent Series
 			div.row.top30.container
 				if recent
 					each item in recent

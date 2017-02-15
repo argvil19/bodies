@@ -9024,6 +9024,10 @@ footer.page-footer h5 {
 #main.parallax-container {
   height: 100vh; }
 
+#main .brand-logo {
+  height: 50px;
+  width: 180px; }
+
 #main .parallax {
   background-image: url("../images/parallax/parallax3.jpg");
   min-height: 100%;
@@ -9044,11 +9048,20 @@ footer.page-footer h5 {
 
 #title.caption span.border {
   background-color: #111;
-  color: #fff;
-  padding: 18px;
-  font-size: calc(1.5vw + 1.5vh + 0.5vmin);
-  letter-spacing: 1px;
-  text-transform: uppercase; }
+  padding: 35px 18px 0px 18px; }
+
+@media only screen and (max-width: 426px) {
+  #title.caption span.border {
+    padding: 34px 18px 0px 18px; }
+  #articles.caption a {
+    display: block;
+    height: auto;
+    margin: 0px 20px;
+    font-size: 15px;
+    padding: 0; }
+  #main .parallax {
+    background-attachment: 0;
+    background-position: 10%; } }
 
 #articles.caption {
   position: absolute;
@@ -9057,13 +9070,6 @@ footer.page-footer h5 {
   width: 100%;
   text-align: center;
   color: #000; }
-
-#articles.caption span.border {
-  background-color: transparent;
-  color: #fff;
-  padding: 18px;
-  font-size: 18px;
-  letter-spacing: 10px; }
 
 .gallery-image img {
   display: block;
