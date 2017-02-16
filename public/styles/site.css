@@ -8926,11 +8926,18 @@ nav ul a:hover {
 
 body {
   display: flex;
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
   min-height: 100vh;
   flex-direction: column; }
 
 main {
-  flex: 1 0 auto; }
+  flex: 1 0 auto;
+  -webkit-box-flex: 1;
+  -webkit-flex: 1;
+  -ms-flex: 1; }
 
 div#main-content.container {
   width: 100%;
@@ -9035,12 +9042,15 @@ footer.page-footer h5 {
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
+  -o-background-size: cover;
+  -moz-background-size: cover;
+  -webkit-background-size: cover;
   opacity: 0.94; }
 
 #title.caption {
   position: absolute;
   left: 0;
-  top: 35%;
+  top: 30%;
   width: 100%;
   text-align: center;
   color: #000;
@@ -9049,6 +9059,23 @@ footer.page-footer h5 {
 #title.caption span.border {
   background-color: #111;
   padding: 35px 18px 0px 18px; }
+
+#subtitle.caption span.border {
+  background-color: #111;
+  color: #fff;
+  padding: 35px 18px 0px 18px;
+  padding: 18px;
+  font-size: calc(1.2vw + 1.2vh + 0.5vmin);
+  letter-spacing: 1px; }
+
+#subtitle.caption {
+  position: absolute;
+  left: 0;
+  top: 42%;
+  width: 100%;
+  text-align: center;
+  color: #000;
+  line-height: 60px; }
 
 @media only screen and (max-width: 426px) {
   #title.caption span.border {
@@ -9060,13 +9087,13 @@ footer.page-footer h5 {
     font-size: 15px;
     padding: 0; }
   #main .parallax {
-    background-attachment: 0;
+    background-attachment: initial;
     background-position: 10%; } }
 
 #articles.caption {
   position: absolute;
   left: 0;
-  top: 50%;
+  top: 55%;
   width: 100%;
   text-align: center;
   color: #000; }
