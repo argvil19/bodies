@@ -13,6 +13,9 @@ Settings.add({
     logo: {
         type: Types.CloudinaryImage
     },
+    frontPageLogo: {
+        type: Types.CloudinaryImage
+    },
     facebookUrl: {
         type: Types.Url
     },
