@@ -9065,8 +9065,9 @@ footer.page-footer h5 {
   color: #fff;
   padding: 35px 18px 0px 18px;
   padding: 18px;
-  font-size: calc(1.2vw + 1.2vh + 0.5vmin);
-  letter-spacing: 1px; }
+  font-size: calc(0.7vw + 0.7vh + 0.5vmin);
+  letter-spacing: 3px;
+  text-transform: uppercase; }
 
 #subtitle.caption {
   position: absolute;
@@ -9084,7 +9085,7 @@ footer.page-footer h5 {
     display: block;
     height: auto;
     margin: 0px 20px;
-    font-size: 15px;
+    font-size: 13px;
     padding: 0; }
   #main .parallax {
     background-attachment: initial;
