@@ -8,7 +8,7 @@
 }
 
 #main .parallax {
-    background-image: url("../images/parallax/parallax3.jpg");
+    background-image: url("../images/parallax/Front_Page1440x960.jpg");
     min-height: 100%;
     background-attachment: fixed;
     background-position: center;
@@ -23,7 +23,7 @@
 #title.caption {
     position: absolute;
     left: 0;
-    top: 30%;
+    top: 35%;
     width: 100%;
     text-align: center;
     color: #000;
@@ -75,14 +75,14 @@
     }
     #main .parallax {
         background-attachment: initial;
-        background-position: 10%;
+        background-position: 50%;
     }
 }
 
 #articles.caption {
     position: absolute;
     left: 0;
-    top: 55%;
+    top: 50%;
     width: 100%;
     text-align: center;
     color: #000;

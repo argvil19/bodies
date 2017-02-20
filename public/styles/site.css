@@ -9036,7 +9036,7 @@ footer.page-footer h5 {
   width: 180px; }
 
 #main .parallax {
-  background-image: url("../images/parallax/parallax3.jpg");
+  background-image: url("../images/parallax/Front_Page1440x960.jpg");
   min-height: 100%;
   background-attachment: fixed;
   background-position: center;
@@ -9050,7 +9050,7 @@ footer.page-footer h5 {
 #title.caption {
   position: absolute;
   left: 0;
-  top: 30%;
+  top: 35%;
   width: 100%;
   text-align: center;
   color: #000;
@@ -9089,12 +9089,12 @@ footer.page-footer h5 {
     padding: 0; }
   #main .parallax {
     background-attachment: initial;
-    background-position: 10%; } }
+    background-position: 50%; } }
 
 #articles.caption {
   position: absolute;
   left: 0;
-  top: 55%;
+  top: 50%;
   width: 100%;
   text-align: center;
   color: #000; }
@@ -9473,7 +9473,7 @@ div#container_contact {
 
 .row#row_image_contact {
   position: relative;
-  background-image: url(../images/parallax/Photo6.jpg);
+  background-image: url(../images/parallax/Contact_Page1440.jpg);
   width: 100%;
   height: 768px;
   background-repeat: no-repeat;
