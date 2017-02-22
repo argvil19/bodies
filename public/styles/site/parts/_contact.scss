@@ -1,15 +1,13 @@
-#gmap-styled {
-    height: 500px !important;
-    width: 100%;
-    min-height: 100%;
-    max-height: none;
-}
-
-#map {
+#image_contact {
     padding: 0;
+    margin-bottom: 0px;
 }
 
 .row#main_content {
+    margin-bottom: 0px;
+}
+
+#now_row {
     margin-bottom: 0px;
 }
 
@@ -18,30 +16,34 @@ div#container_contact {
     max-width: 1440px;
 }
 
-.row#row_image_contact {
+#row_image_contact {
     position: relative;
     background-image: url(../images/parallax/Contact_Page1440.jpg);
     width: 100%;
-    height: 768px;
-    background-repeat: no-repeat;
-    background-position: center center;
-    -webkit-background-size: cover;
-    -moz-background-size: cover;
-    -o-background-size: cover;
+    height: 0;
+    min-height: 100%;
+    padding-top: 100vh;
     background-size: cover;
-    span.border {
-        background-color: #111;
-        color: #fff;
-        padding: 18px;
-        font-size: calc(1.5vw + 1.5vh + 0.5vmin);
-        letter-spacing: 1px;
-        text-transform: uppercase;
-        left: 0;
-        position: absolute;
-        text-align: center;
-        top: 55%;
-        width: 100%;
-    }
+    -o-background-size: cover;
+    -moz-background-size: cover;
+    -webkit-background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    opacity: 0.94;
+}
+
+#row_image_contact span.border {
+    background-color: #111;
+    color: #fff;
+    padding: 18px;
+    font-size: calc(1.5vw + 1.5vh + 0.5vmin);
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    left: 0;
+    position: absolute;
+    text-align: center;
+    top: 55%;
+    width: 100%;
 }
 
 @media (max-width: 425px) and (min-width:320px) {
@@ -51,9 +53,6 @@ div#container_contact {
     .row#row_image_contact,
     #row_map_contact {
         margin-bottom: 0px;
-    }
-    #gmap-styled {
-        height: 300px !important;
     }
 }
 
@@ -66,7 +65,7 @@ div#container_contact {
         margin-bottom: 0px;
     }
     .row#row_image_contact {
-        height: 400px !important;
+        height: 768px !important;
     }
 }
 
@@ -79,13 +78,13 @@ div#container_contact {
         margin-bottom: 0px;
     }
     .row#row_image_contact {
-        height: 500px !important;
+        height: 768px !important;
     }
 }
 
 @media (min-width:1440px) {
     .row#row_image_contact {
-        height: 768px !important;
+        height: 900px !important;
     }
 }
 

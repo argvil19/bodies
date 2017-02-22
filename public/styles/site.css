@@ -9192,6 +9192,12 @@ footer.page-footer h5 {
 
 html {
   color: #2C2A29; }
+  html p {
+    color: #2C2A29 !important;
+    font-family: "Spinnaker", sans-serif !important; }
+    html p span {
+      color: #2C2A29 !important;
+      font-family: "Spinnaker", sans-serif !important; }
 
 .top5 {
   margin-top: 5px; }
@@ -9271,7 +9277,6 @@ h4#title-section {
   background-color: #0ABAB5; }
 
 #card-action.card-action {
-  padding: 20px 0px 20px 0px;
   margin-bottom: auto;
   background-color: #FFF; }
   #card-action.card-action i.material-icons {
@@ -9284,7 +9289,7 @@ h4#title-section {
   color: #3ACBC7; }
 
 .card.large.store {
-  height: 500px; }
+  height: 355px; }
 
 .card.small .card-image + .card-content,
 .card.medium .card-image + .card-content,
@@ -9294,7 +9299,7 @@ h4#title-section {
 .card.small.store .card-image,
 .card.medium.store .card-image,
 .card.large.store .card-image {
-  max-height: 65%;
+  max-height: 100%;
   overflow: hidden; }
 
 .card-content.activator {
@@ -9304,25 +9309,26 @@ img.store {
   max-height: 500px;
   max-width: 360px; }
 
-@media (max-width: 1025px) and (min-width: 770px) {
-  a#btn-card {
-    padding-left: 15px;
-    padding-right: 15px; }
-  .card .card-content .card-title {
-    line-height: 48px;
-    font-size: 16px; }
+@media (max-width: 768px) and (min-width: 426px) {
   .card.large.store {
-    height: 450px; }
+    height: 375px; }
   p#truncate {
     position: relative;
     height: 9.75em;
     margin: 0 0 1em 0;
     overflow: hidden; } }
 
-@media (max-width: 1440px) and (min-width: 1026px) {
-  a#btn-card {
-    padding-left: 15px;
-    padding-right: 15px; } }
+@media (max-width: 1025px) and (min-width: 770px) {
+  .card .card-content .card-title {
+    line-height: 48px;
+    font-size: 16px; }
+  .card.large.store {
+    height: 270px; }
+  p#truncate {
+    position: relative;
+    height: 9.75em;
+    margin: 0 0 1em 0;
+    overflow: hidden; } }
 
 p#truncate {
   position: relative;
@@ -9455,54 +9461,54 @@ div#side-content {
     -moz-osx-font-smoothing: grayscale;
     transform: translate(0, 0); }
 
-#gmap-styled {
-  height: 500px !important;
-  width: 100%;
-  min-height: 100%;
-  max-height: none; }
-
-#map {
-  padding: 0; }
+#image_contact {
+  padding: 0;
+  margin-bottom: 0px; }
 
 .row#main_content {
+  margin-bottom: 0px; }
+
+#now_row {
   margin-bottom: 0px; }
 
 div#container_contact {
   width: 100%;
   max-width: 1440px; }
 
-.row#row_image_contact {
+#row_image_contact {
   position: relative;
   background-image: url(../images/parallax/Contact_Page1440.jpg);
   width: 100%;
-  height: 768px;
-  background-repeat: no-repeat;
-  background-position: center center;
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
+  height: 0;
+  min-height: 100%;
+  padding-top: 100vh;
+  background-size: cover;
   -o-background-size: cover;
-  background-size: cover; }
-  .row#row_image_contact span.border {
-    background-color: #111;
-    color: #fff;
-    padding: 18px;
-    font-size: calc(1.5vw + 1.5vh + 0.5vmin);
-    letter-spacing: 1px;
-    text-transform: uppercase;
-    left: 0;
-    position: absolute;
-    text-align: center;
-    top: 55%;
-    width: 100%; }
+  -moz-background-size: cover;
+  -webkit-background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  opacity: 0.94; }
+
+#row_image_contact span.border {
+  background-color: #111;
+  color: #fff;
+  padding: 18px;
+  font-size: calc(1.5vw + 1.5vh + 0.5vmin);
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  left: 0;
+  position: absolute;
+  text-align: center;
+  top: 55%;
+  width: 100%; }
 
 @media (max-width: 425px) and (min-width: 320px) {
   div#container_contact #form-contact {
     margin-bottom: 0px; }
   .row#row_image_contact,
   #row_map_contact {
-    margin-bottom: 0px; }
-  #gmap-styled {
-    height: 300px !important; } }
+    margin-bottom: 0px; } }
 
 @media (max-width: 768px) and (min-width: 426px) {
   div#container_contact #form-contact {
@@ -9511,7 +9517,7 @@ div#container_contact {
   #row_map_contact {
     margin-bottom: 0px; }
   .row#row_image_contact {
-    height: 400px !important; } }
+    height: 768px !important; } }
 
 @media (min-width: 1024px) {
   div#container_contact #form-contact {
@@ -9520,11 +9526,11 @@ div#container_contact {
   #row_map_contact {
     margin-bottom: 0px; }
   .row#row_image_contact {
-    height: 500px !important; } }
+    height: 768px !important; } }
 
 @media (min-width: 1440px) {
   .row#row_image_contact {
-    height: 768px !important; } }
+    height: 900px !important; } }
 
 div#side-content {
   margin-top: 0px; }

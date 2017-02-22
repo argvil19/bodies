@@ -10,35 +10,19 @@ block content
 			div.col.s12.m3.l3
 				img.activator.responsive-img(src= category.images.url)
 			div.col.s12.m9.l9.bot30
-				h5 Articles
 				ul.collapsible(data-collapsible="accordion")
 					each article, i in articles
-						if i == 0
-							li#collapse-content
-								div.collapsible-header
-									a(href='#c'+i) 1
-										| - 
-										!= article.title
-								div(id='c'+i).col.s12.collapsible-body
-									div.row.top15
-										div.col.s12.m7.l7
-											h5= article.title
-											!= article.content.brief
-										div.col.s4.m5.l5.hide-on-small-only
-											img#img-content.activator.responsive-img(src= article.image.url)
-						else
-							li#collapse-content
-								div.collapsible-header
-									a(href='#c'+i)= i+1
-										| - 
-										!= article.title
-								div(id='c'+i).col.s12.collapsible-body
-									div.row.top15
-										div.col.s12.m7.l7
-											h5= article.title
-											!= article.content.brief
-										div.col.s4.m5.l5.hide-on-small-only
-											img#img-content.activator.responsive-img(src= article.image.url)
+						li#collapse-content
+							div.collapsible-header
+								a(href='#c'+i)
+									!= article.title
+							div(id='c'+i).col.s12.collapsible-body
+								div.row.top15
+									div.col.s12.m7.l7
+										h5= article.title
+										!= article.content.brief
+									div.col.s4.m5.l5.hide-on-small-only
+										img#img-content.activator.responsive-img(src= article.image.url)
 					
 		div.row.bot80.text-center.valign-wrapper.hide-on-small-only#pay
 			if (!user)
@@ -51,7 +35,7 @@ block content
 			else
 				if alreadyBought === true
 					div.col.m6.l6
-						h5 You already have this series.
+						h5 You already have this program.
 					div.col.m6.l6
 						a.waves-effect.waves-light.btn(href="/user/purchases") Visit your purchases
 				else
@@ -76,7 +60,7 @@ block content
 			else
 				if alreadyBought === true
 					div.col.s12.bot15
-						h5 You already have this series.
+						h5 You already have this program.
 					div.col.s12
 						a.waves-effect.waves-light.btn(href="/user/purchases") Visit your purchases
 				else

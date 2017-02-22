@@ -3,13 +3,13 @@ extends ../../layouts/default
 block content
     .container#container_contact
         .row#main_content
-            .col.m8.hide-on-small-only#map
-                .row.center-align#row_map_contact
-                    #gmap-styled
-                .row#row_image_contact
-                    span.border DECIDE. COMMIT. TRANSFORM.
-
-            .col.m4.s12
+            .col.l8.m8.hide-on-small-only#image_contact
+                .row#now_row
+                    .col.s12#image_contact
+                        div.row#now_row
+                            div#row_image_contact
+                                span.border DECIDE. COMMIT. TRANSFORM.
+            .col.l4.m4.s12
                 .row.top15
                     .col.s12#side-content
                         h5.center-align Social
@@ -73,5 +73,3 @@ block content
                         .col.m12
                             h5.left-align Other ways
                             != contactInfo
-    script(type='text/javascript').
-        var localAddress = !{JSON.stringify(address)};

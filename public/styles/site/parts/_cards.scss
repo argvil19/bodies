@@ -1,5 +1,5 @@
 #card-action.card-action {
-    padding: 20px 0px 20px 0px;
+    //padding: 20px 0px 20px 0px;
     margin-bottom: auto;
     background-color: $color-bg-cards;
     i.material-icons {
@@ -16,7 +16,7 @@
 }
 
 .card.large.store {
-    height: 500px;
+    height: 355px;
 }
 
 .card.small .card-image+.card-content,
@@ -28,7 +28,7 @@
 .card.small.store .card-image,
 .card.medium.store .card-image,
 .card.large.store .card-image {
-    max-height: 65%;
+    max-height: 100%;
     overflow: hidden;
 }
 
@@ -41,17 +41,9 @@ img.store {
     max-width: 360px;
 }
 
-@media (max-width: 1025px) and (min-width:770px) {
-    a#btn-card {
-        padding-left: 15px;
-        padding-right: 15px;
-    }
-    .card .card-content .card-title {
-        line-height: 48px;
-        font-size: 16px;
-    }
+@media (max-width: 768px) and (min-width:426px) {
     .card.large.store {
-        height: 450px;
+        height: 375px;
     }
     p#truncate {
         position: relative;
@@ -61,12 +53,23 @@ img.store {
     }
 }
 
-@media (max-width: 1440px) and (min-width:1026px) {
-    a#btn-card {
-        padding-left: 15px;
-        padding-right: 15px;
+@media (max-width: 1025px) and (min-width:770px) {
+    .card .card-content .card-title {
+        line-height: 48px;
+        font-size: 16px;
+    }
+    .card.large.store {
+        height: 270px;
+    }
+    p#truncate {
+        position: relative;
+        height: 9.75em;
+        margin: 0 0 1em 0;
+        overflow: hidden;
     }
 }
+
+@media (max-width: 1440px) and (min-width:1026px) {}
 
 p#truncate {
     position: relative;

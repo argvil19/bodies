@@ -9,33 +9,22 @@ block content
 			div.row
 				if items
 					each item in items
-						div.col.s12.m6.l3.top15
-							.card.large.store.sticky-action
+						.col.s12.m6.l4.top15
+							.card.sticky-action(style='overflow: hidden;')
 								.card-image.waves-effect.waves-block.waves-light
-									img.store.activator.responsive-img(src= item.images.url)
-								.card-content.activator.valign-wrapper
-									div.col.s10.m10.l10
-										span.card-title.activator.grey-text.text-darken-4.truncate= item.name
-									div.col.s2.m2.l2
-										i.activator.material-icons.right more_vert
+									img.activator.responsive-img(src= item.images.url)
 								#card-action.card-action.row.text-center
-									div.col.s5.m5.l5
-										span Price: 
-										span= item.price
-											| $
-									div.col.s7.m7.l7
+									div.col.s12.m12.l12
 										a#btn-card.waves-effect.waves-light.btn(href='/store/product/get?id='+item.id) Details
-								.card-reveal(style='display: none; transform: translateY(0px);')
+								.card-reveal(style='display: none; transform: translateY(0px); overflow: hidden;')
 									span.card-title.grey-text.text-darken-4= item.name
 										i.material-icons.right close
-									p
-										| Description:
 									p#truncate.justify= item.description
 				else
 					h4 Now no series.
 	div#pagination.container.top30.bot80
 		div.row
-			p.pagination-count Showing #{first} - #{last} of #{total} series
+			p.pagination-count Showing #{first} - #{last} of #{total}
 		if totalPages > 1
 			div.row
 				div.col
