@@ -27,7 +27,7 @@ block content
 		div.row.bot80.text-center.valign-wrapper.hide-on-small-only#pay
 			if (!user)
 					div.col.m12.l12
-						h5 Price: $ #{category.price} - You have to log in before you make a purchase.
+						h5 $#{category.price}
 					div.col.m6.l6
 						a.waves-effect.waves-light.btn(href="/keystone/signin") Sign in
 					div.col.m6.l6
@@ -40,7 +40,7 @@ block content
 						a.waves-effect.waves-light.btn(href="/user/purchases") Visit your purchases
 				else
 					div.col.m3.l3
-						h5 Price: $ #{category.price}
+						h5 $#{category.price}
 					div.col.m5.l5
 						input#input-hidden-id(type='hidden', value='#{category._id}')
 						input#input-price-hidden-id(type='hidden', value='#{parseInt(category.price)}00')
@@ -52,7 +52,7 @@ block content
 		div.row.bot80.text-center.hide-on-med-and-up#pay
 			if (!user)
 				div.col.s12.bot15
-					h5 Price: $ #{category.price} - You have to log in before you make a purchase.
+					h5 $#{category.price} - You have to log in before you make a purchase.
 				div.col.s12.bot15
 					a.waves-effect.waves-light.btn(href="/keystone/signin") Sign in
 				div.col.s12.bot15
@@ -66,7 +66,7 @@ block content
 				else
 					div.row
 						div.col.s12.bot15
-							h5 Price: $ #{category.price}
+							h5 $#{category.price}
 					div.row
 						div.col.s12.bot15
 							a#cc-buy-btn.waves-effect.waves-light.btn(href='#') Pay with Credit Card
