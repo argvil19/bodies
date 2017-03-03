@@ -10,12 +10,18 @@ Settings.add({
     name: {
         type: String
     },
-    logo: {
+    menuLogo: {
         type: Types.CloudinaryImage
     },
+    // menuLogoColor: {
+    //     type: Types.Color
+    // },
     frontPageLogo: {
         type: Types.CloudinaryImage
     },
+    // frontPageLogoColor: {
+    //     type: Types.Color
+    // },
     facebookUrl: {
         type: Types.Url
     },

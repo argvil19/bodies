@@ -9032,8 +9032,8 @@ footer.page-footer h5 {
   height: 100vh; }
 
 #main .brand-logo {
-  height: 50px;
-  width: 180px; }
+  height: 150px;
+  width: 300px; }
 
 #main .parallax {
   background-image: url("../images/parallax/Front_Page1440x960.jpg");
@@ -9045,42 +9045,18 @@ footer.page-footer h5 {
   -o-background-size: cover;
   -moz-background-size: cover;
   -webkit-background-size: cover;
-  opacity: 0.94; }
+  opacity: 0.97; }
 
 #title.caption {
   position: absolute;
   left: 0;
-  top: 35%;
-  width: 100%;
-  text-align: center;
-  color: #000;
-  line-height: 60px; }
-
-#title.caption span.border {
-  background-color: #111;
-  padding: 35px 18px 0px 18px; }
-
-#subtitle.caption span.border {
-  background-color: #111;
-  color: #fff;
-  padding: 35px 18px 0px 18px;
-  padding: 18px;
-  font-size: calc(0.7vw + 0.7vh + 0.5vmin);
-  letter-spacing: 3px;
-  text-transform: uppercase; }
-
-#subtitle.caption {
-  position: absolute;
-  left: 0;
-  top: 42%;
+  top: 32%;
   width: 100%;
   text-align: center;
   color: #000;
   line-height: 60px; }
 
 @media only screen and (max-width: 426px) {
-  #title.caption span.border {
-    padding: 34px 18px 0px 18px; }
   #articles.caption a {
     display: block;
     height: auto;
@@ -9094,7 +9070,7 @@ footer.page-footer h5 {
 #articles.caption {
   position: absolute;
   left: 0;
-  top: 50%;
+  top: 55%;
   width: 100%;
   text-align: center;
   color: #000; }

@@ -13,6 +13,28 @@ block content
 				span.border: a(href='/store/get').waves-effect.waves-light.btn Start your transformation
 			.parallax
 
+		div#transformations-section.container.top80.bot80
+			h4#title-section.text-center Transformations
+			div.row.top30.container
+				-for (var x=0; x<6; x++)
+					div.col.s12.m6.l4.top10
+						div#transformation.content
+							img.responsive-img.hoverable.materialboxed(src="images/transformations/transformation2.jpg")
+
+		div.row#main-section2
+			div#main-section2.container.top80
+				h4#title-section.text-center Testimonials
+				div.row.top30.container
+					-for (var x=0; x<3; x++)
+						div.row.text-center
+							div.col.s4.m2.l2
+								img.circle(src= "images/witnesses/witnesses-1.jpg")
+							div.col.s7.m3.l3
+								h5#name-section2.text-left Jenna C.
+							div.col.s9.m7.l7.offset-s1.text-center
+								div#testimonial.content
+									p Very good articles, recommended.
+
 		div#main-section.container.top80
 			//-- h4#title-section.text-center Recent Series
 			div.row.top30.container
@@ -30,24 +52,3 @@ block content
 			div.row.top20
 				div#btn-article.col.s12.text-right
 					a.waves-effect.waves-light.btn(href='/store/get') More
-		div.row#main-section2
-			div#main-section2.container.top80
-				h4#title-section.text-center Testimonials
-				div.row.top30.container
-					-for (var x=0; x<3; x++)
-						div.row.text-center
-							div.col.s4.m2.l2
-								img.circle(src= "images/witnesses/witnesses-test.png")
-							div.col.s7.m3.l3
-								h5#name-section2.text-left Sir test
-							div.col.s9.m7.l7.offset-s1.text-center
-								div#testimonial.content
-									p Very good articles, recommended.
-									
-		div#transformations-section.container.top80.bot80
-			h4#title-section.text-center Transformations
-			div.row.top30.container
-				-for (var x=0; x<6; x++)
-					div.col.s12.m6.l4.top10
-						div#transformation.content
-							img.responsive-img.hoverable.materialboxed(src="images/transformations/transformations-test.png")
