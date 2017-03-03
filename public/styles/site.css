@@ -8965,10 +8965,17 @@ footer.page-footer {
 
 footer.page-footer .footer-copyright {
   overflow: hidden;
-  height: 50px;
-  line-height: 50px;
+  height: 60px;
+  line-height: 20px;
   color: rgba(255, 255, 255, 0.8);
   background-color: #2f2f2f; }
+  footer.page-footer .footer-copyright a {
+    color: rgba(255, 255, 255, 0.8); }
+  footer.page-footer .footer-copyright a:hover {
+    color: #FFF; }
+  footer.page-footer .footer-copyright .dev {
+    padding: 10px 0px 0px 0px;
+    font-size: smaller; }
 
 footer.page-footer .social-nav {
   padding: 0;
@@ -9014,6 +9021,9 @@ footer.page-footer .fa {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   transform: translate(0, 0); }
+
+footer.page-footer section.navigation-nav a:hover {
+  color: #0ABAB5 !important; }
 
 footer.page-footer h5 {
   font-size: 1.50rem;

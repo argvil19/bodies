@@ -24,11 +24,16 @@ footer.page-footer.text-center
 			div.col.l4.m4.s12
 				section.content-nav
 					h5.white-text More information
-					p.grey-text.text-lighten-4 Phone: 0000-000000
-					p.grey-text.text-lighten-4 Email: hitbodies@mail.com
-					p.grey-text.text-lighten-4 Address: 
+					if settings.phoneShow
+						p.grey-text.text-lighten-4 Phone: #{settings.phone}
+					p.grey-text.text-lighten-4 Email: #{settings.email}
+					if settings.addressShow
+						p.grey-text.text-lighten-4 Address: #{settings.address}
 
 	.footer-copyright
 		.container.text-center
-			| © 2017 Hit-Bodies, all rights reserved - Web developed by 
-			a(href='http://www.thrifa.net/about') Thrifa group
+			.dev
+				| Hit-Bodies © 2017 
+				br
+				| Powered by 
+				a(href='http://www.thrifa.net') Thrifa

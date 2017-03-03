@@ -10,6 +10,23 @@ Settings.add({
     name: {
         type: String
     },
+    phone: {
+        type: Types.Text
+    },
+    phoneShow: {
+        type: Types.Boolean,
+        label: "Show phone number in footer?"
+    },
+    email: {
+        type: Types.Text
+    },
+    address: {
+        type: Types.Text
+    },
+    addressShow: {
+        type: Types.Boolean,
+        label: "Show address in footer?"
+    },
     menuLogo: {
         type: Types.CloudinaryImage
     },

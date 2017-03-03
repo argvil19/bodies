@@ -6,10 +6,20 @@ footer.page-footer {
 
 footer.page-footer .footer-copyright {
     overflow: hidden;
-    height: 50px;
-    line-height: 50px;
+    height: 60px;
+    line-height: 20px;
     color: $color-font-footer-copy;
     background-color: $color-bg-footer-copy;
+    a {
+        color: $color-font-footer-copy;
+    }
+    a:hover {
+        color: $white;
+    }
+    .dev {
+        padding: 10px 0px 0px 0px;
+        font-size: smaller;
+    }
 }
 
 footer.page-footer {
@@ -58,6 +68,10 @@ footer.page-footer {
         -moz-osx-font-smoothing: grayscale;
         transform: translate(0, 0);
     }
+}
+
+footer.page-footer section.navigation-nav a:hover {
+    color: $color-primary !important;
 }
 
 footer.page-footer h5 {
